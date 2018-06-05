@@ -30,7 +30,7 @@ import { UserManagementComponent } from './components/user-management/user-manag
 const appRoutes: Routes = [
     
     {
-        path: 'signin',
+        path: '',
         component: LoginComponent
     },
     {

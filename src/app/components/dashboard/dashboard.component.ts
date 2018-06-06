@@ -1,9 +1,11 @@
+import { LoanApplication } from './../los_application/loan.application';
 import { DashboardService } from './../../services/dashboard_services/dashboard.service';
 import { Component, OnInit,AfterViewInit,Renderer, ViewChild } from '@angular/core';
 import { DataTableDirective } from 'angular-datatables';
 import {Router} from '@angular/router'
 import { Subject } from 'rxjs';
 import {API_URL} from '../../app.component';
+
 
 declare var jquery:any;
 declare var $ :any;
@@ -17,10 +19,10 @@ export class User {
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit,AfterViewInit {
 
- // base = "http://localhost:8080/api/";
- API_URL = API_URL+"/loanApplicants";
+  base = API_URL;
+  get_applicants_url = this.base+"/loanApplicants";
 
   @ViewChild(DataTableDirective)
   dtElement: DataTableDirective;
@@ -38,7 +40,7 @@ export class DashboardComponent implements OnInit {
   public classReference = DashboardComponent;
 
   isClassVisible = false;
-  // model = new LoanApplication('','','','','','','','','','','','','','','','','','','','','');
+  model = new LoanApplication('','','','','','','','','','','','','','','','','','','','','');
 
   ltypes = [
     {value: 'student loan-0', viewValue: 'Student loan'},
@@ -84,7 +86,7 @@ export class DashboardComponent implements OnInit {
     var temp:any = []
 
     this.dtOptions = {
-    "ajax":{"url":this.API_URL,"dataSrc": function ( json ) {
+    "ajax":{"url":this.get_applicants_url,"dataSrc": function ( json ) {
       temp = json;
       DashboardComponent.applicants = temp;
       DashboardComponent.total_applicants = temp.length;
@@ -135,33 +137,33 @@ export class DashboardComponent implements OnInit {
   
 }
 
-  // ngAfterViewInit(): void {
-  //   this.renderer.listenGlobal('document', 'click', (event) => {
-  //     if (event.target.hasAttribute("id")) {
-  //       var data_list = DashboardComponent.applicants;
-  //       var obj = data_list[event.target.getAttribute("id")]
-  //       console.log(obj,"dasda")
-  //       this.model = new LoanApplication(obj.loanAmount,obj.loanTenure,obj.aadharNumber,obj.mobileNumber,obj.annualIncome,obj.id,obj.name,obj.customerCategory,obj.pinCode,obj.addressCity,obj.addressState,obj.addressCountry,obj.gender,obj.dob,obj.address,obj.email,obj.profession,obj.loanType,obj.pan,obj.landmark,obj.loanStatus);
-  //       // Open the edit form .
-  //       $("#editApplicant").modal('show');
-  //     }
-  //   });
-  //   this.dtTrigger.next();
-  // }
+  ngAfterViewInit(): void {
+    this.renderer.listenGlobal('document', 'click', (event) => {
+      if (event.target.hasAttribute("id")) {
+        var data_list = DashboardComponent.applicants;
+        var obj = data_list[event.target.getAttribute("id")]
+        console.log(obj,"dasda")
+        this.model = new LoanApplication(obj.loanAmount,obj.loanTenure,obj.aadharNumber,obj.mobileNumber,obj.annualIncome,obj.id,obj.name,obj.customerCategory,obj.pinCode,obj.addressCity,obj.addressState,obj.addressCountry,obj.gender,obj.dob,obj.address,obj.email,obj.profession,obj.loanType,obj.pan,obj.landmark,obj.loanStatus);
+        // Open the edit form .
+        $("#editApplicant").modal('show');
+      }
+    });
+    this.dtTrigger.next();
+  }
 
-  // onEdit(details)
-  // {
-  //   this.service.updateLoanApplication(this.model).subscribe
-  //   ( 
-  //       data => {
-  //       $('#editApplicant').modal('toggle');
-  //       this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-  //         dtInstance.destroy();
-  //         this.dtTrigger.next();
-  //       });
-  //     }
-  //   );
-  // }
+  onEdit(details)
+  {
+    this.service.updateLoanApplication(this.model).subscribe
+    ( 
+        data => {
+        $('#editApplicant').modal('toggle');
+        this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
+          dtInstance.destroy();
+          this.dtTrigger.next();
+        });
+      }
+    );
+  }
   
   options = ['NEW', 'APPROVED', 'PENDING'];
 optionSelected: any;

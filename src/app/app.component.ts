@@ -7,4 +7,4 @@ import {Component} from '@angular/core';
 export class AppComponent {
 }
 
-export const API_URL = 'https://1-dot-loan-origination-system.appspot.com';
+export const API_URL = 'https://1-dot-loan-origination-system.appspot.com/api';

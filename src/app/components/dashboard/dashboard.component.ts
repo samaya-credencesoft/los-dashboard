@@ -3,7 +3,7 @@ import { Component, OnInit,AfterViewInit,Renderer, ViewChild } from '@angular/co
 import { DataTableDirective } from 'angular-datatables';
 import {Router} from '@angular/router'
 import { Subject } from 'rxjs';
-
+import {API_URL} from '../../app.component';
 
 declare var jquery:any;
 declare var $ :any;
@@ -19,8 +19,8 @@ export class User {
 })
 export class DashboardComponent implements OnInit {
 
-  base = "http://localhost:8080/api/";
-  get_applicants_url = this.base+"loanApplicants";
+ // base = "http://localhost:8080/api/";
+ API_URL = API_URL+"/loanApplicants";
 
   @ViewChild(DataTableDirective)
   dtElement: DataTableDirective;
@@ -84,7 +84,7 @@ export class DashboardComponent implements OnInit {
     var temp:any = []
 
     this.dtOptions = {
-    "ajax":{"url":"http://localhost:8080/api/loanApplicants","dataSrc": function ( json ) {
+    "ajax":{"url":this.API_URL,"dataSrc": function ( json ) {
       temp = json;
       DashboardComponent.applicants = temp;
       DashboardComponent.total_applicants = temp.length;

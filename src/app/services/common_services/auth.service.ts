@@ -23,6 +23,8 @@ import {API_URL} from '../../app.component';
 @Injectable()
 export class AuthService {
 
+    signupResponse : any;
+
     isLoggedIn = false;  // use this flag to check logged in or not.
 
     constructor(private http: Http,private router:Router) {
@@ -63,8 +65,10 @@ export class AuthService {
 
     register(user: User): Observable<boolean> {
         return this.http.post(API_URL + '/register', user)
-            .map(response => response.json() as User)
-            .map(currentUser => !User.isNull(currentUser))
+            // .map(response => response.json() as User)
+            .map(response => {this.signupResponse = response.status; })
+            // .map(currentUser => !User.isNull(currentUser))
+            //.map(currentUser => {console.log(currentUser)})
             .catch(AuthService.handleError);
     }
 

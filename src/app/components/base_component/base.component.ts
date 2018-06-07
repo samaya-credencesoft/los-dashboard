@@ -28,7 +28,7 @@ export class BaseComponent implements OnInit {
     e.preventDefault();
     localStorage.setItem('isLoggedIn', "false");
     console.log(localStorage.getItem('isLoggedIn'))
-    this.router.navigate(['signin']);
+    this.router.navigate(['/']);
   }
 
   // Code to toggle the sidebar .

@@ -45,7 +45,7 @@ export class AuthService {
                     this.router.navigate(['dashboard']);
                 }else if(response.login_status === "failed"){
                     console.log("login failed");
-                    this.router.navigate(['signin']);
+                    this.router.navigate(['/']);
                 }else{
                     console.log("user doesn't exist ! please sign up !");
                     this.router.navigate(['signup']);

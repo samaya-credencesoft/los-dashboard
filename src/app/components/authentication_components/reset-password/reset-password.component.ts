@@ -78,7 +78,7 @@ export class ResetPasswordComponent implements OnInit {
           ( 
             data => {
                 console.log(data.json);
-                this.router.navigate(['/signin']);
+                this.router.navigate(['/']);
           });
         }
         else

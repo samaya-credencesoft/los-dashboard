@@ -22,9 +22,10 @@ import {API_URL} from '../../app.component';
 
 @Injectable()
 export class AuthService {
-
+    // signInModal : boolean = false;
+    signinResponse : any;
     signupResponse : any;
-
+    signInModal : any = true;
     isLoggedIn = false;  // use this flag to check logged in or not.
 
     constructor(private http: Http,private router:Router) {
@@ -43,14 +44,19 @@ export class AuthService {
                 if(response.login_status === "success"){
                     this.isLoggedIn = true;
                     localStorage.setItem('isLoggedIn', "true");
-                    console.log("login success");
+                    // console.log("login success");
                     this.router.navigate(['dashboard']);
                 }else if(response.login_status === "failed"){
-                    console.log("login failed");
-                    this.router.navigate(['/']);
+                    // console.log("login failed");
+                    // setTimeout(()=>{
+                        this.signinResponse = response.login_status;
+                    // },2000);
+                    //console.log(this.signInModal);
+                    // this.signInModal = true;
+                    //this.router.navigate(['signin']);
                 }else{
-                    console.log("user doesn't exist ! please sign up !");
-                    this.router.navigate(['signup']);
+                    // console.log("user doesn't exist ! please sign up !");
+                    // this.router.navigate(['signup']);
                 }
                   });
     
@@ -68,7 +74,7 @@ export class AuthService {
             // .map(response => response.json() as User)
             .map(response => {this.signupResponse = response.status; })
             // .map(currentUser => !User.isNull(currentUser))
-            //.map(currentUser => {console.log(currentUser)})
+            // .map(currentUser => {console.log(currentUser)})
             .catch(AuthService.handleError);
     }
 

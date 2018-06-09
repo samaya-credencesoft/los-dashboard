@@ -34,32 +34,47 @@ export class ResetPasswordComponent implements OnInit {
   private http:Http) { }
   public PASSWORD_RESET_API = API_URL+ '/resetPassword';
   public UID_EXIST_API = API_URL + '/isUuidValid';
-
+  
   uidExist : boolean ;
   selectedId : any;
   password : any;
   confirmPassword : any;
-  passwordBlankMessage : any = false;
-  passwordNotMatchedError : any = false;
-  passwordMatchedSuccess : any = false;
+  passwordNotMatched : any = false;
+  passwordMatched : any = false;
 
+  responseStatus : any;
+  reponseWait : any = true;
+  resetPasswordDone : any = true;
+  resetPasswordAlreadyDone : any = false;
+  Flag : any = false;
   ngOnInit() {
     this.selectedId = this.router.url.split('/')[2];
   }
 
-  pwd(passwordValue)
-  {
+  passwordFunction(passwordValue){
     this.password = passwordValue;
-    //console.log(this.password);
-    this.passwordMatched();
-  }
-  
-  confPwd(confirmPasswordValue)
-  {
-    this.confirmPassword = confirmPasswordValue;
-    //console.log(this.confirmPassword);
-    this.passwordMatched();
-  }
+    this.passwordMatchedFunction(this.password,this.confirmPassword);
+   }
+   
+   confirmPasswordFunction(confirmPasswordValue){
+     this.confirmPassword = confirmPasswordValue;
+     this.passwordMatchedFunction(this.password,this.confirmPassword);
+   }
+
+   passwordMatchedFunction(pwd,confpwd){
+    //  console.log("password value is :" + pwd);
+    //  console.log("confirm password value is :" + confpwd);
+     if(pwd == confpwd){
+      // console.log("matched");
+      this.passwordMatched = true;
+      this.passwordNotMatched = false;
+     }else{
+      // console.log("not matched");
+      this.passwordNotMatched = true;
+      this.passwordMatched = false;
+     }
+   }
+   
   
   //Password Reset function
   resetPassword(form_val)
@@ -70,51 +85,56 @@ export class ResetPasswordComponent implements OnInit {
       
       //check here if the UID exist or not through a API call
       this.http.get(this.UID_EXIST_API+"/"+this.selectedId).map(res => res.json()).subscribe((response)=>{
-       console.log(response);
+      //  console.log(response);
         this.uidExist = response;
         if(this.uidExist === true)
         {
           return this.http.post(this.PASSWORD_RESET_API,credentials ).subscribe
           ( 
             data => {
-                console.log(data.json);
-                this.router.navigate(['/']);
+                this.responseStatus = data.json();
+                // console.log(this.responseStatus);
+                if(this.responseStatus == true){
+                  setTimeout(() => {
+                    console.log(this.responseStatus);
+                    this.reponseWait = false;
+                    this.resetPasswordDone = false
+                    this.resetPasswordAlreadyDone = false;
+                    this.Flag = true;
+                  },1000);    
+                }
+                else{
+                  // console.log("password doesmt matched");
+                  // this.reponseWait = true;
+                  // this.resetPasswordDone = true;
+                  // this.resetPasswordAlreadyDone = true;
+                  // this.Flag = false;
+                }
           });
-        }
-        else
-        {
-          console.log("uid doesn't exist");
         }
       });
     }
     else
     {
-      console.log("Password dosent Match");
+      
+      setTimeout(()=>{
+        this.reponseWait = false;
+        this.resetPasswordDone = true;
+        this.resetPasswordAlreadyDone = true;
+        this.Flag = false;
+      },2000);
+      
     }
   
   }
 
-  
-  passwordMatched()
-  {
-    if(this.password === '' || this.confirmPassword === '')
-    {
-      this.passwordNotMatchedError = false;
-      this.passwordMatchedSuccess = false;
-    }
-    else
-    {
-        if(this.password !== this.confirmPassword)
-        {
-          this.passwordNotMatchedError = true;
-          this.passwordMatchedSuccess = false;
-        }
-        else
-        {
-          this.passwordMatchedSuccess = true;
-          this.passwordNotMatchedError = false;
-        }
-    }
-    
+  onResetPassword(){
+      if(this.Flag == true){
+        this.router.navigate(['/']);
+      }else{
+        window.location.reload();
+      }
   }
+  
+
 }

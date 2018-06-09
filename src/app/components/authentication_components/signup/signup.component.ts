@@ -13,17 +13,20 @@ import { ActivatedRoute, Router, ParamMap, Params } from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+    email : any;
+    reponseWait : any = true;
     signUpModalNewRegister : any = true;
-    signUpModalOldRegister : any = true;
+    signUpModalOldRegister : any = false;
     Flag : any;
+    model: User;
+    messages: Message[] = [];
+
     designations = [
         {value: 'Team Lead', viewValue: 'Team Lead'},
         {value: 'Floor Manger', viewValue: 'Floor Manger'},
         {value: 'Project Manager', viewValue: 'Project Manger'}
       ];
-  model: User;
-  messages: Message[] = [];
-
+ 
   constructor(private authService: AuthService,private router: Router) {
   }
 
@@ -41,20 +44,6 @@ export class SignupComponent implements OnInit {
           .register(this.model)
           .subscribe(isRegistered => {
             this.checkRegister(this.authService.signupResponse);
-            //   if(this.authService.signupResponse == 200){
-            //      this.signUpModalNewRegister = true;
-            //     console.log("new user registered");
-            //   }
-            //    else{
-            //    this.signUpModalOldRegister = true;
-            //     console.log("user already exist");
-            //   }
-            //   console.log(this.model.email);
-              // if(isRegistered == true){
-              //   console.log("success response is :"+isRegistered);
-              // }else{
-              //   console.log("error response is :"+isRegistered); 
-              // }
             //   if (isRegistered) {
             //       this.messages.push({severity: 'info', summary: 'Registered successfully!'});
                  //   this.signUpModal = true;
@@ -65,27 +54,29 @@ export class SignupComponent implements OnInit {
   }
 
   checkRegister(responseStatus){
-    // console.log(responseStatus);
+    console.log(responseStatus);
     if(responseStatus == 200){
-      this.signUpModalOldRegister = true;
-      //  setTimeout(() => {
-        // console.log("new user");
-        this.signUpModalNewRegister = false;
-      // }, 500);  
-        this.Flag = true;
-      }else if(responseStatus == 226){
-        // console.log("old user");
+          setTimeout(() => {
+            console.log("new user");
+            this.reponseWait = false;
+            this.signUpModalOldRegister = false;
+            this.signUpModalNewRegister = false;
+            this.Flag = true;
+          },1000);    
+    }else if(responseStatus == 226){
+        console.log("old user");
+        this.reponseWait = false;
         this.signUpModalNewRegister = true;
-        this.signUpModalOldRegister = false;
+        this.signUpModalOldRegister = true;
         this.Flag = false;
-      }
     }
+  }
                     onSignUp(){
                       console.log(this.Flag);
                         if(this.Flag == true){
                             this.router.navigate(['/']);
                         }else{
-                          window.location.reload();
+                            window.location.reload();
                         }
                     }    
 }

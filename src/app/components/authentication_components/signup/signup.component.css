@@ -53,3 +53,54 @@
 .footer{
   bottom: 0px;
 }
+
+
+.center1 {
+  margin: auto;
+  width: 114%;
+  border: 3px  ;
+  padding-top: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  padding-left: 5px;
+}
+
+/* .center0 {
+  margin: auto;
+  width: 50%;
+  border: 3px  ;
+  padding-top: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  padding-left: 5px;
+}
+
+.center1 {
+  margin: auto;
+  width: 50%;
+  border: 3px  ;
+  padding-top: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  padding-left: 5px;
+}
+
+.center2 {
+  margin: auto;
+  width: 50%;
+  border: 3px  ;
+  padding-top: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  padding-left: 5px;
+}
+
+.center3 {
+  margin: auto;
+  width: 50%;
+  border: 3px  ;
+  padding-top: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  padding-left: 5px;
+} */

@@ -19,6 +19,11 @@ export class SignupComponent implements OnInit {
     signUpModalOldRegister : any = false;
     Flag : any;
     model: User;
+    password : any;
+    confirmPassword : any;
+    passwordNotMatched : any = false;
+    passwordMatched : any = false;
+
     messages: Message[] = [];
 
     designations = [
@@ -28,30 +33,29 @@ export class SignupComponent implements OnInit {
       ];
  
   constructor(private authService: AuthService,private router: Router) {
+    this.model = new User();
   }
 
-  ngOnInit(): void {
-      this.model = new User();
+
+  
+
+  ngOnInit() {
+    //   this.model = new User();
   }
 
-  onRegister(details): void {
+//   onRegister(details): void {
       
-      this.model.uuid = "";
-      this.model.password = "";
-    //   console.log(this.model);
-      this.messages = [];
-      this.authService
-          .register(this.model)
-          .subscribe(isRegistered => {
-            this.checkRegister(this.authService.signupResponse);
-            //   if (isRegistered) {
-            //       this.messages.push({severity: 'info', summary: 'Registered successfully!'});
-                 //   this.signUpModal = true;
-            //   } else {
-            //       this.messages.push({severity: 'error', summary: 'Email already in use'});
-            //     }
-          });
-  }
+//       this.model.uuid = "";
+//       this.model.password = "";
+   
+//       this.messages = [];
+//       this.authService
+//           .register(this.model)
+//           .subscribe(isRegistered => {
+//             this.checkRegister(this.authService.signupResponse);
+           
+//           });
+//   }
 
   checkRegister(responseStatus){
     console.log(responseStatus);
@@ -71,12 +75,52 @@ export class SignupComponent implements OnInit {
         this.Flag = false;
     }
   }
-                    onSignUp(){
-                      console.log(this.Flag);
-                        if(this.Flag == true){
-                            this.router.navigate(['/']);
-                        }else{
-                            window.location.reload();
-                        }
-                    }    
+
+signupDetails(details){
+    console.log(this.model);
+    this.authService
+          .signupDetails(this.model)
+          .subscribe(isSignupDetails => {
+              if (isSignupDetails) {
+                  this.messages.push({severity: 'info', summary: 'Inserted successfully!'});
+              } else {
+                  this.messages.push({severity: 'error', summary: 'Not inserted'});
+              }
+          });
+  }
+
+
+    onSignUp(){
+        console.log(this.Flag);
+        if(this.Flag == true){
+            this.router.navigate(['/']);
+        }else{
+            window.location.reload();
+        }
+    }  
+    
+    
+    passwordFunction(passwordValue){
+        this.password = passwordValue;
+        this.passwordMatchedFunction(this.password,this.confirmPassword);
+        }
+        
+        confirmPasswordFunction(confirmPasswordValue){
+            this.confirmPassword = confirmPasswordValue;
+            this.passwordMatchedFunction(this.password,this.confirmPassword);
+        }
+    
+        passwordMatchedFunction(pwd,confpwd){
+        //  console.log("password value is :" + pwd);
+        //  console.log("confirm password value is :" + confpwd);
+            if(pwd == confpwd){
+            // console.log("matched");
+            this.passwordMatched = true;
+            this.passwordNotMatched = false;
+            }else{
+            // console.log("not matched");
+            this.passwordNotMatched = true;
+            this.passwordMatched = false;
+            }
+        }
 }

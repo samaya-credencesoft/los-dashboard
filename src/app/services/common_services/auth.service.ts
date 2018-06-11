@@ -69,14 +69,16 @@ export class AuthService {
     }
 
 
-    register(user: User): Observable<boolean> {
-        return this.http.post(API_URL + '/register', user)
-            // .map(response => response.json() as User)
-            .map(response => {this.signupResponse = response.status; })
-            // .map(currentUser => !User.isNull(currentUser))
-            // .map(currentUser => {console.log(currentUser)})
-            .catch(AuthService.handleError);
-    }
+    // register(user: User): Observable<boolean> {
+    //     return this.http.post(API_URL + '/register', user)
+    //         // .map(response => response.json() as User)
+    //         .map(response => {this.signupResponse = response.status; })
+    //         // .map(currentUser => !User.isNull(currentUser))
+    //         // .map(currentUser => {console.log(currentUser)})
+    //         .catch(AuthService.handleError);
+    // }
+
+
 
     public updateUser(user:User) {
         return this.http.put(API_URL+ '/updateUser', user);
@@ -87,6 +89,14 @@ export class AuthService {
         return this.http.post(API_URL + '/branchMasterDetails', branc)
         .map(response => response.json() as BranchMaster)
         .map(branc => !BranchMaster.isNull(branc))
+        .catch(AuthService.handleError);
+    }
+
+    signupDetails(signup:User){
+
+        return this.http.post(API_URL + '/signupDetails', signup)
+        .map(response => response.json() as User)
+        .map(signup => !User.isNull(signup))
         .catch(AuthService.handleError);
     }
 

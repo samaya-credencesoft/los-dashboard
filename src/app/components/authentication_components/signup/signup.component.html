@@ -18,7 +18,7 @@
                 <!-- <h1>Loan Originating System</h1> -->
               <div class="card wizard-card" data-color="green" id="wizardProfile">
                    <!-- <form action="" method=""> -->
-                    <form (ngSubmit)="onRegister(registerForm.value)" #registerForm="ngForm"> 
+                    <form (ngSubmit)="signupDetails(signup.value)" #signup="ngForm"> 
                
                         <div class="wizard-header">
                             <h3 class="wizard-title">
@@ -29,7 +29,7 @@
                     
                     <div>
                         <mat-form-field>
-                            <input matInput id="firstName" maxlength="10" required type="text" [(ngModel)]="model.firstname" #firstName="ngModel" name="firstName" 
+                            <input matInput id="firstName" maxlength="10" required type="text" [(ngModel)]="model.firstName" #firstName="ngModel" name="firstName" 
                             placeholder="First Name" >
                             <mat-error *ngIf="firstName.hasError('required')">First name must not be empty</mat-error>
                         
@@ -37,7 +37,7 @@
                     </div>
                    <div>
                         <mat-form-field>
-                            <input matInput id="lastName" maxlength="10" required type="text" [(ngModel)]="model.lastname" #lastName="ngModel" name="lastName" 
+                            <input matInput id="lastName" maxlength="10" required type="text" [(ngModel)]="model.lastName" #lastName="ngModel" name="lastName" 
                                 placeholder="Last Name" >
                                 <mat-error *ngIf="lastName.hasError('required')">Last name must not be empty</mat-error>
                         
@@ -86,10 +86,41 @@
                           </mat-form-field>
                           
                 </div> -->
+
+                <div>
+                    <mat-form-field class="center1" hintLabel="Should contain 1 uppercase,lowercase,numeric & special character">
+                      <input matInput placeholder="Password" maxlength="8" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+                      ngModel required name="password" #password="ngModel" (ngModelChange)="passwordFunction($event)">
+                      <mat-hint align="end" >{{password.value?.length}}/8</mat-hint>
+                      <mat-error *ngIf="password.hasError('required')">password must not be empty</mat-error>
+                      <mat-error *ngIf="!password.hasError('required')">password must be 1 special character 1 upper case 1 lower case and 1 number</mat-error>
+                  
+                    </mat-form-field>
+                  </div>
+                  <br>
+                  <div>
+                    <mat-form-field class="center2" hintLabel="confirm password must be same as password">
+                      <input matInput maxlength="8" placeholder="Confirm Password" ngModel required 
+                      name="confirmPassword" #confirmPassword="ngModel"  pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+                      (ngModelChange)="confirmPasswordFunction($event)">
+                      <mat-hint align="end" >{{confirmPassword.value?.length}}/8</mat-hint>
+                      <mat-error *ngIf="confirmPassword.hasError('required')">confirm password must not be empty</mat-error>
+                      <mat-error *ngIf="!confirmPassword.hasError('required')">password must be 1 special character 1 upper case 1 lower case and 1 number</mat-error>
+                    </mat-form-field>
+                  </div>
+                  <br/>
+                  <div>
+                    <span *ngIf="passwordNotMatched">
+                      password and confirm password doesn't matched
+                    </span>
+                    <span *ngIf="passwordMatched">
+                      password and confirm password matched
+                    </span>
+                  </div>
                 
                     <div class="register-button">
                         <!--[disabled]="!registerForm.valid"-->
-                        <button  type="submit"  [disabled]="!registerForm.valid"  class="btn btn-danger btn-round" data-toggle="modal" data-target="#signupModal">
+                        <button class="btn btn-danger btn-round">
                                 Sign Up
                         </button>
                     </div>
@@ -114,7 +145,7 @@
 
 
   
-  <!-- New User Signup Modal -->
+  <!-- New User Signup Modal
   <div class="modal fade"  id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
@@ -135,7 +166,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
 
    

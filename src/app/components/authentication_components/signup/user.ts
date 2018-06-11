@@ -19,6 +19,7 @@ export class User {
     public static isNull(user: User): boolean {
         return user.email === null &&
             user.id === null &&
+            user.password === null &&
             user.mobileNumber === null &&
             user.companyName === null &&
             user.firstname === null &&

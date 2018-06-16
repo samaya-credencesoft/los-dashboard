@@ -1,0 +1,929 @@
+<app-base></app-base>
+
+
+<div class="dashboard-content">
+<mat-vertical-stepper [linear]="isLinear">
+
+  <!-- New Loan Form -->
+
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Loan Details</ng-template>
+      
+        <div>
+          <mat-form-field>
+              <mat-select [(value)]="loantype" placeholder="Loan Type">
+                <mat-option>None</mat-option>
+                <mat-option value="loantype">Option 1</mat-option>
+              </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+              <mat-select [(value)]="schemename" placeholder="Scheme Name">
+                <mat-option>None</mat-option>
+                <mat-option value="schemename">Option 1</mat-option>
+              </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+              <mat-select [(value)]="sourcingbranch" placeholder="Sourcing Branch">
+                <mat-option>None</mat-option>
+                <mat-option value="sourcingbranch">Option 1</mat-option>
+              </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+              <mat-select [(value)]="dsaname" placeholder="DSA Name">
+                <mat-option>None</mat-option>
+                <mat-option value="dsaname">Option 1</mat-option>
+              </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+              <mat-select [(value)]="salesmanagername" placeholder="Sales Manager Name">
+                <mat-option>None</mat-option>
+                <mat-option value="salesmanagername">Option 1</mat-option>
+              </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+              <input matInput placeholder="Loan Request Date" formControlName="firstCtrl" required>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <button mat-button mat-raised-button color="primary" matStepperNext>Next</button>
+        </div>
+    </form>
+  </mat-step>
+
+  <!-- Applicant Form -->
+
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Customer Details</ng-template>
+      
+
+      <mat-form-field class="input-field">
+        <mat-select placeholder="Customer Type" (change)="customerDataChange($event.value)">
+          <mat-option>None</mat-option>
+          <mat-option value="Individual">Individual</mat-option>
+          <mat-option value="Corporate">Corporate</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <h4><b>Personal Information</b></h4>
+
+
+    <div *ngIf="!customerTypeIndividual">
+    
+    <h5><i><u><b>For customer type : Individual</b></u></i></h5>
+    <div>
+      <mat-form-field class="input-field">
+        <input matInput placeholder="Applicant Name" formControlName="secondCtrl" required>
+      </mat-form-field>
+
+      <mat-form-field class="input-field">
+          <input matInput placeholder="Father's Name" formControlName="secondCtrl" required>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="date-picker">
+          <input matInput [matDatepicker]="applicantdob" placeholder="DOB" formControlName="secondCtrl" required>
+          <mat-datepicker-toggle matSuffix [for]="applicantdob"></mat-datepicker-toggle>
+          <mat-datepicker #applicantdob></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="input-field">
+          <mat-select [(value)]="nationality" placeholder="Nationality" formControlName="secondCtrl" required>
+            <mat-option>None</mat-option>
+            <mat-option value="nationality">Indian</mat-option>
+          </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="input-field">
+          <input matInput placeholder="PAN Number">
+      </mat-form-field>
+
+      <mat-form-field class="input-field">
+          <input matInput placeholder="GST Number">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="input-field">
+          <input matInput placeholder="Passport Number">
+      </mat-form-field>
+
+      <mat-form-field class="input-field">
+          <input matInput placeholder="Driving License Number">
+      </mat-form-field>
+    </div>
+
+    </div>
+    <div *ngIf="!customerTypeCorporate">
+
+    <h5><i><u><b>For customer type : Corporate</b></u></i></h5>
+      <mat-form-field>
+          <input matInput placeholder="Applicant Name" formControlName="secondCtrl" required>
+      </mat-form-field>
+    <div>
+      <mat-form-field class="input-field">
+          <input matInput placeholder="PAN Number" formControlName="secondCtrl" required>
+      </mat-form-field>
+
+      <mat-form-field class="input-field">
+          <input matInput placeholder="GST Number">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="input-field">
+          <mat-select [(value)]="constitution" placeholder="Constitution" formControlName="secondCtrl" required>
+            <mat-option>None</mat-option>
+            <mat-option value="constitution">Option 1</mat-option>
+          </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="input-field">
+          <input matInput placeholder="Industry">
+      </mat-form-field>
+    </div>
+    </div>
+    <!-- ********************************************************************************* -->
+    
+    <div>
+    <h4><b>Employement</b></h4>
+    <div>
+      <mat-form-field class="input-field">
+          <input matInput placeholder="Organisation Name" formControlName="secondCtrl" required>
+      </mat-form-field>
+
+      <mat-form-field class="input-field">
+          <input type="number" matInput placeholder="Monthly Income" formControlName="secondCtrl" required>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="input-field">
+          <input type="number" matInput placeholder="Annual Income" formControlName="secondCtrl" required>
+      </mat-form-field>
+
+      <mat-form-field class="input-field">
+          <mat-select [(value)]="designation" placeholder="Designation" formControlName="secondCtrl" required>
+            <mat-option>None</mat-option>
+            <mat-option value="designation">Option 1</mat-option>
+          </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="input-field">
+          <input type="number" matInput placeholder="Total Years of Experience" formControlName="secondCtrl" required>
+      </mat-form-field>
+
+      <mat-form-field class="input-field">
+          <input matInput placeholder="Current Job" formControlName="secondCtrl" required>
+      </mat-form-field>
+    </div>
+    </div>
+
+    <!-- *************************************************************************** -->
+
+    <h4><b>Bank</b></h4>
+    <div>
+      <mat-form-field class="input-field">
+          <mat-select [(value)]="bankname" placeholder="Bank Name" formControlName="secondCtrl" required>
+            <mat-option>None</mat-option>
+            <mat-option value="bankname">Option 1</mat-option>
+          </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="input-field">
+          <mat-select [(value)]="branch" placeholder="Branch" formControlName="secondCtrl" required>
+            <mat-option>None</mat-option>
+            <mat-option value="branch">Option 1</mat-option>
+          </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="input-field">
+          <input type="number" matInput placeholder="Account Number" formControlName="secondCtrl" required>
+      </mat-form-field>
+
+      <mat-form-field class="input-field">
+          <input matInput placeholder="Account Type" formControlName="secondCtrl" required>
+      </mat-form-field>
+    </div>
+
+    <!-- ******************************************************************************** -->
+
+    <h4><b>Address</b></h4>
+    <div>
+      <mat-form-field class="input-field">
+          <input matInput placeholder="Address" formControlName="secondCtrl" required>
+      </mat-form-field>
+
+      <mat-form-field class="input-field">
+          <input matInput placeholder="PIN Code" formControlName="secondCtrl" required>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="input-field">
+          <input matInput placeholder="City" formControlName="secondCtrl" required>
+      </mat-form-field>
+
+      <mat-form-field class="input-field">
+          <input matInput placeholder="State" formControlName="secondCtrl" required>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="input-field">
+          <input matInput placeholder="Country" formControlName="secondCtrl" required>
+      </mat-form-field>
+
+      <mat-form-field class="input-field">
+          <input type="number" matInput placeholder="Land Line" formControlName="secondCtrl" required>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="input-field">
+          <input type="number" matInput placeholder="Mobile Number" formControlName="secondCtrl" required>
+      </mat-form-field>
+
+      <mat-form-field class="input-field">
+          <input type="email" matInput placeholder="Email" formControlName="secondCtrl" required>
+      </mat-form-field>
+    </div>
+
+
+      <div>
+        <button mat-button mat-raised-button color="primary" matStepperPrevious>Back</button>
+        <button mat-button mat-raised-button color="primary" matStepperNext>Next</button>
+
+
+      </div>
+    </form>
+  </mat-step>
+
+
+  <!-- Co Applicant Form -->
+
+  <mat-step [stepControl]="thirdFormGroup">
+    <form [formGroup]="thirdFormGroup">
+      <ng-template matStepLabel>Co Applicant</ng-template>
+
+
+      <mat-form-field class="input-field">
+        <mat-select placeholder="Customer Type" (change)="customerDataChange($event.value)">
+          <mat-option>None</mat-option>
+          <mat-option value="Individual">Individual</mat-option>
+          <mat-option value="Corporate">Corporate</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <h4><b>Personal Information</b></h4>
+
+      <div *ngIf="!customerTypeIndividual">
+        
+        <h5><i><u><b>For customer type : Individual</b></u></i></h5>
+        <div>
+          <mat-form-field class="input-field">
+            <input matInput placeholder="Applicant Name" formControlName="thirdCtrl" required>
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <input matInput placeholder="Father's Name" formControlName="thirdCtrl" required>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="date-picker">
+              <input matInput [matDatepicker]="coapplicantdob" placeholder="DOB">
+              <mat-datepicker-toggle matSuffix [for]="coapplicantdob"></mat-datepicker-toggle>
+              <mat-datepicker #coapplicantdob></mat-datepicker>
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <mat-select [(value)]="nationality" placeholder="Nationality" formControlName="thirdCtrl" required>
+                <mat-option>None</mat-option>
+                <mat-option value="nationality">Indian</mat-option>
+              </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="input-field">
+              <input matInput placeholder="PAN Number">
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <input matInput placeholder="GST Number">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="input-field">
+              <input matInput placeholder="Passport Number">
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <input matInput placeholder="Driving License Number">
+          </mat-form-field>
+        </div>
+     </div>
+    
+    <div *ngIf="!customerTypeCorporate">
+        <h5><i><u><b>For customer type : Corporate</b></u></i></h5>
+          <mat-form-field>
+              <input matInput placeholder="Applicant Name" formControlName="thirdCtrl" required>
+          </mat-form-field>
+        <div>
+          <mat-form-field class="input-field">
+              <input matInput placeholder="PAN Number" formControlName="thirdCtrl" required>
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <input matInput placeholder="GST Number">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="input-field">
+              <mat-select [(value)]="constitution" placeholder="Constitution" formControlName="thirdCtrl" required>
+                <mat-option>None</mat-option>
+                <mat-option value="constitution">Option 1</mat-option>
+              </mat-select>
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <input matInput placeholder="Industry">
+          </mat-form-field>
+        </div>
+    </div>
+        <!-- ********************************************************************************* -->
+        
+        <div>
+        <h4><b>Employement</b></h4>
+        <div>
+          <mat-form-field class="input-field">
+              <input matInput placeholder="Organisation Name" formControlName="thirdCtrl" required>
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <input type="number" matInput placeholder="Monthly Income" formControlName="thirdCtrl" required>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="input-field">
+              <input type="number" matInput placeholder="Annual Income" formControlName="thirdCtrl" required>
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <mat-select [(value)]="designation" placeholder="Designation" formControlName="thirdCtrl" required>
+                <mat-option>None</mat-option>
+                <mat-option value="designation">Option 1</mat-option>
+              </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="input-field">
+              <input type="number" matInput placeholder="Total Years of Experience" formControlName="thirdCtrl" required>
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <input matInput placeholder="Current Job" formControlName="thirdCtrl" required>
+          </mat-form-field>
+        </div>
+        </div>
+    
+        <!-- *************************************************************************** -->
+    
+        <h4><b>Bank</b></h4>
+        <div>
+          <mat-form-field class="input-field">
+              <mat-select [(value)]="bankname" placeholder="Bank Name" formControlName="thirdCtrl" required>
+                <mat-option>None</mat-option>
+                <mat-option value="bankname">Option 1</mat-option>
+              </mat-select>
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <mat-select [(value)]="branch" placeholder="Branch" formControlName="thirdCtrl" required>
+                <mat-option>None</mat-option>
+                <mat-option value="branch">Option 1</mat-option>
+              </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="input-field">
+              <input type="number" matInput placeholder="Account Number" formControlName="thirdCtrl" required>
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <input matInput placeholder="Account Type" formControlName="thirdCtrl" required>
+          </mat-form-field>
+        </div>
+    
+        <!-- ******************************************************************************** -->
+    
+        <h4><b>Address</b></h4>
+        <div>
+          <mat-form-field class="input-field">
+              <input matInput placeholder="Address" formControlName="thirdCtrl" required>
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <input matInput placeholder="PIN Code" formControlName="thirdCtrl" required>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="input-field">
+              <input matInput placeholder="City" formControlName="thirdCtrl" required>
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <input matInput placeholder="State" formControlName="thirdCtrl" required>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="input-field">
+              <input matInput placeholder="Country" formControlName="thirdCtrl" required>
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <input type="number" matInput placeholder="Land Line" formControlName="thirdCtrl" required>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="input-field">
+              <input type="number" matInput placeholder="Mobile Number" formControlName="thirdCtrl" required>
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <input type="email" matInput placeholder="Email" formControlName="thirdCtrl" required>
+          </mat-form-field>
+        </div>
+
+
+      <div>
+        <button mat-button mat-raised-button color="primary" matStepperPrevious>Back</button>
+        <button mat-button mat-raised-button color="primary" matStepperNext>Next</button>
+      </div>
+
+    </form>
+  </mat-step>
+
+   <!-- Guaranter Form -->
+
+
+  <mat-step [stepControl]="fourthFormGroup">
+    <form [formGroup]="fourthFormGroup">
+      <ng-template matStepLabel>Guaranter</ng-template>
+
+      
+      <mat-form-field class="input-field">
+        <mat-select placeholder="Customer Type" (change)="customerDataChange($event.value)">
+          <mat-option>None</mat-option>
+          <mat-option value="Individual">Individual</mat-option>
+          <mat-option value="Corporate">Corporate</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <h4><b>Personal Information</b></h4>
+
+
+      <div *ngIf="!customerTypeIndividual">
+        <h5><i><u><b>For customer type : Individual</b></u></i></h5>
+        <div>
+          <mat-form-field class="input-field">
+            <input matInput placeholder="Applicant Name" formControlName="fourthCtrl" required>
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <input matInput placeholder="Father's Name" formControlName="fourthCtrl" required>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="date-picker">
+              <input matInput [matDatepicker]="guaranterdob" placeholder="DOB">
+              <mat-datepicker-toggle matSuffix [for]="guaranterdob"></mat-datepicker-toggle>
+              <mat-datepicker #guaranterdob></mat-datepicker>
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <mat-select [(value)]="nationality" placeholder="Nationality" formControlName="fourthCtrl" required>
+                <mat-option>None</mat-option>
+                <mat-option value="nationality">Indian</mat-option>
+              </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="input-field">
+              <input matInput placeholder="PAN Number">
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <input matInput placeholder="GST Number">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="input-field">
+              <input matInput placeholder="Passport Number">
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <input matInput placeholder="Driving License Number">
+          </mat-form-field>
+        </div>
+      </div>
+    <!-- ******************************************************************************** -->
+      <div *ngIf="!customerTypeCorporate">
+        <h5><i><u><b>For customer type : Corporate</b></u></i></h5>
+          <mat-form-field>
+              <input matInput placeholder="Applicant Name" formControlName="fourthCtrl" required>
+          </mat-form-field>
+        <div>
+          <mat-form-field class="input-field">
+              <input matInput placeholder="PAN Number" formControlName="fourthCtrl" required>
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <input matInput placeholder="GST Number">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="input-field">
+              <mat-select [(value)]="constitution" placeholder="Constitution" formControlName="fourthCtrl" required>
+                <mat-option>None</mat-option>
+                <mat-option value="constitution">Option 1</mat-option>
+              </mat-select>
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <input matInput placeholder="Industry">
+          </mat-form-field>
+        </div>
+      </div>
+        <!-- ********************************************************************************* -->
+        
+        <div>
+        <h4><b>Employement</b></h4>
+        <div>
+          <mat-form-field class="input-field">
+              <input matInput placeholder="Organisation Name" formControlName="fourthCtrl" required>
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <input type="number" matInput placeholder="Monthly Income" formControlName="fourthCtrl" required>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="input-field">
+              <input type="number" matInput placeholder="Annual Income" formControlName="fourthCtrl" required>
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <mat-select [(value)]="designation" placeholder="Designation" formControlName="fourthCtrl" required>
+                <mat-option>None</mat-option>
+                <mat-option value="designation">Option 1</mat-option>
+              </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="input-field">
+              <input type="number" matInput placeholder="Total Years of Experience" formControlName="fourthCtrl" required>
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <input matInput placeholder="Current Job" formControlName="fourthCtrl" required>
+          </mat-form-field>
+        </div>
+        </div>
+    
+        <!-- *************************************************************************** -->
+    
+        <h4><b>Bank</b></h4>
+        <div>
+          <mat-form-field class="input-field">
+              <mat-select [(value)]="bankname" placeholder="Bank Name" formControlName="fourthCtrl" required>
+                <mat-option>None</mat-option>
+                <mat-option value="bankname">Option 1</mat-option>
+              </mat-select>
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <mat-select [(value)]="branch" placeholder="Branch" formControlName="fourthCtrl" required>
+                <mat-option>None</mat-option>
+                <mat-option value="branch">Option 1</mat-option>
+              </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="input-field">
+              <input type="number" matInput placeholder="Account Number" formControlName="fourthCtrl" required>
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <input matInput placeholder="Account Type" formControlName="fourthCtrl" required>
+          </mat-form-field>
+        </div>
+    
+        <!-- ******************************************************************************** -->
+    
+        <h4><b>Address</b></h4>
+        <div>
+          <mat-form-field class="input-field">
+              <input matInput placeholder="Address" formControlName="fourthCtrl" required>
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <input matInput placeholder="PIN Code" formControlName="fourthCtrl" required>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="input-field">
+              <input matInput placeholder="City" formControlName="fourthCtrl" required>
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <input matInput placeholder="State" formControlName="fourthCtrl" required>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="input-field">
+              <input matInput placeholder="Country" formControlName="fourthCtrl" required>
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <input type="number" matInput placeholder="Land Line" formControlName="fourthCtrl" required>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="input-field">
+              <input type="number" matInput placeholder="Mobile Number" formControlName="fourthCtrl" required>
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <input type="email" matInput placeholder="Email" formControlName="fourthCtrl" required>
+          </mat-form-field>
+        </div>
+
+
+      <div>
+        <button mat-button mat-raised-button color="primary" matStepperPrevious>Back</button>
+        <button mat-button mat-raised-button color="primary" matStepperNext>Next</button>
+      </div>
+
+    </form>
+  </mat-step>
+
+  <!-- Collateral Form -->
+
+  <mat-step [stepControl]="fifthFormGroup">
+    <form [formGroup]="fifthFormGroup" #collateral="ngForm">
+      <ng-template matStepLabel>Collateral Data</ng-template>
+
+
+      <mat-form-field class="input-field">
+        <mat-select placeholder="Collateral Type" (change)="collateralDataChange($event.value)">
+          <mat-option>None</mat-option>
+          <mat-option value="Property">Property</mat-option>
+          <mat-option value="Cash">Cash</mat-option>
+          <mat-option value="Fixed_Diposit">Fixed Diposit</mat-option>
+          <mat-option value="Mutual_Fund">Mutual Fund</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+
+
+    <div *ngIf="!collateralTypeProperty">
+          <div>
+            <h5><i><u><b>Collateral Type : Property</b></u></i></h5>
+          </div>
+          <div>
+            <mat-form-field class="input-field">
+              <input matInput placeholder="Property Type">
+            </mat-form-field>
+
+            <mat-form-field class="input-field">
+              <input matInput placeholder="Property Address">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="input-field">
+              <input matInput placeholder="Address 1">
+            </mat-form-field>
+
+            <mat-form-field class="input-field">
+              <input matInput placeholder="Address 2">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="input-field">
+              <input matInput placeholder="Address 3">
+            </mat-form-field>
+
+            <mat-form-field class="input-field">
+              <input matInput placeholder="Area">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="input-field">
+              <input type="number" matInput placeholder="PIN Code">
+            </mat-form-field>
+
+            <mat-form-field class="input-field">
+              <input matInput placeholder="City">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="input-field">
+              <input matInput placeholder="State">
+            </mat-form-field>
+
+            <mat-form-field class="input-field">
+              <input type="number" matInput placeholder="Area Of Property">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="input-field">
+              <mat-select [(value)]="propertystatus" placeholder="Property Status">
+                <mat-option>None</mat-option>
+                <mat-option value="New">New</mat-option>
+                <mat-option value="Old">Old</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="input-field">
+              <input type="number" matInput placeholder="Valuation 1">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="input-field">
+              <input type="number" matInput placeholder="Valuation 2">
+            </mat-form-field>
+
+            <mat-form-field class="input-field">
+              <input type="number" matInput placeholder="Valuation 3">
+            </mat-form-field>
+          </div>
+      </div>
+
+
+    <!-- ************************************************************************************ -->
+    <div *ngIf="!collateralTypeCash">
+        <div>
+          <h5><i><u><b>Collateral Type : Cash</b></u></i></h5>
+        </div>
+        <div>
+          <mat-form-field class="input-field">
+            <input type="number" matInput placeholder="Collateral Amount">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="date-picker">
+            <input matInput [matDatepicker]="collecteddate" placeholder="Collected Date">
+            <mat-datepicker-toggle matSuffix [for]="collecteddate"></mat-datepicker-toggle>
+            <mat-datepicker #collecteddate></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field class="date-picker">
+            <input matInput [matDatepicker]="returnsdate" placeholder="Returns Date">
+            <mat-datepicker-toggle matSuffix [for]="returnsdate"></mat-datepicker-toggle>
+            <mat-datepicker #returnsdate></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="input-field">
+            <input type="number" matInput placeholder="Rebate Amount">
+          </mat-form-field>
+
+          <mat-form-field class="input-field">
+            <input matInput placeholder="Remarks">
+          </mat-form-field>
+        </div>
+      </div>
+
+    <!-- ************************************************************************************ -->
+<div *ngIf="!collateralTypeFixedDeposite">
+      <div>
+        <h5><i><u><b>Collateral Type : Fixed Deposit</b></u></i></h5>
+      </div>
+      <div>
+        <mat-form-field class="input-field">
+          <input type="number" matInput placeholder="FD Amount">
+        </mat-form-field>
+
+        <mat-form-field class="input-field">
+          <input type="number" matInput placeholder="FD Number">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="date-picker">
+          <input matInput [matDatepicker]="startdate" placeholder="Start Date">
+          <mat-datepicker-toggle matSuffix [for]="startdate"></mat-datepicker-toggle>
+          <mat-datepicker #startdate></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="date-picker">
+          <input matInput [matDatepicker]="maturitydate" placeholder="Maturity Date">
+          <mat-datepicker-toggle matSuffix [for]="maturitydate"></mat-datepicker-toggle>
+          <mat-datepicker #maturitydate></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="input-field">
+          <mat-select [(value)]="bankname" placeholder="Bank Name">
+            <mat-option>None</mat-option>
+            <mat-option value="bankname">Option 1</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="input-field">
+          <mat-select [(value)]="lien" placeholder="Lien">
+            <mat-option>None</mat-option>
+            <mat-option value="Yes">Yes</mat-option>
+            <mat-option value="No">No</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="date-picker">
+          <input matInput [matDatepicker]="lienremoval" placeholder="Lien Removal Date">
+          <mat-datepicker-toggle matSuffix [for]="lienremoval"></mat-datepicker-toggle>
+          <mat-datepicker #lienremoval></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="input-field">
+          <mat-select [(value)]="approvedby" placeholder="Approved By">
+            <mat-option>None</mat-option>
+            <mat-option value="approvedby">Option 1</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+     <!-- ************************************************************************************ -->
+     <div *ngIf="!collateralTypeMutualFund">
+      <div>
+        <h5><i><u><b>Collateral Type : Mutual Fund</b></u></i></h5>
+      </div>
+      <div>
+        <mat-form-field class="input-field">
+          <input type="number" matInput placeholder="Collateral Amount">
+        </mat-form-field>
+
+        <mat-form-field class="input-field">
+          <mat-select [(value)]="fundname" placeholder="Fund Name">
+            <mat-option>None</mat-option>
+            <mat-option value="fundname">Option 1</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="input-field">
+          <mat-select [(value)]="fundhouse" placeholder="Fund House">
+            <mat-option>None</mat-option>
+            <mat-option value="fundhouse">Option 1</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="date-picker">
+          <input matInput [matDatepicker]="startdatemf" placeholder="Start Date">
+          <mat-datepicker-toggle matSuffix [for]="startdatemf"></mat-datepicker-toggle>
+          <mat-datepicker #startdatemf></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="date-picker">
+          <input matInput [matDatepicker]="maturitydatemf" placeholder="Maturity Date">
+          <mat-datepicker-toggle matSuffix [for]="maturitydatemf"></mat-datepicker-toggle>
+          <mat-datepicker #maturitydatemf></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="input-field">
+          <mat-select [(value)]="lienmf" placeholder="Lien">
+            <mat-option>None</mat-option>
+            <mat-option value="Yes">Yes</mat-option>
+            <mat-option value="No">No</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="date-picker">
+          <input matInput [matDatepicker]="lienremovalmf" placeholder="Lien Removal Date">
+          <mat-datepicker-toggle matSuffix [for]="lienremovalmf"></mat-datepicker-toggle>
+          <mat-datepicker #lienremovalmf></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="input-field">
+          <mat-select [(value)]="approvedbymf" placeholder="Approved By">
+            <mat-option>None</mat-option>
+            <mat-option value="approvedby">Option 1</mat-option>
+          </mat-select>
+        </mat-form-field>
+    </div>
+</div>
+  
+        <div>
+          <button mat-button mat-raised-button color="primary" matStepperNext>Save</button>
+        </div>
+    </form>
+  </mat-step>
+  
+</mat-vertical-stepper>
+</div>

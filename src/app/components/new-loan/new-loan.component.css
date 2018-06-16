@@ -1,0 +1,20 @@
+.dashboard-content{
+    height: auto;
+    width: calc(100% - 300px);
+    margin-left: 275px;
+    padding: 15px;
+    overflow: hidden;
+    /* background: #fafafa ; */
+}
+
+.date-picker {
+    width: 16%;
+  }
+
+.input-field {
+    width: 16%;
+  }
+
+.hidden {
+    display: none
+}

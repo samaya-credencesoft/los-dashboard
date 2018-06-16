@@ -25,6 +25,7 @@ import { BounceReasonMasterComponent } from './components/los_masters/bounce-rea
 import { ProductMasterComponent } from './components/los_masters/product-master/product-master.component';
 import { SchemeMasterComponent } from './components/los_masters/scheme-master/scheme-master.component';
 import { UserManagementComponent } from './components/user-management/user-management.component';
+import { NewLoanComponent } from './components/new-loan/new-loan.component';
 
 
 const appRoutes: Routes = [
@@ -36,6 +37,10 @@ const appRoutes: Routes = [
     {
         path: 'baseComponent',
         component: BaseComponent
+    },
+    {
+        path: 'newLoan',
+        component: NewLoanComponent
     },
     {
         path: 'signup',

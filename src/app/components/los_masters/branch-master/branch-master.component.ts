@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../services/common_services/auth.service';
+import { MasterService } from '../../../services/common_services/master.service';
 import {Message} from 'primeng/components/common/api';
 
 
@@ -23,19 +23,19 @@ export class BranchMasterComponent implements OnInit {
   messages: Message[] = [];
 
  
-  constructor(private authService: AuthService) { 
+  constructor(private masterService: MasterService) { 
     this.model = new BranchMaster();
   }
 
   ngOnInit() {
   }
 
-  branchMasterDetails(details){
+  branch(details){
     console.log(this.model);
-    this.authService
-          .branchMasterDetails(this.model)
-          .subscribe(isBranchMasterDetails => {
-              if (isBranchMasterDetails) {
+    this.masterService
+          .branch(this.model)
+          .subscribe(isBranch => {
+              if (isBranch) {
                   this.messages.push({severity: 'info', summary: 'Inserted successfully!'});
               } else {
                   this.messages.push({severity: 'error', summary: 'Not inserted'});

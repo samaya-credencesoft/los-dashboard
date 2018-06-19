@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../services/common_services/auth.service';
+import { MasterService } from '../../../services/common_services/master.service';
 import {Message} from 'primeng/components/common/api';
 
 
@@ -22,19 +22,19 @@ export class SourcingMasterComponent implements OnInit {
   model: SourcingMaster;
   messages: Message[] = [];
 
-  constructor(private authService: AuthService) { 
+  constructor(private masterService: MasterService) { 
     this.model = new SourcingMaster();
   }
 
   ngOnInit() {
   }
 
-  sourcingMasterDetails(details){
+  sourcing(){
     console.log(this.model);
-    this.authService
-          .sourcingMasterDetails(this.model)
-          .subscribe(isSourcingMasterDetails => {
-              if (isSourcingMasterDetails) {
+    this.masterService
+          .sourcing(this.model)
+          .subscribe(isSourcing => {
+              if (isSourcing) {
                   this.messages.push({severity: 'info', summary: 'Inserted successfully!'});
               } else {
                   this.messages.push({severity: 'error', summary: 'Not inserted'});

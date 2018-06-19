@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../services/common_services/auth.service';
+import { MasterService } from '../../../services/common_services/master.service';
 import {Message} from 'primeng/components/common/api';
 
 
@@ -22,19 +22,19 @@ export class BounceReasonMasterComponent implements OnInit {
   model: BounceReasonMaster;
   messages: Message[] = [];
 
-  constructor(private authService: AuthService) { 
+  constructor(private masterService: MasterService) { 
     this.model = new BounceReasonMaster();
   }
 
   ngOnInit() {
   }
 
-  bounceReasonMasterDetails(details){
+  bounceReason(details){
     console.log(this.model);
-    this.authService
-          .bounceReasonMasterDetails(this.model)
-          .subscribe(isBounceReasonMasterDetails => {
-              if (isBounceReasonMasterDetails) {
+    this.masterService
+          .bounceReason(this.model)
+          .subscribe(isBounceReason => {
+              if (isBounceReason) {
                   this.messages.push({severity: 'info', summary: 'Inserted successfully!'});
               } else {
                   this.messages.push({severity: 'error', summary: 'Not inserted'});

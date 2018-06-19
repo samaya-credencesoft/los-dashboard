@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../services/common_services/auth.service';
+import { MasterService } from '../../../services/common_services/master.service';
 import {Message} from 'primeng/components/common/api';
 
 
@@ -22,19 +22,19 @@ export class ModelMasterComponent implements OnInit {
   model: ModelMaster;
   messages: Message[] = [];
 
-  constructor(private authService: AuthService) { 
+  constructor(private masterService: MasterService) { 
     this.model = new ModelMaster();
   }
 
   ngOnInit() {
   }
 
-  modelMasterDetails(details){
+  modell(){
     console.log(this.model);
-    this.authService
-          .modelMasterDetails(this.model)
-          .subscribe(isModelMasterDetails => {
-              if (isModelMasterDetails) {
+    this.masterService
+          .modell(this.model)
+          .subscribe(isModell => {
+              if (isModell) {
                   this.messages.push({severity: 'info', summary: 'Inserted successfully!'});
               } else {
                   this.messages.push({severity: 'error', summary: 'Not inserted'});

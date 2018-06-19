@@ -20,6 +20,7 @@ import { LoginComponent } from './components/authentication_components/login/log
 import { SignupComponent } from './components/authentication_components/signup/signup.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {AuthService} from './services/common_services/auth.service';
+import {MasterService} from './services/common_services/master.service';
 import {AuthGuard} from './services/common_services/auth-guard.service';
 import {routing} from './app.routing';
 import {AppComponent} from './app.component';
@@ -102,6 +103,7 @@ import { NewLoanComponent } from './components/new-loan/new-loan.component';
     AddressService,
     DashboardService,
     AuthService,
+    MasterService,
     AuthGuard
   ]
 

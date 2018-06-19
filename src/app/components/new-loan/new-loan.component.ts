@@ -25,6 +25,9 @@ export class NewLoanComponent  {
   customerTypeIndividual : boolean = true;
   customerTypeCorporate : boolean = true;
 
+  firstAddressDetails : boolean = true;
+  secondAddressDetails : boolean = true;
+
   
   collateralDataChange (collateralDataValue){
 
@@ -65,6 +68,14 @@ export class NewLoanComponent  {
       
     }
 
+  }
+
+  addressChange (){
+    
+        this.firstAddressDetails = false;
+        this.secondAddressDetails = false;    
+      
+    
   }
 
 

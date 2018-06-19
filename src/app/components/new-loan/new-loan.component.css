@@ -8,13 +8,32 @@
 }
 
 .date-picker {
-    width: 16%;
+    margin: auto;
+    margin-left: 10px;
+    /* margin-right: 0px; */
+    width: 47%;
+    padding: 15px;
   }
 
 .input-field {
-    width: 16%;
+    margin: auto;
+    margin-left: 10px;
+    /* margin-right: 0px; */
+    width: 47%;
+    padding: 15px;
   }
 
 .hidden {
     display: none
 }
+
+
+.input-field-2 {
+    /* margin: auto; */
+    margin-left: 140px;
+    margin-bottom: 40px;
+    width: 60%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* border: 3px solid rgb(206, 206, 206); */
+    border-radius: 10px;
+  }

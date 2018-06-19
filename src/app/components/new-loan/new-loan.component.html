@@ -9,16 +9,16 @@
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Loan Details</ng-template>
-      
+      <div class="input-field-2">
         <div>
-          <mat-form-field>
+          <mat-form-field class="input-field">
               <mat-select [(value)]="loantype" placeholder="Loan Type">
                 <mat-option>None</mat-option>
                 <mat-option value="loantype">Option 1</mat-option>
               </mat-select>
           </mat-form-field>
 
-          <mat-form-field>
+          <mat-form-field class="input-field">
               <mat-select [(value)]="schemename" placeholder="Scheme Name">
                 <mat-option>None</mat-option>
                 <mat-option value="schemename">Option 1</mat-option>
@@ -26,14 +26,14 @@
           </mat-form-field>
         </div>
         <div>
-          <mat-form-field>
+          <mat-form-field class="input-field">
               <mat-select [(value)]="sourcingbranch" placeholder="Sourcing Branch">
                 <mat-option>None</mat-option>
                 <mat-option value="sourcingbranch">Option 1</mat-option>
               </mat-select>
           </mat-form-field>
 
-          <mat-form-field>
+          <mat-form-field class="input-field">
               <mat-select [(value)]="dsaname" placeholder="DSA Name">
                 <mat-option>None</mat-option>
                 <mat-option value="dsaname">Option 1</mat-option>
@@ -41,17 +41,18 @@
           </mat-form-field>
         </div>
         <div>
-          <mat-form-field>
+          <mat-form-field class="input-field">
               <mat-select [(value)]="salesmanagername" placeholder="Sales Manager Name">
                 <mat-option>None</mat-option>
                 <mat-option value="salesmanagername">Option 1</mat-option>
               </mat-select>
           </mat-form-field>
 
-          <mat-form-field>
+          <mat-form-field class="input-field">
               <input matInput placeholder="Loan Request Date" formControlName="firstCtrl" required>
           </mat-form-field>
         </div>
+      </div>
 
         <div>
           <button mat-button mat-raised-button color="primary" matStepperNext>Next</button>
@@ -68,7 +69,7 @@
 
       <mat-form-field class="input-field">
         <mat-select placeholder="Customer Type" (change)="customerDataChange($event.value)">
-          <mat-option>None</mat-option>
+          
           <mat-option value="Individual">Individual</mat-option>
           <mat-option value="Corporate">Corporate</mat-option>
         </mat-select>
@@ -76,16 +77,29 @@
       <h4><b>Personal Information</b></h4>
 
 
-    <div *ngIf="!customerTypeIndividual">
+    <div *ngIf="!customerTypeIndividual" class="input-field-2">
     
     <h5><i><u><b>For customer type : Individual</b></u></i></h5>
     <div>
       <mat-form-field class="input-field">
         <input matInput placeholder="Applicant Name" formControlName="secondCtrl" required>
       </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="input-field">
+            <input matInput placeholder="Father's Name" formControlName="secondCtrl" required>
+        </mat-form-field>
+      <mat-form-field class="input-field">
+        <input type="number" matInput placeholder="Land Line" formControlName="secondCtrl" required>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="input-field">
+          <input type="number" matInput placeholder="Mobile Number" formControlName="secondCtrl" required>
+      </mat-form-field>
 
       <mat-form-field class="input-field">
-          <input matInput placeholder="Father's Name" formControlName="secondCtrl" required>
+          <input type="email" matInput placeholder="Email" formControlName="secondCtrl" required>
       </mat-form-field>
     </div>
     <div>
@@ -122,12 +136,27 @@
     </div>
 
     </div>
-    <div *ngIf="!customerTypeCorporate">
+    <div *ngIf="!customerTypeCorporate" class="input-field-2">
 
     <h5><i><u><b>For customer type : Corporate</b></u></i></h5>
-      <mat-form-field>
+    <div>
+      <mat-form-field class="input-field">
           <input matInput placeholder="Applicant Name" formControlName="secondCtrl" required>
       </mat-form-field>
+
+      <mat-form-field class="input-field">
+        <input type="number" matInput placeholder="Land Line" formControlName="secondCtrl" required>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="input-field">
+          <input type="number" matInput placeholder="Mobile Number" formControlName="secondCtrl" required>
+      </mat-form-field>
+
+      <mat-form-field class="input-field">
+          <input type="email" matInput placeholder="Email" formControlName="secondCtrl" required>
+      </mat-form-field>
+    </div>
     <div>
       <mat-form-field class="input-field">
           <input matInput placeholder="PAN Number" formControlName="secondCtrl" required>
@@ -152,8 +181,9 @@
     </div>
     <!-- ********************************************************************************* -->
     
-    <div>
+    
     <h4><b>Employement</b></h4>
+    <div class="input-field-2">
     <div>
       <mat-form-field class="input-field">
           <input matInput placeholder="Organisation Name" formControlName="secondCtrl" required>
@@ -187,8 +217,9 @@
     </div>
 
     <!-- *************************************************************************** -->
-
+    
     <h4><b>Bank</b></h4>
+    <div class="input-field-2">
     <div>
       <mat-form-field class="input-field">
           <mat-select [(value)]="bankname" placeholder="Bank Name" formControlName="secondCtrl" required>
@@ -213,13 +244,34 @@
           <input matInput placeholder="Account Type" formControlName="secondCtrl" required>
       </mat-form-field>
     </div>
+  </div>
 
     <!-- ******************************************************************************** -->
 
     <h4><b>Address</b></h4>
+    
+  <div class="input-field-2" *ngIf="firstAddressDetails">
+    <div>
+        <mat-form-field class="input-field">
+            <input matInput placeholder="Address 1" formControlName="secondCtrl" required>
+        </mat-form-field>
+  
+        <mat-form-field class="input-field">
+            <input matInput placeholder="Address 2" formControlName="secondCtrl" required>
+        </mat-form-field>
+    </div>
     <div>
       <mat-form-field class="input-field">
-          <input matInput placeholder="Address" formControlName="secondCtrl" required>
+          <input matInput placeholder="Address 3" formControlName="secondCtrl" required>
+      </mat-form-field>
+
+      <mat-form-field class="input-field">
+          <input matInput placeholder="Address 4" formControlName="secondCtrl" required>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="input-field">
+          <input matInput placeholder="Address 5" formControlName="secondCtrl" required>
       </mat-form-field>
 
       <mat-form-field class="input-field">
@@ -239,21 +291,65 @@
       <mat-form-field class="input-field">
           <input matInput placeholder="Country" formControlName="secondCtrl" required>
       </mat-form-field>
-
-      <mat-form-field class="input-field">
-          <input type="number" matInput placeholder="Land Line" formControlName="secondCtrl" required>
-      </mat-form-field>
     </div>
+    
+  </div>
+
+  
+
+                          <!-- ***********************Address for Non Matching Applicants************************ -->
+
+
+  <div class="input-field-2" *ngIf="!secondAddressDetails">
+      <div>
+          <mat-form-field class="input-field">
+              <input matInput placeholder="Address 1.1" formControlName="secondCtrl" required>
+          </mat-form-field>
+    
+          <mat-form-field class="input-field">
+              <input matInput placeholder="Address 2.1" formControlName="secondCtrl" required>
+          </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="input-field">
+            <input matInput placeholder="Address 3.1" formControlName="secondCtrl" required>
+        </mat-form-field>
+  
+        <mat-form-field class="input-field">
+            <input matInput placeholder="Address 4.1" formControlName="secondCtrl" required>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="input-field">
+            <input matInput placeholder="Address 5.1" formControlName="secondCtrl" required>
+        </mat-form-field>
+  
+        <mat-form-field class="input-field">
+            <input matInput placeholder="PIN Code" formControlName="secondCtrl" required>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="input-field">
+            <input matInput placeholder="City" formControlName="secondCtrl" required>
+        </mat-form-field>
+  
+        <mat-form-field class="input-field">
+            <input matInput placeholder="State" formControlName="secondCtrl" required>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="input-field">
+            <input matInput placeholder="Country" formControlName="secondCtrl" required>
+        </mat-form-field>
+      </div>
+      
+    </div>
+
     <div>
-      <mat-form-field class="input-field">
-          <input type="number" matInput placeholder="Mobile Number" formControlName="secondCtrl" required>
-      </mat-form-field>
-
-      <mat-form-field class="input-field">
-          <input type="email" matInput placeholder="Email" formControlName="secondCtrl" required>
-      </mat-form-field>
-    </div>
-
+    <button mat-button mat-raised-button color="primary" value="secondDate" (click)="addressChange()">
+        Add Address
+    </button>
+    </div><br>
 
       <div>
         <button mat-button mat-raised-button color="primary" matStepperPrevious>Back</button>
@@ -281,18 +377,31 @@
       </mat-form-field>
       <h4><b>Personal Information</b></h4>
 
-      <div *ngIf="!customerTypeIndividual">
+      <div *ngIf="!customerTypeIndividual" class="input-field-2">
         
         <h5><i><u><b>For customer type : Individual</b></u></i></h5>
         <div>
-          <mat-form-field class="input-field">
-            <input matInput placeholder="Applicant Name" formControlName="thirdCtrl" required>
-          </mat-form-field>
-    
-          <mat-form-field class="input-field">
-              <input matInput placeholder="Father's Name" formControlName="thirdCtrl" required>
-          </mat-form-field>
-        </div>
+            <mat-form-field class="input-field">
+              <input matInput placeholder="Applicant Name" formControlName="thirdCtrl" required>
+            </mat-form-field>
+          </div>
+          <div>
+              <mat-form-field class="input-field">
+                  <input matInput placeholder="Father's Name" formControlName="thirdCtrl" required>
+              </mat-form-field>
+            <mat-form-field class="input-field">
+              <input type="number" matInput placeholder="Land Line" formControlName="thirdCtrl" required>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="input-field">
+                <input type="number" matInput placeholder="Mobile Number" formControlName="thirdCtrl" required>
+            </mat-form-field>
+      
+            <mat-form-field class="input-field">
+                <input type="email" matInput placeholder="Email" formControlName="thirdCtrl" required>
+            </mat-form-field>
+          </div>
         <div>
           <mat-form-field class="date-picker">
               <input matInput [matDatepicker]="coapplicantdob" placeholder="DOB">
@@ -327,11 +436,26 @@
         </div>
      </div>
     
-    <div *ngIf="!customerTypeCorporate">
+    <div *ngIf="!customerTypeCorporate" class="input-field-2">
         <h5><i><u><b>For customer type : Corporate</b></u></i></h5>
-          <mat-form-field>
-              <input matInput placeholder="Applicant Name" formControlName="thirdCtrl" required>
-          </mat-form-field>
+        <div>
+            <mat-form-field class="input-field">
+                <input matInput placeholder="Applicant Name" formControlName="thirdCtrl" required>
+            </mat-form-field>
+      
+            <mat-form-field class="input-field">
+              <input type="number" matInput placeholder="Land Line" formControlName="thirdCtrl" required>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="input-field">
+                <input type="number" matInput placeholder="Mobile Number" formControlName="thirdCtrl" required>
+            </mat-form-field>
+      
+            <mat-form-field class="input-field">
+                <input type="email" matInput placeholder="Email" formControlName="thirdCtrl" required>
+            </mat-form-field>
+          </div>
         <div>
           <mat-form-field class="input-field">
               <input matInput placeholder="PAN Number" formControlName="thirdCtrl" required>
@@ -356,8 +480,9 @@
     </div>
         <!-- ********************************************************************************* -->
         
-        <div>
+        
         <h4><b>Employement</b></h4>
+        <div class="input-field-2">
         <div>
           <mat-form-field class="input-field">
               <input matInput placeholder="Organisation Name" formControlName="thirdCtrl" required>
@@ -393,6 +518,7 @@
         <!-- *************************************************************************** -->
     
         <h4><b>Bank</b></h4>
+      <div class="input-field-2">
         <div>
           <mat-form-field class="input-field">
               <mat-select [(value)]="bankname" placeholder="Bank Name" formControlName="thirdCtrl" required>
@@ -417,19 +543,38 @@
               <input matInput placeholder="Account Type" formControlName="thirdCtrl" required>
           </mat-form-field>
         </div>
-    
+      </div>
         <!-- ******************************************************************************** -->
     
         <h4><b>Address</b></h4>
-        <div>
-          <mat-form-field class="input-field">
-              <input matInput placeholder="Address" formControlName="thirdCtrl" required>
-          </mat-form-field>
-    
-          <mat-form-field class="input-field">
-              <input matInput placeholder="PIN Code" formControlName="thirdCtrl" required>
-          </mat-form-field>
-        </div>
+      <div class="input-field-2">
+          <div>
+              <mat-form-field class="input-field">
+                  <input matInput placeholder="Address 1" formControlName="thirdCtrl" required>
+              </mat-form-field>
+        
+              <mat-form-field class="input-field">
+                  <input matInput placeholder="Address 2" formControlName="thirdCtrl" required>
+              </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="input-field">
+                <input matInput placeholder="Address 3" formControlName="thirdCtrl" required>
+            </mat-form-field>
+      
+            <mat-form-field class="input-field">
+                <input matInput placeholder="Address 4" formControlName="thirdCtrl" required>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="input-field">
+                <input matInput placeholder="Address 5" formControlName="thirdCtrl" required>
+            </mat-form-field>
+      
+            <mat-form-field class="input-field">
+                <input matInput placeholder="PIN Code" formControlName="thirdCtrl" required>
+            </mat-form-field>
+          </div>
         <div>
           <mat-form-field class="input-field">
               <input matInput placeholder="City" formControlName="thirdCtrl" required>
@@ -443,21 +588,9 @@
           <mat-form-field class="input-field">
               <input matInput placeholder="Country" formControlName="thirdCtrl" required>
           </mat-form-field>
-    
-          <mat-form-field class="input-field">
-              <input type="number" matInput placeholder="Land Line" formControlName="thirdCtrl" required>
-          </mat-form-field>
         </div>
-        <div>
-          <mat-form-field class="input-field">
-              <input type="number" matInput placeholder="Mobile Number" formControlName="thirdCtrl" required>
-          </mat-form-field>
-    
-          <mat-form-field class="input-field">
-              <input type="email" matInput placeholder="Email" formControlName="thirdCtrl" required>
-          </mat-form-field>
-        </div>
-
+       
+      </div>
 
       <div>
         <button mat-button mat-raised-button color="primary" matStepperPrevious>Back</button>
@@ -485,17 +618,30 @@
       <h4><b>Personal Information</b></h4>
 
 
-      <div *ngIf="!customerTypeIndividual">
+      <div *ngIf="!customerTypeIndividual" class="input-field-2">
         <h5><i><u><b>For customer type : Individual</b></u></i></h5>
         <div>
-          <mat-form-field class="input-field">
-            <input matInput placeholder="Applicant Name" formControlName="fourthCtrl" required>
-          </mat-form-field>
-    
-          <mat-form-field class="input-field">
-              <input matInput placeholder="Father's Name" formControlName="fourthCtrl" required>
-          </mat-form-field>
-        </div>
+            <mat-form-field class="input-field">
+              <input matInput placeholder="Applicant Name" formControlName="fourthCtrl" required>
+            </mat-form-field>
+          </div>
+          <div>
+              <mat-form-field class="input-field">
+                  <input matInput placeholder="Father's Name" formControlName="fourthCtrl" required>
+              </mat-form-field>
+            <mat-form-field class="input-field">
+              <input type="number" matInput placeholder="Land Line" formControlName="fourthCtrl" required>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="input-field">
+                <input type="number" matInput placeholder="Mobile Number" formControlName="fourthCtrl" required>
+            </mat-form-field>
+      
+            <mat-form-field class="input-field">
+                <input type="email" matInput placeholder="Email" formControlName="fourthCtrl" required>
+            </mat-form-field>
+          </div>
         <div>
           <mat-form-field class="date-picker">
               <input matInput [matDatepicker]="guaranterdob" placeholder="DOB">
@@ -530,11 +676,26 @@
         </div>
       </div>
     <!-- ******************************************************************************** -->
-      <div *ngIf="!customerTypeCorporate">
+      <div *ngIf="!customerTypeCorporate" class="input-field-2">
         <h5><i><u><b>For customer type : Corporate</b></u></i></h5>
-          <mat-form-field>
-              <input matInput placeholder="Applicant Name" formControlName="fourthCtrl" required>
-          </mat-form-field>
+        <div>
+            <mat-form-field class="input-field">
+                <input matInput placeholder="Applicant Name" formControlName="fourthCtrl" required>
+            </mat-form-field>
+      
+            <mat-form-field class="input-field">
+              <input type="number" matInput placeholder="Land Line" formControlName="fourthCtrl" required>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="input-field">
+                <input type="number" matInput placeholder="Mobile Number" formControlName="fourthCtrl" required>
+            </mat-form-field>
+      
+            <mat-form-field class="input-field">
+                <input type="email" matInput placeholder="Email" formControlName="fourthCtrl" required>
+            </mat-form-field>
+          </div>
         <div>
           <mat-form-field class="input-field">
               <input matInput placeholder="PAN Number" formControlName="fourthCtrl" required>
@@ -559,8 +720,9 @@
       </div>
         <!-- ********************************************************************************* -->
         
-        <div>
+        
         <h4><b>Employement</b></h4>
+        <div class="input-field-2">
         <div>
           <mat-form-field class="input-field">
               <input matInput placeholder="Organisation Name" formControlName="fourthCtrl" required>
@@ -596,6 +758,7 @@
         <!-- *************************************************************************** -->
     
         <h4><b>Bank</b></h4>
+      <div class="input-field-2">
         <div>
           <mat-form-field class="input-field">
               <mat-select [(value)]="bankname" placeholder="Bank Name" formControlName="fourthCtrl" required>
@@ -620,19 +783,38 @@
               <input matInput placeholder="Account Type" formControlName="fourthCtrl" required>
           </mat-form-field>
         </div>
-    
+      </div>
         <!-- ******************************************************************************** -->
     
         <h4><b>Address</b></h4>
-        <div>
-          <mat-form-field class="input-field">
-              <input matInput placeholder="Address" formControlName="fourthCtrl" required>
-          </mat-form-field>
-    
-          <mat-form-field class="input-field">
-              <input matInput placeholder="PIN Code" formControlName="fourthCtrl" required>
-          </mat-form-field>
-        </div>
+      <div class="input-field-2">
+          <div>
+              <mat-form-field class="input-field">
+                  <input matInput placeholder="Address 1" formControlName="fourthCtrl" required>
+              </mat-form-field>
+        
+              <mat-form-field class="input-field">
+                  <input matInput placeholder="Address 2" formControlName="fourthCtrl" required>
+              </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="input-field">
+                <input matInput placeholder="Address 3" formControlName="fourthCtrl" required>
+            </mat-form-field>
+      
+            <mat-form-field class="input-field">
+                <input matInput placeholder="Address 4" formControlName="fourthCtrl" required>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="input-field">
+                <input matInput placeholder="Address 5" formControlName="fourthCtrl" required>
+            </mat-form-field>
+      
+            <mat-form-field class="input-field">
+                <input matInput placeholder="PIN Code" formControlName="fourthCtrl" required>
+            </mat-form-field>
+          </div>
         <div>
           <mat-form-field class="input-field">
               <input matInput placeholder="City" formControlName="fourthCtrl" required>
@@ -646,21 +828,9 @@
           <mat-form-field class="input-field">
               <input matInput placeholder="Country" formControlName="fourthCtrl" required>
           </mat-form-field>
-    
-          <mat-form-field class="input-field">
-              <input type="number" matInput placeholder="Land Line" formControlName="fourthCtrl" required>
-          </mat-form-field>
         </div>
-        <div>
-          <mat-form-field class="input-field">
-              <input type="number" matInput placeholder="Mobile Number" formControlName="fourthCtrl" required>
-          </mat-form-field>
-    
-          <mat-form-field class="input-field">
-              <input type="email" matInput placeholder="Email" formControlName="fourthCtrl" required>
-          </mat-form-field>
-        </div>
-
+        
+      </div>
 
       <div>
         <button mat-button mat-raised-button color="primary" matStepperPrevious>Back</button>
@@ -690,7 +860,7 @@
 
 
 
-    <div *ngIf="!collateralTypeProperty">
+    <div *ngIf="!collateralTypeProperty" class="input-field-2">
           <div>
             <h5><i><u><b>Collateral Type : Property</b></u></i></h5>
           </div>
@@ -765,7 +935,7 @@
 
 
     <!-- ************************************************************************************ -->
-    <div *ngIf="!collateralTypeCash">
+    <div *ngIf="!collateralTypeCash" class="input-field-2">
         <div>
           <h5><i><u><b>Collateral Type : Cash</b></u></i></h5>
         </div>
@@ -799,7 +969,7 @@
       </div>
 
     <!-- ************************************************************************************ -->
-<div *ngIf="!collateralTypeFixedDeposite">
+<div *ngIf="!collateralTypeFixedDeposite" class="input-field-2">
       <div>
         <h5><i><u><b>Collateral Type : Fixed Deposit</b></u></i></h5>
       </div>
@@ -858,7 +1028,7 @@
     </div>
 
      <!-- ************************************************************************************ -->
-     <div *ngIf="!collateralTypeMutualFund">
+     <div *ngIf="!collateralTypeMutualFund" class="input-field-2">
       <div>
         <h5><i><u><b>Collateral Type : Mutual Fund</b></u></i></h5>
       </div>

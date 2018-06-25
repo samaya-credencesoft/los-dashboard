@@ -1,6 +1,7 @@
 import { $$ } from "protractor";
+import { Injectable } from "@angular/core";
 
-export class BranchMaster {
+export class Branch {
 
     id : string;
     branchName: string;
@@ -8,11 +9,19 @@ export class BranchMaster {
     designation: string;
     branchCode: string;
     activeStatus: string;
-   
-    constructor() {
-    }
+   /*
+    constructor(branchName,branchManagerName,branchCode,activeStatus) {
+        this.branchName=branchName;
+        this.branchManagerName=branchManagerName;
+        this.branchCode=branchCode;
+        this.activeStatus=activeStatus;
 
-    public static isNull(branchMaster: BranchMaster): boolean {
+    }
+    */
+    constructor(){
+
+    }
+    public static isNull(branchMaster: Branch): boolean {
         return branchMaster.branchName === null &&
         branchMaster.branchManagerName === null &&
         branchMaster.designation === null &&

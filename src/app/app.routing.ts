@@ -14,7 +14,7 @@ import { CityMasterComponent } from './components/los_masters/city-master/city-m
 import { DistrictMasterComponent } from './components/los_masters/district-master/district-master.component';
 import { CountryMasterComponent } from './components/los_masters/country-master/country-master.component';
 import { RegionMasterComponent } from './components/los_masters/region-master/region-master.component';
-import { BranchMasterComponent } from './components/los_masters/branch-master/branch-master.component';
+import { BranchMasterComponent } from './components/los_masters/branch/branch.component';
 import { SalesmanagerMasterComponent } from './components/los_masters/salesmanager-master/salesmanager-master.component';
 import { SourcingMasterComponent } from './components/los_masters/sourcing-master/sourcing-master.component';
 import { SupplierMasterComponent } from './components/los_masters/supplier-master/supplier-master.component';
@@ -25,7 +25,7 @@ import { BounceReasonMasterComponent } from './components/los_masters/bounce-rea
 import { ProductMasterComponent } from './components/los_masters/product-master/product-master.component';
 import { SchemeMasterComponent } from './components/los_masters/scheme-master/scheme-master.component';
 import { UserManagementComponent } from './components/user-management/user-management.component';
-
+import { BranchResolver } from './resolver/branch-resolver.service'
 
 const appRoutes: Routes = [
     
@@ -76,7 +76,10 @@ const appRoutes: Routes = [
     },
     {
         path: 'branchMaster',
-        component: BranchMasterComponent
+        component: BranchMasterComponent,
+        resolve : {
+            brares:BranchResolver
+        },
     },
     {
         path: 'salesmanagerMaster',

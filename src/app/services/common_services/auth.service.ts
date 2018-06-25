@@ -6,7 +6,7 @@ import 'rxjs/Rx';
 import {Observable} from 'rxjs/Observable';
 
 import {User} from '../../components/authentication_components/signup/user';
-import { BranchMaster } from '../../components/los_masters/branch-master/BranchMaster';
+
 import { DepartmentMaster } from '../../components/los_masters/department-master/DepartmentMaster';
 import { ManufactureMaster } from '../../components/los_masters/manufacture-master/ManufactureMaster';
 import { SupplierMaster } from '../../components/los_masters/supplier-master/SupplierMaster';
@@ -44,19 +44,12 @@ export class AuthService {
                 if(response.login_status === "success"){
                     this.isLoggedIn = true;
                     localStorage.setItem('isLoggedIn', "true");
-                    // console.log("login success");
                     this.router.navigate(['dashboard']);
                 }else if(response.login_status === "failed"){
-                    // console.log("login failed");
-                    // setTimeout(()=>{
+                  
                         this.signinResponse = response.login_status;
-                    // },2000);
-                    //console.log(this.signInModal);
-                    // this.signInModal = true;
-                    //this.router.navigate(['signin']);
+                   
                 }else{
-                    // console.log("user doesn't exist ! please sign up !");
-                    // this.router.navigate(['signup']);
                 }
                   });
     
@@ -82,18 +75,12 @@ export class AuthService {
         return this.http.put(API_URL+ '/updateUser', user);
     };
 
-    branchMasterDetails(branc:BranchMaster){
-
-        return this.http.post(API_URL + '/branchMasterDetails', branc)
-        .map(response => response.json() as BranchMaster)
-        .map(branc => !BranchMaster.isNull(branc))
-        .catch(AuthService.handleError);
-    }
+    
 
 
     departmentMasterDetails(department:DepartmentMaster){
 
-        return this.http.post(API_URL + '/departmentMasterDetails', department)
+        return this.http.post(API_URL + '/createOrUpdateBranch', department)
         .map(response => response.json() as DepartmentMaster)
         .map(department => !DepartmentMaster.isNull(department))
         .catch(AuthService.handleError);

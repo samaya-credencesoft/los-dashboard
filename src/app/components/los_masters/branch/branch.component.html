@@ -1,0 +1,48 @@
+<!--<mat-form-field>
+    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+  </mat-form-field>
+  
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let branch of branches" [value]="branch.branchName">{{branch.branchName}}</mat-option>
+  </mat-autocomplete> -->
+
+  <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input type="text" placeholder="Assignee" aria-label="Branch Name" 
+        matInput [formControl]="myControl" [matAutocomplete]="auto"
+        [(ngModel)]="branch" (ngModelChange)="branchByBranchName(branch)"
+        >
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let branch of filteredOptions | async" [value]="branch">
+            {{ branch.branchName }}
+          </mat-option>
+        </mat-autocomplete>
+
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input type="text" placeholder="Branch Manager Name" aria-label="Branch Manager" 
+        matInput [formControl]="myControl1" 
+        [(ngModel)]="branchManagerName" 
+        >
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+      <input type="text" placeholder="Branch Code" aria-label="Branch Code" 
+        matInput [formControl]="myControl2" 
+        [(ngModel)]="branchCode" 
+        />
+      </mat-form-field>
+        <mat-form-field class="example-full-width">
+        <input type="text" placeholder="Status" aria-label="Status" 
+        matInput [formControl]="myControl3" 
+        [(ngModel)]="activeStatus" 
+        />
+      </mat-form-field>
+        <mat-form-field class="example-full-width">
+        <input type="text" placeholder="Designation" aria-label="Designation" 
+        matInput [formControl]="myControl4" 
+        [(ngModel)]="designation" 
+        />
+      </mat-form-field>
+      
+      
+    </form>

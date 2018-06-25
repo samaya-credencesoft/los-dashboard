@@ -13,6 +13,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatButtonModule } from '@angular/material/button';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+
 import {Http, Response, RequestOptions, Headers, HttpModule} from '@angular/http';
 import { Logger } from './services/common_services/logger.service';
 import { AddressService } from './services/common_services/address.service';
@@ -34,7 +36,7 @@ import { CityMasterComponent } from './components/los_masters/city-master/city-m
 import { DistrictMasterComponent } from './components/los_masters/district-master/district-master.component';
 import { CountryMasterComponent } from './components/los_masters/country-master/country-master.component';
 import { RegionMasterComponent } from './components/los_masters/region-master/region-master.component';
-import { BranchMasterComponent } from './components/los_masters/branch-master/branch-master.component';
+import { BranchMasterComponent } from './components/los_masters/branch/branch.component';
 import { SalesmanagerMasterComponent } from './components/los_masters/salesmanager-master/salesmanager-master.component';
 import { SourcingMasterComponent } from './components/los_masters/sourcing-master/sourcing-master.component';
 import { SupplierMasterComponent } from './components/los_masters/supplier-master/supplier-master.component';
@@ -45,6 +47,8 @@ import { BounceReasonMasterComponent } from './components/los_masters/bounce-rea
 import { ProductMasterComponent } from './components/los_masters/product-master/product-master.component';
 import { SchemeMasterComponent } from './components/los_masters/scheme-master/scheme-master.component';
 import { UserManagementComponent } from './components/user-management/user-management.component';
+import { BranchServices } from './services/common_services/branch.service';
+import { BranchResolver } from './resolver/branch-resolver.service';
 
 
 @NgModule({
@@ -62,6 +66,7 @@ import { UserManagementComponent } from './components/user-management/user-manag
     MatDatepickerModule,
     MatMomentDateModule,
     MatButtonModule,
+    MatAutocompleteModule,
     HttpModule,
     routing,
     DataTablesModule
@@ -99,7 +104,9 @@ import { UserManagementComponent } from './components/user-management/user-manag
     AddressService,
     DashboardService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    BranchServices,
+    BranchResolver
   ]
 
 })

@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BranchMasterComponent } from './branch-master.component';
+import { BranchMasterComponent } from './branch.component';
 
 describe('BranchMasterComponent', () => {
   let component: BranchMasterComponent;

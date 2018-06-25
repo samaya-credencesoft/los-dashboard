@@ -52,6 +52,20 @@
               <input matInput placeholder="Loan Request Date" required>
           </mat-form-field>
         </div>
+        <div>
+            <mat-form-field class="input-field">
+                <mat-select [(value)]="repaymentfrequency" placeholder="Repayment Frequency">
+                  <mat-option>None</mat-option>
+                  <mat-option value="Weekly">Weekly</mat-option>
+                  <mat-option value="Monthly">Monthly</mat-option>
+                  <mat-option value="Yearly">Yearly</mat-option>
+                </mat-select>
+            </mat-form-field>
+  
+            <mat-form-field class="input-field">
+                <input matInput placeholder="Loan Term (In Years)" required>
+            </mat-form-field>
+          </div>
       </div>
 
         <div>
@@ -82,13 +96,35 @@
     <h5><i><u><b>For customer type : Individual</b></u></i></h5>
     <div>
       <mat-form-field class="input-field">
-        <input matInput placeholder="Applicant Name" required>
+          <input matInput placeholder="First Name" required>
+      </mat-form-field>
+
+      <mat-form-field class="input-field">
+          <input matInput placeholder="Middle Name" required>
+      </mat-form-field>
+    </div>
+    
+    <div>
+      <mat-form-field class="input-field">
+          <input matInput placeholder="Last Name" required>
+      </mat-form-field>
+
+      <mat-form-field class="input-field">
+          <input matInput placeholder="Father's Name" required>
       </mat-form-field>
     </div>
     <div>
-        <mat-form-field class="input-field">
-            <input matInput placeholder="Father's Name" required>
-        </mat-form-field>
+      <mat-form-field class="input-field">
+          <mat-select [(value)]="marital_status" placeholder="Marital Status">
+            
+            <mat-option value="Single">Single</mat-option>
+            <mat-option value="Married">Married</mat-option>
+            <mat-option value="Separated">Separated</mat-option>
+            <mat-option value="Divorced">Divorced</mat-option>
+            <mat-option value="Widowed">Widowed</mat-option>
+          </mat-select>
+      </mat-form-field>
+
       <mat-form-field class="input-field">
         <input type="number" matInput placeholder="Land Line" required>
       </mat-form-field>
@@ -182,39 +218,238 @@
     <!-- ********************************************************************************* -->
     
     
-    <h4><b>Employement</b></h4>
-    <div class="input-field-2">
-    <div>
-      <mat-form-field class="input-field">
-          <input matInput placeholder="Organisation Name" required>
-      </mat-form-field>
-
-      <mat-form-field class="input-field">
-          <input type="number" matInput placeholder="Monthly Income" required>
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field class="input-field">
-          <input type="number" matInput placeholder="Annual Income" required>
-      </mat-form-field>
-
-      <mat-form-field class="input-field">
-          <mat-select [(value)]="designation" placeholder="Designation" required>
-            <mat-option>None</mat-option>
-            <mat-option value="designation">Option 1</mat-option>
-          </mat-select>
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field class="input-field">
-          <input type="number" matInput placeholder="Total Years of Experience" required>
-      </mat-form-field>
-
-      <mat-form-field class="input-field">
-          <input matInput placeholder="Current Job" required>
-      </mat-form-field>
-    </div>
-    </div>
+    <h4><b>Employement Details</b></h4>
+    <mat-accordion class="example-headers-align">
+        <mat-expansion-panel [expanded]="applicant_employment_step === 0" (opened)="applicantEmploymentSetStep(0)" hideToggle="true"  class="input-field-2">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+                Employement Details 1
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
+        <div>
+            <div>
+              <mat-form-field class="input-field">
+                  <input matInput placeholder="Organisation Name" required>
+              </mat-form-field>
+        
+              <mat-form-field class="input-field">
+                  <input type="number" matInput placeholder="Monthly Income" required>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="input-field">
+                  <input type="number" matInput placeholder="Annual Income" required>
+              </mat-form-field>
+        
+              <mat-form-field class="input-field">
+                  <mat-select [(value)]="designation" placeholder="Designation" required>
+                    <mat-option>None</mat-option>
+                    <mat-option value="designation">Option 1</mat-option>
+                  </mat-select>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="input-field">
+                  <input type="number" matInput placeholder="Total Years of Experience" required>
+              </mat-form-field>
+        
+              <mat-form-field class="input-field">
+                  <input matInput placeholder="Current Job" required>
+              </mat-form-field>
+            </div>
+        </div>
+      
+          <mat-action-row>
+            <button mat-button color="primary" (click)="applicantEmploymentDetailsNextStep()">Next</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      
+        <mat-expansion-panel [expanded]="applicant_employment_step === 1" (opened)="applicantEmploymentSetStep(1)" hideToggle="true"  class="input-field-2">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+                Employement Details 2
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
+        <div>
+            <div>
+              <mat-form-field class="input-field">
+                  <input matInput placeholder="Organisation Name" required>
+              </mat-form-field>
+        
+              <mat-form-field class="input-field">
+                  <input type="number" matInput placeholder="Monthly Income" required>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="input-field">
+                  <input type="number" matInput placeholder="Annual Income" required>
+              </mat-form-field>
+        
+              <mat-form-field class="input-field">
+                  <mat-select [(value)]="designation" placeholder="Designation" required>
+                    <mat-option>None</mat-option>
+                    <mat-option value="designation">Option 1</mat-option>
+                  </mat-select>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="input-field">
+                  <input type="number" matInput placeholder="Total Years of Experience" required>
+              </mat-form-field>
+        
+              <mat-form-field class="input-field">
+                  <input matInput placeholder="Current Job" required>
+              </mat-form-field>
+            </div>
+        </div>
+      
+          <mat-action-row>
+            <button mat-button color="warn" (click)="applicantEmploymentDetailsPrevStep()">Previous</button>
+            <button mat-button color="primary" (click)="applicantEmploymentDetailsNextStep()">Next</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      
+        <mat-expansion-panel [expanded]="applicant_employment_step === 2" (opened)="applicantEmploymentSetStep(2)" hideToggle="true"  class="input-field-2">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+                Employement Details 3
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
+        <div>
+            <div>
+              <mat-form-field class="input-field">
+                  <input matInput placeholder="Organisation Name" required>
+              </mat-form-field>
+        
+              <mat-form-field class="input-field">
+                  <input type="number" matInput placeholder="Monthly Income" required>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="input-field">
+                  <input type="number" matInput placeholder="Annual Income" required>
+              </mat-form-field>
+        
+              <mat-form-field class="input-field">
+                  <mat-select [(value)]="designation" placeholder="Designation" required>
+                    <mat-option>None</mat-option>
+                    <mat-option value="designation">Option 1</mat-option>
+                  </mat-select>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="input-field">
+                  <input type="number" matInput placeholder="Total Years of Experience" required>
+              </mat-form-field>
+        
+              <mat-form-field class="input-field">
+                  <input matInput placeholder="Current Job" required>
+              </mat-form-field>
+            </div>
+        </div>
+      
+            <mat-action-row>
+                <button mat-button color="warn" (click)="applicantEmploymentDetailsPrevStep()">Previous</button>
+                <button mat-button color="primary" (click)="applicantEmploymentDetailsNextStep()">Next</button>
+              </mat-action-row>
+        </mat-expansion-panel>
+    
+        <mat-expansion-panel [expanded]="applicant_employment_step === 3" (opened)="applicantEmploymentSetStep(3)" hideToggle="true"  class="input-field-2">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Employement Details 4
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+        
+            <div>
+                <div>
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="Organisation Name" required>
+                  </mat-form-field>
+            
+                  <mat-form-field class="input-field">
+                      <input type="number" matInput placeholder="Monthly Income" required>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field class="input-field">
+                      <input type="number" matInput placeholder="Annual Income" required>
+                  </mat-form-field>
+            
+                  <mat-form-field class="input-field">
+                      <mat-select [(value)]="designation" placeholder="Designation" required>
+                        <mat-option>None</mat-option>
+                        <mat-option value="designation">Option 1</mat-option>
+                      </mat-select>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field class="input-field">
+                      <input type="number" matInput placeholder="Total Years of Experience" required>
+                  </mat-form-field>
+            
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="Current Job" required>
+                  </mat-form-field>
+                </div>
+            </div>
+        
+              <mat-action-row>
+                  <button mat-button color="warn" (click)="applicantEmploymentDetailsPrevStep()">Previous</button>
+                  <button mat-button color="primary" (click)="applicantEmploymentDetailsNextStep()">Next</button>
+                </mat-action-row>
+          </mat-expansion-panel>
+    
+          <mat-expansion-panel [expanded]="applicant_employment_step === 4" (opened)="applicantEmploymentSetStep(4)" hideToggle="true"  class="input-field-2">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Employement Details 5
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+          
+            <div>
+                <div>
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="Organisation Name" required>
+                  </mat-form-field>
+            
+                  <mat-form-field class="input-field">
+                      <input type="number" matInput placeholder="Monthly Income" required>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field class="input-field">
+                      <input type="number" matInput placeholder="Annual Income" required>
+                  </mat-form-field>
+            
+                  <mat-form-field class="input-field">
+                      <mat-select [(value)]="designation" placeholder="Designation" required>
+                        <mat-option>None</mat-option>
+                        <mat-option value="designation">Option 1</mat-option>
+                      </mat-select>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field class="input-field">
+                      <input type="number" matInput placeholder="Total Years of Experience" required>
+                  </mat-form-field>
+            
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="Current Job" required>
+                  </mat-form-field>
+                </div>
+            </div>
+          
+              <mat-action-row>
+                <button mat-button color="warn" (click)="applicantEmploymentDetailsPrevStep()">Previous</button>
+                <button mat-button color="primary" (click)="applicantEmploymentDetailsNextStep()">Save</button>
+              </mat-action-row>
+            </mat-expansion-panel>
+      
+      </mat-accordion>
 
     <!-- *************************************************************************** -->
     
@@ -236,10 +471,15 @@
       </mat-form-field>
     </div>
     <div>
-      <mat-form-field class="input-field">
-          <input type="number" matInput placeholder="Account Number" required>
-      </mat-form-field>
+        <mat-form-field class="input-field">
+            <input type="number" matInput placeholder="Bank Address" required>
+        </mat-form-field>
 
+        <mat-form-field class="input-field">
+            <input type="number" matInput placeholder="Account Number" required>
+        </mat-form-field>  
+      </div>
+    <div>
       <mat-form-field class="input-field">
           <input matInput placeholder="Account Type" required>
       </mat-form-field>
@@ -571,13 +811,35 @@
         <h5><i><u><b>For customer type : Individual</b></u></i></h5>
         <div>
             <mat-form-field class="input-field">
-              <input matInput placeholder="Applicant Name" required>
+                <input matInput placeholder="First Name" required>
+            </mat-form-field>
+      
+            <mat-form-field class="input-field">
+                <input matInput placeholder="Middle Name" required>
+            </mat-form-field>
+          </div>
+          
+          <div>
+            <mat-form-field class="input-field">
+                <input matInput placeholder="Last Name" required>
+            </mat-form-field>
+      
+            <mat-form-field class="input-field">
+                <input matInput placeholder="Father's Name" required>
             </mat-form-field>
           </div>
           <div>
-              <mat-form-field class="input-field">
-                  <input matInput placeholder="Father's Name" required>
-              </mat-form-field>
+            <mat-form-field class="input-field">
+                <mat-select [(value)]="marital_status" placeholder="Marital Status">
+                  
+                  <mat-option value="Single">Single</mat-option>
+                  <mat-option value="Married">Married</mat-option>
+                  <mat-option value="Separated">Separated</mat-option>
+                  <mat-option value="Divorced">Divorced</mat-option>
+                  <mat-option value="Widowed">Widowed</mat-option>
+                </mat-select>
+            </mat-form-field>
+      
             <mat-form-field class="input-field">
               <input type="number" matInput placeholder="Land Line" required>
             </mat-form-field>
@@ -629,7 +891,7 @@
         <h5><i><u><b>For customer type : Corporate</b></u></i></h5>
         <div>
             <mat-form-field class="input-field">
-                <input matInput placeholder="Applicant Name" required>
+                <input matInput placeholder="Co-applicant Name" required>
             </mat-form-field>
       
             <mat-form-field class="input-field">
@@ -670,68 +932,272 @@
         <!-- ********************************************************************************* -->
         
         
-        <h4><b>Employement</b></h4>
-        <div class="input-field-2">
+        <h4><b>Employement Details</b></h4>
+    <mat-accordion class="example-headers-align">
+        <mat-expansion-panel [expanded]="co_applicant_employment_step === 0" (opened)="coApplicantEmploymentSetStep(0)" hideToggle="true"  class="input-field-2">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+                Employement Details 1
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
         <div>
-          <mat-form-field class="input-field">
-              <input matInput placeholder="Organisation Name" required>
-          </mat-form-field>
-    
-          <mat-form-field class="input-field">
-              <input type="number" matInput placeholder="Monthly Income" required>
-          </mat-form-field>
+            <div>
+              <mat-form-field class="input-field">
+                  <input matInput placeholder="Organisation Name" required>
+              </mat-form-field>
+        
+              <mat-form-field class="input-field">
+                  <input type="number" matInput placeholder="Monthly Income" required>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="input-field">
+                  <input type="number" matInput placeholder="Annual Income" required>
+              </mat-form-field>
+        
+              <mat-form-field class="input-field">
+                  <mat-select [(value)]="designation" placeholder="Designation" required>
+                    <mat-option>None</mat-option>
+                    <mat-option value="designation">Option 1</mat-option>
+                  </mat-select>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="input-field">
+                  <input type="number" matInput placeholder="Total Years of Experience" required>
+              </mat-form-field>
+        
+              <mat-form-field class="input-field">
+                  <input matInput placeholder="Current Job" required>
+              </mat-form-field>
+            </div>
         </div>
+      
+          <mat-action-row>
+            <button mat-button color="primary" (click)="coApplicantEmploymentDetailsNextStep()">Next</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      
+        <mat-expansion-panel [expanded]="co_applicant_employment_step === 1" (opened)="applicantEmploymentSetStep(1)" hideToggle="true"  class="input-field-2">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+                Employement Details 2
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
         <div>
-          <mat-form-field class="input-field">
-              <input type="number" matInput placeholder="Annual Income" required>
-          </mat-form-field>
-    
-          <mat-form-field class="input-field">
-              <mat-select [(value)]="designation" placeholder="Designation" required>
-                <mat-option>None</mat-option>
-                <mat-option value="designation">Option 1</mat-option>
-              </mat-select>
-          </mat-form-field>
+            <div>
+              <mat-form-field class="input-field">
+                  <input matInput placeholder="Organisation Name" required>
+              </mat-form-field>
+        
+              <mat-form-field class="input-field">
+                  <input type="number" matInput placeholder="Monthly Income" required>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="input-field">
+                  <input type="number" matInput placeholder="Annual Income" required>
+              </mat-form-field>
+        
+              <mat-form-field class="input-field">
+                  <mat-select [(value)]="designation" placeholder="Designation" required>
+                    <mat-option>None</mat-option>
+                    <mat-option value="designation">Option 1</mat-option>
+                  </mat-select>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="input-field">
+                  <input type="number" matInput placeholder="Total Years of Experience" required>
+              </mat-form-field>
+        
+              <mat-form-field class="input-field">
+                  <input matInput placeholder="Current Job" required>
+              </mat-form-field>
+            </div>
         </div>
+      
+          <mat-action-row>
+            <button mat-button color="warn" (click)="coApplicantEmploymentDetailsPrevStep()">Previous</button>
+            <button mat-button color="primary" (click)="coApplicantEmploymentDetailsNextStep()">Next</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      
+        <mat-expansion-panel [expanded]="co_applicant_employment_step === 2" (opened)="applicantEmploymentSetStep(2)" hideToggle="true"  class="input-field-2">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+                Employement Details 3
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
         <div>
-          <mat-form-field class="input-field">
-              <input type="number" matInput placeholder="Total Years of Experience" required>
-          </mat-form-field>
+            <div>
+              <mat-form-field class="input-field">
+                  <input matInput placeholder="Organisation Name" required>
+              </mat-form-field>
+        
+              <mat-form-field class="input-field">
+                  <input type="number" matInput placeholder="Monthly Income" required>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="input-field">
+                  <input type="number" matInput placeholder="Annual Income" required>
+              </mat-form-field>
+        
+              <mat-form-field class="input-field">
+                  <mat-select [(value)]="designation" placeholder="Designation" required>
+                    <mat-option>None</mat-option>
+                    <mat-option value="designation">Option 1</mat-option>
+                  </mat-select>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="input-field">
+                  <input type="number" matInput placeholder="Total Years of Experience" required>
+              </mat-form-field>
+        
+              <mat-form-field class="input-field">
+                  <input matInput placeholder="Current Job" required>
+              </mat-form-field>
+            </div>
+        </div>
+      
+            <mat-action-row>
+                <button mat-button color="warn" (click)="coApplicantEmploymentDetailsPrevStep()">Previous</button>
+                <button mat-button color="primary" (click)="coApplicantEmploymentDetailsNextStep()">Next</button>
+              </mat-action-row>
+        </mat-expansion-panel>
     
-          <mat-form-field class="input-field">
-              <input matInput placeholder="Current Job" required>
-          </mat-form-field>
-        </div>
-        </div>
+        <mat-expansion-panel [expanded]="co_applicant_employment_step === 3" (opened)="applicantEmploymentSetStep(3)" hideToggle="true"  class="input-field-2">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Employement Details 4
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+        
+            <div>
+                <div>
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="Organisation Name" required>
+                  </mat-form-field>
+            
+                  <mat-form-field class="input-field">
+                      <input type="number" matInput placeholder="Monthly Income" required>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field class="input-field">
+                      <input type="number" matInput placeholder="Annual Income" required>
+                  </mat-form-field>
+            
+                  <mat-form-field class="input-field">
+                      <mat-select [(value)]="designation" placeholder="Designation" required>
+                        <mat-option>None</mat-option>
+                        <mat-option value="designation">Option 1</mat-option>
+                      </mat-select>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field class="input-field">
+                      <input type="number" matInput placeholder="Total Years of Experience" required>
+                  </mat-form-field>
+            
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="Current Job" required>
+                  </mat-form-field>
+                </div>
+            </div>
+        
+              <mat-action-row>
+                  <button mat-button color="warn" (click)="coApplicantEmploymentDetailsPrevStep()">Previous</button>
+                  <button mat-button color="primary" (click)="coApplicantEmploymentDetailsNextStep()">Next</button>
+                </mat-action-row>
+          </mat-expansion-panel>
+    
+          <mat-expansion-panel [expanded]="co_applicant_employment_step === 4" (opened)="applicantEmploymentSetStep(4)" hideToggle="true"  class="input-field-2">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Employement Details 5
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+          
+            <div>
+                <div>
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="Organisation Name" required>
+                  </mat-form-field>
+            
+                  <mat-form-field class="input-field">
+                      <input type="number" matInput placeholder="Monthly Income" required>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field class="input-field">
+                      <input type="number" matInput placeholder="Annual Income" required>
+                  </mat-form-field>
+            
+                  <mat-form-field class="input-field">
+                      <mat-select [(value)]="designation" placeholder="Designation" required>
+                        <mat-option>None</mat-option>
+                        <mat-option value="designation">Option 1</mat-option>
+                      </mat-select>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field class="input-field">
+                      <input type="number" matInput placeholder="Total Years of Experience" required>
+                  </mat-form-field>
+            
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="Current Job" required>
+                  </mat-form-field>
+                </div>
+            </div>
+          
+              <mat-action-row>
+                <button mat-button color="warn" (click)="coApplicantEmploymentDetailsPrevStep()">Previous</button>
+                <button mat-button color="primary" (click)="coApplicantEmploymentDetailsNextStep()">Save</button>
+              </mat-action-row>
+            </mat-expansion-panel>
+      
+      </mat-accordion>
     
         <!-- *************************************************************************** -->
     
         <h4><b>Bank</b></h4>
       <div class="input-field-2">
-        <div>
-          <mat-form-field class="input-field">
-              <mat-select [(value)]="bankname" placeholder="Bank Name" required>
-                <mat-option>None</mat-option>
-                <mat-option value="bankname">Option 1</mat-option>
-              </mat-select>
-          </mat-form-field>
-    
-          <mat-form-field class="input-field">
-              <mat-select [(value)]="branch" placeholder="Branch" required>
-                <mat-option>None</mat-option>
-                <mat-option value="branch">Option 1</mat-option>
-              </mat-select>
-          </mat-form-field>
-        </div>
-        <div>
-          <mat-form-field class="input-field">
-              <input type="number" matInput placeholder="Account Number" required>
-          </mat-form-field>
-    
-          <mat-form-field class="input-field">
-              <input matInput placeholder="Account Type" required>
-          </mat-form-field>
-        </div>
+          <div>
+              <mat-form-field class="input-field">
+                  <mat-select [(value)]="bankname" placeholder="Bank Name" required>
+                    <mat-option>None</mat-option>
+                    <mat-option value="bankname">Option 1</mat-option>
+                  </mat-select>
+              </mat-form-field>
+        
+              <mat-form-field class="input-field">
+                  <mat-select [(value)]="branch" placeholder="Branch" required>
+                    <mat-option>None</mat-option>
+                    <mat-option value="branch">Option 1</mat-option>
+                  </mat-select>
+              </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="input-field">
+                    <input type="number" matInput placeholder="Bank Address" required>
+                </mat-form-field>
+        
+                <mat-form-field class="input-field">
+                    <input type="number" matInput placeholder="Account Number" required>
+                </mat-form-field>  
+              </div>
+            <div>
+              <mat-form-field class="input-field">
+                  <input matInput placeholder="Account Type" required>
+              </mat-form-field>
+            </div>
       </div>
         <!-- ******************************************************************************** -->
     
@@ -1055,7 +1521,7 @@
         <h5><i><u><b>For customer type : Individual</b></u></i></h5>
         <div>
             <mat-form-field class="input-field">
-              <input matInput placeholder="Applicant Name" required>
+              <input matInput placeholder="Guaranter Name" required>
             </mat-form-field>
           </div>
           <div>
@@ -1113,7 +1579,7 @@
         <h5><i><u><b>For customer type : Corporate</b></u></i></h5>
         <div>
             <mat-form-field class="input-field">
-                <input matInput placeholder="Applicant Name" required>
+                <input matInput placeholder="Guaranter Name" required>
             </mat-form-field>
       
             <mat-form-field class="input-field">
@@ -1192,30 +1658,35 @@
     
         <h4><b>Bank</b></h4>
       <div class="input-field-2">
-        <div>
-          <mat-form-field class="input-field">
-              <mat-select [(value)]="bankname" placeholder="Bank Name" required>
-                <mat-option>None</mat-option>
-                <mat-option value="bankname">Option 1</mat-option>
-              </mat-select>
-          </mat-form-field>
-    
-          <mat-form-field class="input-field">
-              <mat-select [(value)]="branch" placeholder="Branch" required>
-                <mat-option>None</mat-option>
-                <mat-option value="branch">Option 1</mat-option>
-              </mat-select>
-          </mat-form-field>
-        </div>
-        <div>
-          <mat-form-field class="input-field">
-              <input type="number" matInput placeholder="Account Number" required>
-          </mat-form-field>
-    
-          <mat-form-field class="input-field">
-              <input matInput placeholder="Account Type" required>
-          </mat-form-field>
-        </div>
+          <div>
+              <mat-form-field class="input-field">
+                  <mat-select [(value)]="bankname" placeholder="Bank Name" required>
+                    <mat-option>None</mat-option>
+                    <mat-option value="bankname">Option 1</mat-option>
+                  </mat-select>
+              </mat-form-field>
+        
+              <mat-form-field class="input-field">
+                  <mat-select [(value)]="branch" placeholder="Branch" required>
+                    <mat-option>None</mat-option>
+                    <mat-option value="branch">Option 1</mat-option>
+                  </mat-select>
+              </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="input-field">
+                    <input type="number" matInput placeholder="Bank Address" required>
+                </mat-form-field>
+        
+                <mat-form-field class="input-field">
+                    <input type="number" matInput placeholder="Account Number" required>
+                </mat-form-field>  
+              </div>
+            <div>
+              <mat-form-field class="input-field">
+                  <input matInput placeholder="Account Type" required>
+              </mat-form-field>
+            </div>
       </div>
         <!-- ******************************************************************************** -->
     
@@ -1287,6 +1758,7 @@
           <mat-option value="Cash">Cash</mat-option>
           <mat-option value="Fixed_Diposit">Fixed Diposit</mat-option>
           <mat-option value="Mutual_Fund">Mutual Fund</mat-option>
+          <mat-option value="Asset">Asset</mat-option>
         </mat-select>
       </mat-form-field>
 
@@ -1303,21 +1775,30 @@
             </mat-form-field>
 
             <mat-form-field class="input-field">
-                <input matInput placeholder="Property Address 1">
+                <input matInput placeholder="Property Age">
             </mat-form-field>
           </div>
           <div>
+              <mat-form-field class="input-field">
+                <input matInput placeholder="Property Address 1">
+              </mat-form-field>
+  
+              <mat-form-field class="input-field">
+                <input matInput placeholder="Property Address 2">
+              </mat-form-field>
+          </div>
+          <div>
             <mat-form-field class="input-field">
-              <input matInput placeholder="Address 2">
+              <input matInput placeholder="Property Address 3">
             </mat-form-field>
 
             <mat-form-field class="input-field">
-                <input matInput placeholder="Address 3">
+              <input matInput placeholder="Property Address 4">
             </mat-form-field>
           </div>
           <div>
             <mat-form-field class="input-field">
-              <input matInput placeholder="Address 3">
+                <input type="number" matInput placeholder="PIN Code">
             </mat-form-field>
 
             <mat-form-field class="input-field">
@@ -1326,23 +1807,16 @@
           </div>
           <div>
             <mat-form-field class="input-field">
-              <input type="number" matInput placeholder="PIN Code">
+              <input matInput placeholder="City">
             </mat-form-field>
 
             <mat-form-field class="input-field">
-              <input matInput placeholder="City">
+                <input matInput placeholder="State">
             </mat-form-field>
           </div>
           <div>
             <mat-form-field class="input-field">
                 <input matInput placeholder="Country">
-              </mat-form-field>
-  
-              
-          </div>
-          <div>
-            <mat-form-field class="input-field">
-              <input matInput placeholder="State">
             </mat-form-field>
 
             <mat-form-field class="input-field">
@@ -1528,12 +2002,163 @@
         </mat-form-field>
     </div>
 </div>
-  
+
+    <!-- ************************************************************************************ -->
+    <div *ngIf="!collateralTypeAsset" class="input-field-2">
         <div>
-          <button mat-button mat-raised-button color="primary" matStepperNext>Save</button>
+          <h5><i><u><b>Collateral Type : Asset</b></u></i></h5>
         </div>
+        <div>
+            <mat-form-field class="input-field">
+                <mat-select [(value)]="manufacturer" placeholder="Manufacturer">
+                  <mat-option>None</mat-option>
+                  <mat-option value="manufacturer_asset">Option 1</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field class="input-field">
+                <mat-select [(value)]="model" placeholder="Model">
+                  <mat-option>None</mat-option>
+                  <mat-option value="model_asset">Option 1</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="input-field">
+                <mat-select [(value)]="submodel" placeholder="Sub Model">
+                  <mat-option>None</mat-option>
+                  <mat-option value="submodel_asset">Option 1</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="input-field">
+                <input type="number" matInput placeholder="Asset Cost">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="input-field">
+                <input type="number" matInput placeholder="Margin Money">
+            </mat-form-field>
+
+            <mat-form-field class="input-field">
+                <input type="number" matInput placeholder="Loan Amount">
+            </mat-form-field>
+        </div>
+      </div>
+        
+      <div>
+          <button mat-button mat-raised-button color="primary" matStepperPrevious>Back</button>
+          <button mat-button mat-raised-button color="primary" matStepperNext>Next</button>
+      </div>
+      
     </form>
   </mat-step>
+
+  <!-- Reference Form -->
+
+<mat-step [stepControl]="sixthFormGroup">
+    <form [formGroup]="sixthFormGroup" #reference="ngForm">
+      <ng-template matStepLabel>Reference</ng-template>
+
+
+      <mat-accordion class="example-headers-align">
+        <mat-expansion-panel [expanded]="reference_details_step === 0" (opened)="referenceSetStep(0)" hideToggle="true"  class="input-field-2">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+                Reference Details 1
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
+        <div>
+            <div>
+              <mat-form-field class="input-field">
+                  <input matInput placeholder="First Name" required>
+              </mat-form-field>
+        
+              <mat-form-field class="input-field">
+                  <input matInput placeholder="Last Name" required>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="input-field">
+                  <input matInput placeholder="Employer" required>
+              </mat-form-field>
+        
+              <mat-form-field class="input-field">
+                <input type="number" matInput placeholder="Mobile" required>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="input-field">
+                  <input type="email" matInput placeholder="Email" required>
+              </mat-form-field>
+        
+              <mat-form-field class="input-field">
+                  <input matInput placeholder="Relationship" required>
+              </mat-form-field>
+            </div>
+        </div>
+      
+          <mat-action-row>
+            <button mat-button color="primary" (click)="referenceNextStep()">Next</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      
+        <mat-expansion-panel [expanded]="reference_details_step === 1" (opened)="referenceSetStep(1)" hideToggle="true"  class="input-field-2">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+                Reference Details 2
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
+          <div>
+            <div>
+              <mat-form-field class="input-field">
+                  <input matInput placeholder="First Name" required>
+              </mat-form-field>
+        
+              <mat-form-field class="input-field">
+                  <input matInput placeholder="Last Name" required>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="input-field">
+                  <input matInput placeholder="Employer" required>
+              </mat-form-field>
+        
+              <mat-form-field class="input-field">
+                <input type="number" matInput placeholder="Mobile" required>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="input-field">
+                  <input type="email" matInput placeholder="Email" required>
+              </mat-form-field>
+        
+              <mat-form-field class="input-field">
+                  <input matInput placeholder="Relationship" required>
+              </mat-form-field>
+            </div>
+        </div>
+      
+          <mat-action-row>
+            <button mat-button color="warn" (click)="referencePrevStep()">Previous</button>
+            <button mat-button color="primary" (click)="referenceNextStep()">Save</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      
+      </mat-accordion>
+      
+        
+      <div>
+          <button mat-button mat-raised-button color="primary" matStepperPrevious>Back</button>
+          <button mat-button mat-raised-button color="primary" matStepperNext>Next</button>
+      </div>
+      
+    </form>
+</mat-step>
+
+
   
 </mat-vertical-stepper>
 </div>

@@ -23,6 +23,20 @@
     padding: 15px;
   }
 
+  .name-field-1 {
+    float: left;
+    width: 34%;
+    padding: 15px;
+  }
+
+  .name-field-2 {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+
+
 .hidden {
     display: none
 }

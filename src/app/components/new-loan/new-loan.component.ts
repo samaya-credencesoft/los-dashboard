@@ -15,12 +15,14 @@ export class NewLoanComponent  {
   thirdFormGroup: FormGroup;
   fourthFormGroup: FormGroup;
   fifthFormGroup: FormGroup;
+  sixthFormGroup: FormGroup;
 
 
   collateralTypeProperty : boolean = true;
   collateralTypeCash : boolean = true;
   collateralTypeFixedDeposite : boolean = true;
   collateralTypeMutualFund : boolean = true;
+  collateralTypeAsset : boolean = true;
 
   customerTypeIndividual : boolean = true;
   customerTypeCorporate : boolean = true;
@@ -60,7 +62,54 @@ export class NewLoanComponent  {
   coApplicantAddressPrevStep() {
     this.co_applicant_step--;
   }
-  
+
+
+
+
+  applicant_employment_step = 0;
+
+  applicantEmploymentSetStep(index: number) {
+    this.applicant_employment_step = index;
+  }
+
+  applicantEmploymentDetailsNextStep() {
+    this.applicant_employment_step++;
+  }
+
+  applicantEmploymentDetailsPrevStep() {
+    this.applicant_employment_step--;
+  }
+
+
+  co_applicant_employment_step = 0;
+
+  coApplicantEmploymentSetStep(index: number) {
+    this.co_applicant_employment_step = index;
+  }
+
+  coApplicantEmploymentDetailsNextStep() {
+    this.co_applicant_employment_step++;
+  }
+
+  coApplicantEmploymentDetailsPrevStep() {
+    this.co_applicant_employment_step--;
+  }
+
+
+
+  reference_details_step = 0;
+
+  referenceSetStep(index: number) {
+    this.reference_details_step = index;
+  }
+
+  referenceNextStep() {
+    this.reference_details_step++;
+  }
+
+  referencePrevStep() {
+    this.reference_details_step--;
+  }
   
 
 
@@ -71,21 +120,31 @@ export class NewLoanComponent  {
       this.collateralTypeCash = true;
       this.collateralTypeFixedDeposite = true;
       this.collateralTypeMutualFund = true;
+      this.collateralTypeAsset = true;
     }else if(collateralDataValue == "Cash"){
       this.collateralTypeProperty = true;
       this.collateralTypeCash = false;
       this.collateralTypeFixedDeposite = true;
       this.collateralTypeMutualFund = true;
+      this.collateralTypeAsset = true;
     }else if(collateralDataValue == "Fixed_Diposit"){
       this.collateralTypeProperty = true;
       this.collateralTypeCash = true;
       this.collateralTypeFixedDeposite = false;
       this.collateralTypeMutualFund = true;
+      this.collateralTypeAsset = true;
     }else if(collateralDataValue == "Mutual_Fund"){
       this.collateralTypeProperty = true;
       this.collateralTypeCash = true;
       this.collateralTypeFixedDeposite = true;
       this.collateralTypeMutualFund = false;
+      this.collateralTypeAsset = true;
+    }else if(collateralDataValue == "Asset"){
+      this.collateralTypeProperty = true;
+      this.collateralTypeCash = true;
+      this.collateralTypeFixedDeposite = true;
+      this.collateralTypeMutualFund = true;
+      this.collateralTypeAsset = false;
     }
 
   }
@@ -141,6 +200,9 @@ export class NewLoanComponent  {
     });
     this.fifthFormGroup = this._formBuilder.group({
       fifthCtrl: ['', Validators.required]
+    });
+    this.sixthFormGroup = this._formBuilder.group({
+      sixthCtrl: ['', Validators.required]
     });
 
   }

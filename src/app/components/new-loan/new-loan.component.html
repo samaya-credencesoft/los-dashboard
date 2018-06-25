@@ -8,7 +8,7 @@
 
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Loan Details</ng-template>
+      <ng-template matStepLabel>Customer Details</ng-template>
       <div class="input-field-2">
         <div>
           <mat-form-field class="input-field">
@@ -49,7 +49,7 @@
           </mat-form-field>
 
           <mat-form-field class="input-field">
-              <input matInput placeholder="Loan Request Date" formControlName="firstCtrl" required>
+              <input matInput placeholder="Loan Request Date" required>
           </mat-form-field>
         </div>
       </div>
@@ -64,7 +64,7 @@
 
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Customer Details</ng-template>
+      <ng-template matStepLabel>Applicant</ng-template>
       
 
       <mat-form-field class="input-field">
@@ -82,35 +82,35 @@
     <h5><i><u><b>For customer type : Individual</b></u></i></h5>
     <div>
       <mat-form-field class="input-field">
-        <input matInput placeholder="Applicant Name" formControlName="secondCtrl" required>
+        <input matInput placeholder="Applicant Name" required>
       </mat-form-field>
     </div>
     <div>
         <mat-form-field class="input-field">
-            <input matInput placeholder="Father's Name" formControlName="secondCtrl" required>
+            <input matInput placeholder="Father's Name" required>
         </mat-form-field>
       <mat-form-field class="input-field">
-        <input type="number" matInput placeholder="Land Line" formControlName="secondCtrl" required>
+        <input type="number" matInput placeholder="Land Line" required>
       </mat-form-field>
     </div>
     <div>
       <mat-form-field class="input-field">
-          <input type="number" matInput placeholder="Mobile Number" formControlName="secondCtrl" required>
+          <input type="number" matInput placeholder="Mobile Number" required>
       </mat-form-field>
 
       <mat-form-field class="input-field">
-          <input type="email" matInput placeholder="Email" formControlName="secondCtrl" required>
+          <input type="email" matInput placeholder="Email" required>
       </mat-form-field>
     </div>
     <div>
       <mat-form-field class="date-picker">
-          <input matInput [matDatepicker]="applicantdob" placeholder="DOB" formControlName="secondCtrl" required>
+          <input matInput [matDatepicker]="applicantdob" placeholder="DOB" required>
           <mat-datepicker-toggle matSuffix [for]="applicantdob"></mat-datepicker-toggle>
           <mat-datepicker #applicantdob></mat-datepicker>
       </mat-form-field>
 
       <mat-form-field class="input-field">
-          <mat-select [(value)]="nationality" placeholder="Nationality" formControlName="secondCtrl" required>
+          <mat-select [(value)]="nationality" placeholder="Nationality" required>
             <mat-option>None</mat-option>
             <mat-option value="nationality">Indian</mat-option>
           </mat-select>
@@ -141,25 +141,25 @@
     <h5><i><u><b>For customer type : Corporate</b></u></i></h5>
     <div>
       <mat-form-field class="input-field">
-          <input matInput placeholder="Applicant Name" formControlName="secondCtrl" required>
+          <input matInput placeholder="Applicant Name" required>
       </mat-form-field>
 
       <mat-form-field class="input-field">
-        <input type="number" matInput placeholder="Land Line" formControlName="secondCtrl" required>
+        <input type="number" matInput placeholder="Land Line" required>
       </mat-form-field>
     </div>
     <div>
       <mat-form-field class="input-field">
-          <input type="number" matInput placeholder="Mobile Number" formControlName="secondCtrl" required>
+          <input type="number" matInput placeholder="Mobile Number" required>
       </mat-form-field>
 
       <mat-form-field class="input-field">
-          <input type="email" matInput placeholder="Email" formControlName="secondCtrl" required>
+          <input type="email" matInput placeholder="Email" required>
       </mat-form-field>
     </div>
     <div>
       <mat-form-field class="input-field">
-          <input matInput placeholder="PAN Number" formControlName="secondCtrl" required>
+          <input matInput placeholder="PAN Number" required>
       </mat-form-field>
 
       <mat-form-field class="input-field">
@@ -168,7 +168,7 @@
     </div>
     <div>
       <mat-form-field class="input-field">
-          <mat-select [(value)]="constitution" placeholder="Constitution" formControlName="secondCtrl" required>
+          <mat-select [(value)]="constitution" placeholder="Constitution" required>
             <mat-option>None</mat-option>
             <mat-option value="constitution">Option 1</mat-option>
           </mat-select>
@@ -186,20 +186,20 @@
     <div class="input-field-2">
     <div>
       <mat-form-field class="input-field">
-          <input matInput placeholder="Organisation Name" formControlName="secondCtrl" required>
+          <input matInput placeholder="Organisation Name" required>
       </mat-form-field>
 
       <mat-form-field class="input-field">
-          <input type="number" matInput placeholder="Monthly Income" formControlName="secondCtrl" required>
+          <input type="number" matInput placeholder="Monthly Income" required>
       </mat-form-field>
     </div>
     <div>
       <mat-form-field class="input-field">
-          <input type="number" matInput placeholder="Annual Income" formControlName="secondCtrl" required>
+          <input type="number" matInput placeholder="Annual Income" required>
       </mat-form-field>
 
       <mat-form-field class="input-field">
-          <mat-select [(value)]="designation" placeholder="Designation" formControlName="secondCtrl" required>
+          <mat-select [(value)]="designation" placeholder="Designation" required>
             <mat-option>None</mat-option>
             <mat-option value="designation">Option 1</mat-option>
           </mat-select>
@@ -207,11 +207,11 @@
     </div>
     <div>
       <mat-form-field class="input-field">
-          <input type="number" matInput placeholder="Total Years of Experience" formControlName="secondCtrl" required>
+          <input type="number" matInput placeholder="Total Years of Experience" required>
       </mat-form-field>
 
       <mat-form-field class="input-field">
-          <input matInput placeholder="Current Job" formControlName="secondCtrl" required>
+          <input matInput placeholder="Current Job" required>
       </mat-form-field>
     </div>
     </div>
@@ -222,14 +222,14 @@
     <div class="input-field-2">
     <div>
       <mat-form-field class="input-field">
-          <mat-select [(value)]="bankname" placeholder="Bank Name" formControlName="secondCtrl" required>
+          <mat-select [(value)]="bankname" placeholder="Bank Name" required>
             <mat-option>None</mat-option>
             <mat-option value="bankname">Option 1</mat-option>
           </mat-select>
       </mat-form-field>
 
       <mat-form-field class="input-field">
-          <mat-select [(value)]="branch" placeholder="Branch" formControlName="secondCtrl" required>
+          <mat-select [(value)]="branch" placeholder="Branch" required>
             <mat-option>None</mat-option>
             <mat-option value="branch">Option 1</mat-option>
           </mat-select>
@@ -237,119 +237,308 @@
     </div>
     <div>
       <mat-form-field class="input-field">
-          <input type="number" matInput placeholder="Account Number" formControlName="secondCtrl" required>
+          <input type="number" matInput placeholder="Account Number" required>
       </mat-form-field>
 
       <mat-form-field class="input-field">
-          <input matInput placeholder="Account Type" formControlName="secondCtrl" required>
+          <input matInput placeholder="Account Type" required>
       </mat-form-field>
     </div>
   </div>
 
     <!-- ******************************************************************************** -->
 
-    <h4><b>Address</b></h4>
     
-  <div class="input-field-2" *ngIf="firstAddressDetails">
-    <div>
-        <mat-form-field class="input-field">
-            <input matInput placeholder="Address 1" formControlName="secondCtrl" required>
-        </mat-form-field>
+    <h4><b>Address Details</b></h4>   
   
-        <mat-form-field class="input-field">
-            <input matInput placeholder="Address 2" formControlName="secondCtrl" required>
-        </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field class="input-field">
-          <input matInput placeholder="Address 3" formControlName="secondCtrl" required>
-      </mat-form-field>
-
-      <mat-form-field class="input-field">
-          <input matInput placeholder="Address 4" formControlName="secondCtrl" required>
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field class="input-field">
-          <input matInput placeholder="Address 5" formControlName="secondCtrl" required>
-      </mat-form-field>
-
-      <mat-form-field class="input-field">
-          <input matInput placeholder="PIN Code" formControlName="secondCtrl" required>
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field class="input-field">
-          <input matInput placeholder="City" formControlName="secondCtrl" required>
-      </mat-form-field>
-
-      <mat-form-field class="input-field">
-          <input matInput placeholder="State" formControlName="secondCtrl" required>
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field class="input-field">
-          <input matInput placeholder="Country" formControlName="secondCtrl" required>
-      </mat-form-field>
-    </div>
-    
-  </div>
-
-  
-
-                          <!-- ***********************Address for Non Matching Applicants************************ -->
-
-
-  <div class="input-field-2" *ngIf="!secondAddressDetails">
-      <div>
-          <mat-form-field class="input-field">
-              <input matInput placeholder="Address 1.1" formControlName="secondCtrl" required>
-          </mat-form-field>
-    
-          <mat-form-field class="input-field">
-              <input matInput placeholder="Address 2.1" formControlName="secondCtrl" required>
-          </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field class="input-field">
-            <input matInput placeholder="Address 3.1" formControlName="secondCtrl" required>
-        </mat-form-field>
-  
-        <mat-form-field class="input-field">
-            <input matInput placeholder="Address 4.1" formControlName="secondCtrl" required>
-        </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field class="input-field">
-            <input matInput placeholder="Address 5.1" formControlName="secondCtrl" required>
-        </mat-form-field>
-  
-        <mat-form-field class="input-field">
-            <input matInput placeholder="PIN Code" formControlName="secondCtrl" required>
-        </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field class="input-field">
-            <input matInput placeholder="City" formControlName="secondCtrl" required>
-        </mat-form-field>
-  
-        <mat-form-field class="input-field">
-            <input matInput placeholder="State" formControlName="secondCtrl" required>
-        </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field class="input-field">
-            <input matInput placeholder="Country" formControlName="secondCtrl" required>
-        </mat-form-field>
-      </div>
+    <mat-accordion class="example-headers-align">
+        <mat-expansion-panel [expanded]="applicant_step === 0" (opened)="applicantSetStep(0)" hideToggle="true"  class="input-field-2">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Address 1
+            </mat-panel-title>
+          </mat-expansion-panel-header>
       
-    </div>
+          <div>
+              <div>
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="Address 1" required>
+                  </mat-form-field>
+            
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="Address 2" required>
+                  </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="Address 3" required>
+                </mat-form-field>
+          
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="Address 4" required>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="Address 5" required>
+                </mat-form-field>
+          
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="PIN Code" required>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="City" required>
+                </mat-form-field>
+          
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="State" required>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="Country" required>
+                </mat-form-field>
+              </div>
+            </div>
+      
+          <mat-action-row>
+            <button mat-button color="primary" (click)="applicantAddressNextStep()">Next</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      
+        <mat-expansion-panel [expanded]="applicant_step === 1" (opened)="applicantSetStep(1)" hideToggle="true"  class="input-field-2">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Address 2
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
+          <div>
+              <div>
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="Address 1" required>
+                  </mat-form-field>
+            
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="Address 2" required>
+                  </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="Address 3" required>
+                </mat-form-field>
+          
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="Address 4" required>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="Address 5" required>
+                </mat-form-field>
+          
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="PIN Code" required>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="City" required>
+                </mat-form-field>
+          
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="State" required>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="Country" required>
+                </mat-form-field>
+              </div>
+            </div>
+      
+          <mat-action-row>
+            <button mat-button color="warn" (click)="applicantAddressPrevStep()">Previous</button>
+            <button mat-button color="primary" (click)="applicantAddressNextStep()">Next</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      
+        <mat-expansion-panel [expanded]="applicant_step === 2" (opened)="applicantSetStep(2)" hideToggle="true"  class="input-field-2">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Address 3
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
+          <div>
+              <div>
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="Address 1" required>
+                  </mat-form-field>
+            
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="Address 2" required>
+                  </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="Address 3" required>
+                </mat-form-field>
+          
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="Address 4" required>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="Address 5" required>
+                </mat-form-field>
+          
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="PIN Code" required>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="City" required>
+                </mat-form-field>
+          
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="State" required>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="Country" required>
+                </mat-form-field>
+              </div>
+            </div>
+      
+            <mat-action-row>
+                <button mat-button color="warn" (click)="applicantAddressPrevStep()">Previous</button>
+                <button mat-button color="primary" (click)="applicantAddressNextStep()">Next</button>
+              </mat-action-row>
+        </mat-expansion-panel>
 
-    <div>
-    <button mat-button mat-raised-button color="primary" value="secondDate" (click)="addressChange()">
-        Add Address
-    </button>
-    </div><br>
+        <mat-expansion-panel [expanded]="applicant_step === 3" (opened)="applicantSetStep(3)" hideToggle="true"  class="input-field-2">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Address 4
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+        
+            <div>
+                <div>
+                    <mat-form-field class="input-field">
+                        <input matInput placeholder="Address 1" required>
+                    </mat-form-field>
+              
+                    <mat-form-field class="input-field">
+                        <input matInput placeholder="Address 2" required>
+                    </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="Address 3" required>
+                  </mat-form-field>
+            
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="Address 4" required>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="Address 5" required>
+                  </mat-form-field>
+            
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="PIN Code" required>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="City" required>
+                  </mat-form-field>
+            
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="State" required>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="Country" required>
+                  </mat-form-field>
+                </div>
+              </div>
+        
+              <mat-action-row>
+                  <button mat-button color="warn" (click)="applicantAddressPrevStep()">Previous</button>
+                  <button mat-button color="primary" (click)="applicantAddressNextStep()">Next</button>
+                </mat-action-row>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel [expanded]="applicant_step === 4" (opened)="applicantSetStep(4)" hideToggle="true"  class="input-field-2">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Address 5
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+          
+              <div>
+                  <div>
+                      <mat-form-field class="input-field">
+                          <input matInput placeholder="Address 1" required>
+                      </mat-form-field>
+                
+                      <mat-form-field class="input-field">
+                          <input matInput placeholder="Address 2" required>
+                      </mat-form-field>
+                  </div>
+                  <div>
+                    <mat-form-field class="input-field">
+                        <input matInput placeholder="Address 3" required>
+                    </mat-form-field>
+              
+                    <mat-form-field class="input-field">
+                        <input matInput placeholder="Address 4" required>
+                    </mat-form-field>
+                  </div>
+                  <div>
+                    <mat-form-field class="input-field">
+                        <input matInput placeholder="Address 5" required>
+                    </mat-form-field>
+              
+                    <mat-form-field class="input-field">
+                        <input matInput placeholder="PIN Code" required>
+                    </mat-form-field>
+                  </div>
+                  <div>
+                    <mat-form-field class="input-field">
+                        <input matInput placeholder="City" required>
+                    </mat-form-field>
+              
+                    <mat-form-field class="input-field">
+                        <input matInput placeholder="State" required>
+                    </mat-form-field>
+                  </div>
+                  <div>
+                    <mat-form-field class="input-field">
+                        <input matInput placeholder="Country" required>
+                    </mat-form-field>
+                  </div>
+                </div>
+          
+              <mat-action-row>
+                <button mat-button color="warn" (click)="applicantAddressPrevStep()">Previous</button>
+                <button mat-button color="primary" (click)="applicantAddressNextStep()">Save</button>
+              </mat-action-row>
+            </mat-expansion-panel>
+      
+      </mat-accordion>
+      
+  
 
       <div>
         <button mat-button mat-raised-button color="primary" matStepperPrevious>Back</button>
@@ -382,24 +571,24 @@
         <h5><i><u><b>For customer type : Individual</b></u></i></h5>
         <div>
             <mat-form-field class="input-field">
-              <input matInput placeholder="Applicant Name" formControlName="thirdCtrl" required>
+              <input matInput placeholder="Applicant Name" required>
             </mat-form-field>
           </div>
           <div>
               <mat-form-field class="input-field">
-                  <input matInput placeholder="Father's Name" formControlName="thirdCtrl" required>
+                  <input matInput placeholder="Father's Name" required>
               </mat-form-field>
             <mat-form-field class="input-field">
-              <input type="number" matInput placeholder="Land Line" formControlName="thirdCtrl" required>
+              <input type="number" matInput placeholder="Land Line" required>
             </mat-form-field>
           </div>
           <div>
             <mat-form-field class="input-field">
-                <input type="number" matInput placeholder="Mobile Number" formControlName="thirdCtrl" required>
+                <input type="number" matInput placeholder="Mobile Number" required>
             </mat-form-field>
       
             <mat-form-field class="input-field">
-                <input type="email" matInput placeholder="Email" formControlName="thirdCtrl" required>
+                <input type="email" matInput placeholder="Email" required>
             </mat-form-field>
           </div>
         <div>
@@ -410,7 +599,7 @@
           </mat-form-field>
     
           <mat-form-field class="input-field">
-              <mat-select [(value)]="nationality" placeholder="Nationality" formControlName="thirdCtrl" required>
+              <mat-select [(value)]="nationality" placeholder="Nationality" required>
                 <mat-option>None</mat-option>
                 <mat-option value="nationality">Indian</mat-option>
               </mat-select>
@@ -440,25 +629,25 @@
         <h5><i><u><b>For customer type : Corporate</b></u></i></h5>
         <div>
             <mat-form-field class="input-field">
-                <input matInput placeholder="Applicant Name" formControlName="thirdCtrl" required>
+                <input matInput placeholder="Applicant Name" required>
             </mat-form-field>
       
             <mat-form-field class="input-field">
-              <input type="number" matInput placeholder="Land Line" formControlName="thirdCtrl" required>
+              <input type="number" matInput placeholder="Land Line" required>
             </mat-form-field>
           </div>
           <div>
             <mat-form-field class="input-field">
-                <input type="number" matInput placeholder="Mobile Number" formControlName="thirdCtrl" required>
+                <input type="number" matInput placeholder="Mobile Number" required>
             </mat-form-field>
       
             <mat-form-field class="input-field">
-                <input type="email" matInput placeholder="Email" formControlName="thirdCtrl" required>
+                <input type="email" matInput placeholder="Email" required>
             </mat-form-field>
           </div>
         <div>
           <mat-form-field class="input-field">
-              <input matInput placeholder="PAN Number" formControlName="thirdCtrl" required>
+              <input matInput placeholder="PAN Number" required>
           </mat-form-field>
     
           <mat-form-field class="input-field">
@@ -467,7 +656,7 @@
         </div>
         <div>
           <mat-form-field class="input-field">
-              <mat-select [(value)]="constitution" placeholder="Constitution" formControlName="thirdCtrl" required>
+              <mat-select [(value)]="constitution" placeholder="Constitution" required>
                 <mat-option>None</mat-option>
                 <mat-option value="constitution">Option 1</mat-option>
               </mat-select>
@@ -485,20 +674,20 @@
         <div class="input-field-2">
         <div>
           <mat-form-field class="input-field">
-              <input matInput placeholder="Organisation Name" formControlName="thirdCtrl" required>
+              <input matInput placeholder="Organisation Name" required>
           </mat-form-field>
     
           <mat-form-field class="input-field">
-              <input type="number" matInput placeholder="Monthly Income" formControlName="thirdCtrl" required>
+              <input type="number" matInput placeholder="Monthly Income" required>
           </mat-form-field>
         </div>
         <div>
           <mat-form-field class="input-field">
-              <input type="number" matInput placeholder="Annual Income" formControlName="thirdCtrl" required>
+              <input type="number" matInput placeholder="Annual Income" required>
           </mat-form-field>
     
           <mat-form-field class="input-field">
-              <mat-select [(value)]="designation" placeholder="Designation" formControlName="thirdCtrl" required>
+              <mat-select [(value)]="designation" placeholder="Designation" required>
                 <mat-option>None</mat-option>
                 <mat-option value="designation">Option 1</mat-option>
               </mat-select>
@@ -506,11 +695,11 @@
         </div>
         <div>
           <mat-form-field class="input-field">
-              <input type="number" matInput placeholder="Total Years of Experience" formControlName="thirdCtrl" required>
+              <input type="number" matInput placeholder="Total Years of Experience" required>
           </mat-form-field>
     
           <mat-form-field class="input-field">
-              <input matInput placeholder="Current Job" formControlName="thirdCtrl" required>
+              <input matInput placeholder="Current Job" required>
           </mat-form-field>
         </div>
         </div>
@@ -521,14 +710,14 @@
       <div class="input-field-2">
         <div>
           <mat-form-field class="input-field">
-              <mat-select [(value)]="bankname" placeholder="Bank Name" formControlName="thirdCtrl" required>
+              <mat-select [(value)]="bankname" placeholder="Bank Name" required>
                 <mat-option>None</mat-option>
                 <mat-option value="bankname">Option 1</mat-option>
               </mat-select>
           </mat-form-field>
     
           <mat-form-field class="input-field">
-              <mat-select [(value)]="branch" placeholder="Branch" formControlName="thirdCtrl" required>
+              <mat-select [(value)]="branch" placeholder="Branch" required>
                 <mat-option>None</mat-option>
                 <mat-option value="branch">Option 1</mat-option>
               </mat-select>
@@ -536,61 +725,305 @@
         </div>
         <div>
           <mat-form-field class="input-field">
-              <input type="number" matInput placeholder="Account Number" formControlName="thirdCtrl" required>
+              <input type="number" matInput placeholder="Account Number" required>
           </mat-form-field>
     
           <mat-form-field class="input-field">
-              <input matInput placeholder="Account Type" formControlName="thirdCtrl" required>
+              <input matInput placeholder="Account Type" required>
           </mat-form-field>
         </div>
       </div>
         <!-- ******************************************************************************** -->
     
-        <h4><b>Address</b></h4>
-      <div class="input-field-2">
+        <h4><b>Address Details</b></h4>   
+  
+    <mat-accordion class="example-headers-align">
+        <mat-expansion-panel [expanded]="co_applicant_step === 0" (opened)="coApplicantSetStep(0)" hideToggle="true"  class="input-field-2">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Address 1
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
           <div>
-              <mat-form-field class="input-field">
-                  <input matInput placeholder="Address 1" formControlName="thirdCtrl" required>
-              </mat-form-field>
+              <div>
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="Address 1" required>
+                  </mat-form-field>
+            
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="Address 2" required>
+                  </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="Address 3" required>
+                </mat-form-field>
+          
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="Address 4" required>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="Address 5" required>
+                </mat-form-field>
+          
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="PIN Code" required>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="City" required>
+                </mat-form-field>
+          
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="State" required>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="Country" required>
+                </mat-form-field>
+              </div>
+            </div>
+      
+          <mat-action-row>
+            <button mat-button color="primary" (click)="coApplicantAddressNextStep()">Next</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      
+        <mat-expansion-panel [expanded]="co_applicant_step === 1" (opened)="coApplicantSetStep(1)" hideToggle="true"  class="input-field-2">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Address 2
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
+          <div>
+              <div>
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="Address 1" required>
+                  </mat-form-field>
+            
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="Address 2" required>
+                  </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="Address 3" required>
+                </mat-form-field>
+          
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="Address 4" required>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="Address 5" required>
+                </mat-form-field>
+          
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="PIN Code" required>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="City" required>
+                </mat-form-field>
+          
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="State" required>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="Country" required>
+                </mat-form-field>
+              </div>
+            </div>
+      
+          <mat-action-row>
+            <button mat-button color="warn" (click)="coApplicantAddressPrevStep()">Previous</button>
+            <button mat-button color="primary" (click)="coApplicantAddressNextStep()">Next</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      
+        <mat-expansion-panel [expanded]="co_applicant_step === 2" (opened)="coApplicantSetStep(2)" hideToggle="true"  class="input-field-2">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Address 3
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
+          <div>
+              <div>
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="Address 1" required>
+                  </mat-form-field>
+            
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="Address 2" required>
+                  </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="Address 3" required>
+                </mat-form-field>
+          
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="Address 4" required>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="Address 5" required>
+                </mat-form-field>
+          
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="PIN Code" required>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="City" required>
+                </mat-form-field>
+          
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="State" required>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="input-field">
+                    <input matInput placeholder="Country" required>
+                </mat-form-field>
+              </div>
+            </div>
+      
+            <mat-action-row>
+                <button mat-button color="warn" (click)="coApplicantAddressPrevStep()">Previous</button>
+                <button mat-button color="primary" (click)="coApplicantAddressNextStep()">Next</button>
+              </mat-action-row>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel [expanded]="co_applicant_step === 3" (opened)="coApplicantSetStep(3)" hideToggle="true"  class="input-field-2">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Address 4
+              </mat-panel-title>
+            </mat-expansion-panel-header>
         
-              <mat-form-field class="input-field">
-                  <input matInput placeholder="Address 2" formControlName="thirdCtrl" required>
-              </mat-form-field>
-          </div>
-          <div>
-            <mat-form-field class="input-field">
-                <input matInput placeholder="Address 3" formControlName="thirdCtrl" required>
-            </mat-form-field>
+            <div>
+                <div>
+                    <mat-form-field class="input-field">
+                        <input matInput placeholder="Address 1" required>
+                    </mat-form-field>
+              
+                    <mat-form-field class="input-field">
+                        <input matInput placeholder="Address 2" required>
+                    </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="Address 3" required>
+                  </mat-form-field>
+            
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="Address 4" required>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="Address 5" required>
+                  </mat-form-field>
+            
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="PIN Code" required>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="City" required>
+                  </mat-form-field>
+            
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="State" required>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field class="input-field">
+                      <input matInput placeholder="Country" required>
+                  </mat-form-field>
+                </div>
+              </div>
+        
+              <mat-action-row>
+                  <button mat-button color="warn" (click)="coApplicantAddressPrevStep()">Previous</button>
+                  <button mat-button color="primary" (click)="coApplicantAddressNextStep()">Next</button>
+                </mat-action-row>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel [expanded]="co_applicant_step === 4" (opened)="coApplicantSetStep(4)" hideToggle="true"  class="input-field-2">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Address 5
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+          
+              <div>
+                  <div>
+                      <mat-form-field class="input-field">
+                          <input matInput placeholder="Address 1" required>
+                      </mat-form-field>
+                
+                      <mat-form-field class="input-field">
+                          <input matInput placeholder="Address 2" required>
+                      </mat-form-field>
+                  </div>
+                  <div>
+                    <mat-form-field class="input-field">
+                        <input matInput placeholder="Address 3" required>
+                    </mat-form-field>
+              
+                    <mat-form-field class="input-field">
+                        <input matInput placeholder="Address 4" required>
+                    </mat-form-field>
+                  </div>
+                  <div>
+                    <mat-form-field class="input-field">
+                        <input matInput placeholder="Address 5" required>
+                    </mat-form-field>
+              
+                    <mat-form-field class="input-field">
+                        <input matInput placeholder="PIN Code" required>
+                    </mat-form-field>
+                  </div>
+                  <div>
+                    <mat-form-field class="input-field">
+                        <input matInput placeholder="City" required>
+                    </mat-form-field>
+              
+                    <mat-form-field class="input-field">
+                        <input matInput placeholder="State" required>
+                    </mat-form-field>
+                  </div>
+                  <div>
+                    <mat-form-field class="input-field">
+                        <input matInput placeholder="Country" required>
+                    </mat-form-field>
+                  </div>
+                </div>
+          
+              <mat-action-row>
+                <button mat-button color="warn" (click)="coApplicantAddressPrevStep()">Previous</button>
+                <button mat-button color="primary" (click)="coApplicantAddressNextStep()">Save</button>
+              </mat-action-row>
+            </mat-expansion-panel>
       
-            <mat-form-field class="input-field">
-                <input matInput placeholder="Address 4" formControlName="thirdCtrl" required>
-            </mat-form-field>
-          </div>
-          <div>
-            <mat-form-field class="input-field">
-                <input matInput placeholder="Address 5" formControlName="thirdCtrl" required>
-            </mat-form-field>
-      
-            <mat-form-field class="input-field">
-                <input matInput placeholder="PIN Code" formControlName="thirdCtrl" required>
-            </mat-form-field>
-          </div>
-        <div>
-          <mat-form-field class="input-field">
-              <input matInput placeholder="City" formControlName="thirdCtrl" required>
-          </mat-form-field>
-    
-          <mat-form-field class="input-field">
-              <input matInput placeholder="State" formControlName="thirdCtrl" required>
-          </mat-form-field>
-        </div>
-        <div>
-          <mat-form-field class="input-field">
-              <input matInput placeholder="Country" formControlName="thirdCtrl" required>
-          </mat-form-field>
-        </div>
-       
-      </div>
+      </mat-accordion>
+
 
       <div>
         <button mat-button mat-raised-button color="primary" matStepperPrevious>Back</button>
@@ -622,24 +1055,24 @@
         <h5><i><u><b>For customer type : Individual</b></u></i></h5>
         <div>
             <mat-form-field class="input-field">
-              <input matInput placeholder="Applicant Name" formControlName="fourthCtrl" required>
+              <input matInput placeholder="Applicant Name" required>
             </mat-form-field>
           </div>
           <div>
               <mat-form-field class="input-field">
-                  <input matInput placeholder="Father's Name" formControlName="fourthCtrl" required>
+                  <input matInput placeholder="Father's Name" required>
               </mat-form-field>
             <mat-form-field class="input-field">
-              <input type="number" matInput placeholder="Land Line" formControlName="fourthCtrl" required>
+              <input type="number" matInput placeholder="Land Line" required>
             </mat-form-field>
           </div>
           <div>
             <mat-form-field class="input-field">
-                <input type="number" matInput placeholder="Mobile Number" formControlName="fourthCtrl" required>
+                <input type="number" matInput placeholder="Mobile Number" required>
             </mat-form-field>
       
             <mat-form-field class="input-field">
-                <input type="email" matInput placeholder="Email" formControlName="fourthCtrl" required>
+                <input type="email" matInput placeholder="Email" required>
             </mat-form-field>
           </div>
         <div>
@@ -650,7 +1083,7 @@
           </mat-form-field>
     
           <mat-form-field class="input-field">
-              <mat-select [(value)]="nationality" placeholder="Nationality" formControlName="fourthCtrl" required>
+              <mat-select [(value)]="nationality" placeholder="Nationality" required>
                 <mat-option>None</mat-option>
                 <mat-option value="nationality">Indian</mat-option>
               </mat-select>
@@ -680,25 +1113,25 @@
         <h5><i><u><b>For customer type : Corporate</b></u></i></h5>
         <div>
             <mat-form-field class="input-field">
-                <input matInput placeholder="Applicant Name" formControlName="fourthCtrl" required>
+                <input matInput placeholder="Applicant Name" required>
             </mat-form-field>
       
             <mat-form-field class="input-field">
-              <input type="number" matInput placeholder="Land Line" formControlName="fourthCtrl" required>
+              <input type="number" matInput placeholder="Land Line" required>
             </mat-form-field>
           </div>
           <div>
             <mat-form-field class="input-field">
-                <input type="number" matInput placeholder="Mobile Number" formControlName="fourthCtrl" required>
+                <input type="number" matInput placeholder="Mobile Number" required>
             </mat-form-field>
       
             <mat-form-field class="input-field">
-                <input type="email" matInput placeholder="Email" formControlName="fourthCtrl" required>
+                <input type="email" matInput placeholder="Email" required>
             </mat-form-field>
           </div>
         <div>
           <mat-form-field class="input-field">
-              <input matInput placeholder="PAN Number" formControlName="fourthCtrl" required>
+              <input matInput placeholder="PAN Number" required>
           </mat-form-field>
     
           <mat-form-field class="input-field">
@@ -707,7 +1140,7 @@
         </div>
         <div>
           <mat-form-field class="input-field">
-              <mat-select [(value)]="constitution" placeholder="Constitution" formControlName="fourthCtrl" required>
+              <mat-select [(value)]="constitution" placeholder="Constitution" required>
                 <mat-option>None</mat-option>
                 <mat-option value="constitution">Option 1</mat-option>
               </mat-select>
@@ -725,20 +1158,20 @@
         <div class="input-field-2">
         <div>
           <mat-form-field class="input-field">
-              <input matInput placeholder="Organisation Name" formControlName="fourthCtrl" required>
+              <input matInput placeholder="Organisation Name" required>
           </mat-form-field>
     
           <mat-form-field class="input-field">
-              <input type="number" matInput placeholder="Monthly Income" formControlName="fourthCtrl" required>
+              <input type="number" matInput placeholder="Monthly Income" required>
           </mat-form-field>
         </div>
         <div>
           <mat-form-field class="input-field">
-              <input type="number" matInput placeholder="Annual Income" formControlName="fourthCtrl" required>
+              <input type="number" matInput placeholder="Annual Income" required>
           </mat-form-field>
     
           <mat-form-field class="input-field">
-              <mat-select [(value)]="designation" placeholder="Designation" formControlName="fourthCtrl" required>
+              <mat-select [(value)]="designation" placeholder="Designation" required>
                 <mat-option>None</mat-option>
                 <mat-option value="designation">Option 1</mat-option>
               </mat-select>
@@ -746,11 +1179,11 @@
         </div>
         <div>
           <mat-form-field class="input-field">
-              <input type="number" matInput placeholder="Total Years of Experience" formControlName="fourthCtrl" required>
+              <input type="number" matInput placeholder="Total Years of Experience" required>
           </mat-form-field>
     
           <mat-form-field class="input-field">
-              <input matInput placeholder="Current Job" formControlName="fourthCtrl" required>
+              <input matInput placeholder="Current Job" required>
           </mat-form-field>
         </div>
         </div>
@@ -761,14 +1194,14 @@
       <div class="input-field-2">
         <div>
           <mat-form-field class="input-field">
-              <mat-select [(value)]="bankname" placeholder="Bank Name" formControlName="fourthCtrl" required>
+              <mat-select [(value)]="bankname" placeholder="Bank Name" required>
                 <mat-option>None</mat-option>
                 <mat-option value="bankname">Option 1</mat-option>
               </mat-select>
           </mat-form-field>
     
           <mat-form-field class="input-field">
-              <mat-select [(value)]="branch" placeholder="Branch" formControlName="fourthCtrl" required>
+              <mat-select [(value)]="branch" placeholder="Branch" required>
                 <mat-option>None</mat-option>
                 <mat-option value="branch">Option 1</mat-option>
               </mat-select>
@@ -776,11 +1209,11 @@
         </div>
         <div>
           <mat-form-field class="input-field">
-              <input type="number" matInput placeholder="Account Number" formControlName="fourthCtrl" required>
+              <input type="number" matInput placeholder="Account Number" required>
           </mat-form-field>
     
           <mat-form-field class="input-field">
-              <input matInput placeholder="Account Type" formControlName="fourthCtrl" required>
+              <input matInput placeholder="Account Type" required>
           </mat-form-field>
         </div>
       </div>
@@ -790,43 +1223,43 @@
       <div class="input-field-2">
           <div>
               <mat-form-field class="input-field">
-                  <input matInput placeholder="Address 1" formControlName="fourthCtrl" required>
+                  <input matInput placeholder="Address 1" required>
               </mat-form-field>
         
               <mat-form-field class="input-field">
-                  <input matInput placeholder="Address 2" formControlName="fourthCtrl" required>
+                  <input matInput placeholder="Address 2" required>
               </mat-form-field>
           </div>
           <div>
             <mat-form-field class="input-field">
-                <input matInput placeholder="Address 3" formControlName="fourthCtrl" required>
+                <input matInput placeholder="Address 3" required>
             </mat-form-field>
       
             <mat-form-field class="input-field">
-                <input matInput placeholder="Address 4" formControlName="fourthCtrl" required>
+                <input matInput placeholder="Address 4" required>
             </mat-form-field>
           </div>
           <div>
             <mat-form-field class="input-field">
-                <input matInput placeholder="Address 5" formControlName="fourthCtrl" required>
+                <input matInput placeholder="Address 5" required>
             </mat-form-field>
       
             <mat-form-field class="input-field">
-                <input matInput placeholder="PIN Code" formControlName="fourthCtrl" required>
+                <input matInput placeholder="PIN Code" required>
             </mat-form-field>
           </div>
         <div>
           <mat-form-field class="input-field">
-              <input matInput placeholder="City" formControlName="fourthCtrl" required>
+              <input matInput placeholder="City" required>
           </mat-form-field>
     
           <mat-form-field class="input-field">
-              <input matInput placeholder="State" formControlName="fourthCtrl" required>
+              <input matInput placeholder="State" required>
           </mat-form-field>
         </div>
         <div>
           <mat-form-field class="input-field">
-              <input matInput placeholder="Country" formControlName="fourthCtrl" required>
+              <input matInput placeholder="Country" required>
           </mat-form-field>
         </div>
         
@@ -870,16 +1303,16 @@
             </mat-form-field>
 
             <mat-form-field class="input-field">
-              <input matInput placeholder="Property Address">
+                <input matInput placeholder="Property Address 1">
             </mat-form-field>
           </div>
           <div>
             <mat-form-field class="input-field">
-              <input matInput placeholder="Address 1">
+              <input matInput placeholder="Address 2">
             </mat-form-field>
 
             <mat-form-field class="input-field">
-              <input matInput placeholder="Address 2">
+                <input matInput placeholder="Address 3">
             </mat-form-field>
           </div>
           <div>
@@ -899,6 +1332,13 @@
             <mat-form-field class="input-field">
               <input matInput placeholder="City">
             </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="input-field">
+                <input matInput placeholder="Country">
+              </mat-form-field>
+  
+              
           </div>
           <div>
             <mat-form-field class="input-field">

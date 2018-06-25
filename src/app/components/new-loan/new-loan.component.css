@@ -37,3 +37,24 @@
     /* border: 3px solid rgb(206, 206, 206); */
     border-radius: 10px;
   }
+
+
+  .example-headers-align .mat-expansion-panel-header-title, 
+  .example-headers-align .mat-expansion-panel-header-description {
+    flex-basis: 0;
+  }
+  
+  .example-headers-align .mat-expansion-panel-header-description {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .address-details {
+    margin-left: 400px;
+    
+  }
+
+  .form-header {
+    margin-left: 400px;
+    
+  }

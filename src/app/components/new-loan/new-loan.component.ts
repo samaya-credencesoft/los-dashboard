@@ -25,10 +25,45 @@ export class NewLoanComponent  {
   customerTypeIndividual : boolean = true;
   customerTypeCorporate : boolean = true;
 
-  firstAddressDetails : boolean = true;
-  secondAddressDetails : boolean = true;
+  applicant_firstAddressDetails : boolean = true;
+  applicant_secondAddressDetails : boolean = true;
 
+
+
+
+  applicant_step = 0;
+
+  applicantSetStep(index: number) {
+    this.applicant_step = index;
+  }
+
+  applicantAddressNextStep() {
+    this.applicant_step++;
+  }
+
+  applicantAddressPrevStep() {
+    this.applicant_step--;
+  }
+
+
+
+  co_applicant_step = 0;
+
+  coApplicantSetStep(index: number) {
+    this.co_applicant_step = index;
+  }
+
+  coApplicantAddressNextStep() {
+    this.co_applicant_step++;
+  }
+
+  coApplicantAddressPrevStep() {
+    this.co_applicant_step--;
+  }
   
+  
+
+
   collateralDataChange (collateralDataValue){
 
     if(collateralDataValue == "Property"){
@@ -70,13 +105,21 @@ export class NewLoanComponent  {
 
   }
 
-  addressChange (){
+  applicantAddressChange (){
     
-        this.firstAddressDetails = false;
-        this.secondAddressDetails = false;    
-      
-    
+        this.applicant_firstAddressDetails = true;
+        this.applicant_secondAddressDetails = !this.applicant_secondAddressDetails;
+        this.applicant_firstAddressDetails = !this.applicant_firstAddressDetails;
   }
+
+//   applicantAddressChange2 (){
+    
+//     this.applicant_secondAddressDetails = true;
+//     this.applicant_firstAddressDetails = !this.applicant_firstAddressDetails;
+  
+
+// }
+
 
 
 

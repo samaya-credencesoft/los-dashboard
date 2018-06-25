@@ -13,6 +13,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatButtonModule } from '@angular/material/button';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatIconModule} from '@angular/material/icon';
 import {Http, Response, RequestOptions, Headers, HttpModule} from '@angular/http';
 import { Logger } from './services/common_services/logger.service';
 import { AddressService } from './services/common_services/address.service';
@@ -59,7 +61,9 @@ import { NewLoanComponent } from './components/new-loan/new-loan.component';
     CommonModule,
     MatStepperModule,
     MatRadioModule,
+    MatExpansionModule,
     MatSelectModule,
+    MatIconModule,
     MatInputModule,
     HttpClientModule,
     MatDatepickerModule,

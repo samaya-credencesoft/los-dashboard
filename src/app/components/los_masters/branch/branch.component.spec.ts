@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BounceReasonMasterComponent } from './bounce-reason-master.component';
+import { BranchMasterComponent } from './branch.component';
 
-describe('BounceReasonMasterComponent', () => {
-  let component: BounceReasonMasterComponent;
-  let fixture: ComponentFixture<BounceReasonMasterComponent>;
+describe('BranchMasterComponent', () => {
+  let component: BranchMasterComponent;
+  let fixture: ComponentFixture<BranchMasterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BounceReasonMasterComponent ]
+      declarations: [ BranchMasterComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BounceReasonMasterComponent);
+    fixture = TestBed.createComponent(BranchMasterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

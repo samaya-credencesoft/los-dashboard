@@ -15,6 +15,9 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatButtonModule } from '@angular/material/button';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+
+
 import {Http, Response, RequestOptions, Headers, HttpModule} from '@angular/http';
 import { Logger } from './services/common_services/logger.service';
 import { AddressService } from './services/common_services/address.service';
@@ -32,23 +35,24 @@ import { LogoutComponent } from './components/authentication_components/logout/l
 import {confirmEqualPasswordValidator } from './services/common_services/confirm-equal-passwords-validator.directive';
 import {BaseComponent} from './components/base_component/base.component';
 import { DataTablesModule } from 'angular-datatables';
-import { StateMasterComponent } from './components/los_masters/state-master/state-master.component';
-import { CityMasterComponent } from './components/los_masters/city-master/city-master.component';
-import { DistrictMasterComponent } from './components/los_masters/district-master/district-master.component';
-import { CountryMasterComponent } from './components/los_masters/country-master/country-master.component';
-import { RegionMasterComponent } from './components/los_masters/region-master/region-master.component';
-import { BranchMasterComponent } from './components/los_masters/branch-master/branch-master.component';
-import { SalesmanagerMasterComponent } from './components/los_masters/salesmanager-master/salesmanager-master.component';
-import { SourcingMasterComponent } from './components/los_masters/sourcing-master/sourcing-master.component';
-import { SupplierMasterComponent } from './components/los_masters/supplier-master/supplier-master.component';
-import { ManufactureMasterComponent } from './components/los_masters/manufacture-master/manufacture-master.component';
-import { ModelMasterComponent } from './components/los_masters/model-master/model-master.component';
-import { DepartmentMasterComponent } from './components/los_masters/department-master/department-master.component';
-import { BounceReasonMasterComponent } from './components/los_masters/bounce-reason-master/bounce-reason-master.component';
-import { ProductMasterComponent } from './components/los_masters/product-master/product-master.component';
-import { SchemeMasterComponent } from './components/los_masters/scheme-master/scheme-master.component';
+// import { StateMasterComponent } from './components/los_masters/state-master/state-master.component';
+// import { CityMasterComponent } from './components/los_masters/city-master/city-master.component';
+// import { DistrictMasterComponent } from './components/los_masters/district-master/district-master.component';
+// import { CountryMasterComponent } from './components/los_masters/country-master/country-master.component';
+// import { RegionMasterComponent } from './components/los_masters/region-master/region-master.component';
+import { BranchComponent } from './components/los_masters/branch/branch.component';
+// import { SalesmanagerMasterComponent } from './components/los_masters/salesmanager-master/salesmanager-master.component';
+// import { SourcingMasterComponent } from './components/los_masters/sourcing-master/sourcing-master.component';
+// import { SupplierMasterComponent } from './components/los_masters/supplier-master/supplier-master.component';
+// import { ManufactureMasterComponent } from './components/los_masters/manufacture-master/manufacture-master.component';
+// import { ModelMasterComponent } from './components/los_masters/model-master/model-master.component';
+// import { DepartmentMasterComponent } from './components/los_masters/department-master/department-master.component';
+// import { BounceReasonMasterComponent } from './components/los_masters/bounce-reason-master/bounce-reason-master.component';
+// import { ProductMasterComponent } from './components/los_masters/product-master/product-master.component';
+// import { SchemeMasterComponent } from './components/los_masters/scheme-master/scheme-master.component';
 import { UserManagementComponent } from './components/user-management/user-management.component';
 import { NewLoanComponent } from './components/new-loan/new-loan.component';
+import { BranchResolver } from './resolver/branch-resolver.service';
 
 
 
@@ -63,6 +67,7 @@ import { NewLoanComponent } from './components/new-loan/new-loan.component';
     MatRadioModule,
     MatExpansionModule,
     MatSelectModule,
+    MatAutocompleteModule,
     MatIconModule,
     MatInputModule,
     HttpClientModule,
@@ -83,21 +88,21 @@ import { NewLoanComponent } from './components/new-loan/new-loan.component';
      LogoutComponent,
      confirmEqualPasswordValidator,
      BaseComponent,
-     StateMasterComponent,
-     CityMasterComponent,
-     DistrictMasterComponent,
-     CountryMasterComponent,
-     RegionMasterComponent,
-     BranchMasterComponent,
-     SalesmanagerMasterComponent,
-     SourcingMasterComponent,
-     SupplierMasterComponent,
-     ManufactureMasterComponent,
-     ModelMasterComponent,
-     DepartmentMasterComponent,
-     BounceReasonMasterComponent,
-     ProductMasterComponent,
-     SchemeMasterComponent,
+    //  StateMasterComponent,
+    //  CityMasterComponent,
+    //  DistrictMasterComponent,
+    //  CountryMasterComponent,
+    //  RegionMasterComponent,
+     BranchComponent,
+    //  SalesmanagerMasterComponent,
+    //  SourcingMasterComponent,
+    //  SupplierMasterComponent,
+    //  ManufactureMasterComponent,
+    //  ModelMasterComponent,
+    //  DepartmentMasterComponent,
+    //  BounceReasonMasterComponent,
+    //  ProductMasterComponent,
+    //  SchemeMasterComponent,
      UserManagementComponent,
      NewLoanComponent
     ],
@@ -108,7 +113,8 @@ import { NewLoanComponent } from './components/new-loan/new-loan.component';
     DashboardService,
     AuthService,
     MasterService,
-    AuthGuard
+    AuthGuard,
+    BranchResolver
   ]
 
 })

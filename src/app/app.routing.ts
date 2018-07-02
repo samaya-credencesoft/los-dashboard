@@ -15,18 +15,23 @@ import { BaseComponent } from './components/base_component/base.component';
 // import { CountryMasterComponent } from './components/los_masters/country-master/country-master.component';
 // import { RegionMasterComponent } from './components/los_masters/region-master/region-master.component';
 import { BranchComponent } from './components/los_masters/branch/branch.component';
-// import { SalesmanagerMasterComponent } from './components/los_masters/salesmanager-master/salesmanager-master.component';
-// import { SourcingMasterComponent } from './components/los_masters/sourcing-master/sourcing-master.component';
-// import { SupplierMasterComponent } from './components/los_masters/supplier-master/supplier-master.component';
+import { SalesmanagerComponent } from './components/los_masters/salesmanager/salesmanager.component';
+import { SourcingComponent } from './components/los_masters/sourcing/sourcing.component';
+import { SupplierComponent } from './components/los_masters/supplier/supplier.component';
 // import { ManufactureMasterComponent } from './components/los_masters/manufacture-master/manufacture-master.component';
 // import { ModelMasterComponent } from './components/los_masters/model-master/model-master.component';
 // import { DepartmentMasterComponent } from './components/los_masters/department-master/department-master.component';
 // import { BounceReasonMasterComponent } from './components/los_masters/bounce-reason-master/bounce-reason-master.component';
-// import { ProductMasterComponent } from './components/los_masters/product-master/product-master.component';
-// import { SchemeMasterComponent } from './components/los_masters/scheme-master/scheme-master.component';
+import { ProductComponent } from './components/los_masters/product/product.component';
+import { SchemeComponent } from './components/los_masters/scheme/scheme.component';
 import { UserManagementComponent } from './components/user-management/user-management.component';
 import { NewLoanComponent } from './components/new-loan/new-loan.component';
 import { BranchResolver } from './resolver/branch-resolver.service'
+import { SupplierResolver } from './resolver/supplier-resolver.service'
+import { ProductResolver } from './resolver/product-resolver.service'
+import { SalesManagerResolver } from './resolver/salesmanager-resolver.service'
+import { SchemeResolver } from './resolver/scheme-resolver.service'
+import { SourceResolver } from './resolver/source-resolver.service'
 
 
 const appRoutes: Routes = [
@@ -87,18 +92,27 @@ const appRoutes: Routes = [
             brares:BranchResolver
         },
     },
-    // {
-    //     path: 'salesmanagerMaster',
-    //     component: SalesmanagerMasterComponent
-    // },
-    // {
-    //     path: 'sourcingMaster',
-    //     component: SourcingMasterComponent
-    // },
-    // {
-    //     path: 'supplierMaster',
-    //     component: SupplierMasterComponent
-    // },
+    {
+        path: 'salesmanagerMaster',
+        component: SalesmanagerComponent,
+        resolve : {
+            brares:SalesManagerResolver
+        },
+    },
+    {
+        path: 'sourcingMaster',
+        component: SourcingComponent,
+        resolve : {
+            brares:SourceResolver
+        },
+    },
+    {
+        path: 'supplierMaster',
+        component: SupplierComponent,
+        resolve : {
+            brares:SupplierResolver
+        },
+    },
     // {
     //     path: 'manufactureMaster',
     //     component: ManufactureMasterComponent
@@ -115,14 +129,20 @@ const appRoutes: Routes = [
     //     path: 'bounceResonMaster',
     //     component: BounceReasonMasterComponent
     // },
-    // {
-    //     path: 'productMaster',
-    //     component: ProductMasterComponent
-    // },
-    // {
-    //     path: 'schemeMaster',
-    //     component: SchemeMasterComponent
-    // },
+    {
+        path: 'productMaster',
+        component: ProductComponent,
+        resolve : {
+            brares:ProductResolver
+        },
+    },
+    {
+        path: 'schemeMaster',
+        component: SchemeComponent,
+        resolve : {
+            brares:SchemeResolver
+        },
+    },
     {
         path: 'logout',
         component: LogoutComponent

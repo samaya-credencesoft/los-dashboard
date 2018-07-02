@@ -1,0 +1,59 @@
+<app-base></app-base>
+
+        <div class="dashboard-content">
+
+            
+
+            <div class="input-heading"><h1>Sales Manager Master Details</h1></div>
+            <div>
+                    <mat-form-field class="search-box">
+                            <mat-icon matPrefix>search</mat-icon>
+                          <input type="text" placeholder="Search Details By Sales Manager Name" aria-label="Sales Manager Name" 
+                                
+                               matInput [formControl]="searchBySalesManagerNameControl" [matAutocomplete]="auto"
+                                     
+                               [(ngModel)]="salesManager" (ngModelChange)="salesManagerDetailsBySalesManagerName(salesManager)">
+          
+                          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                            <mat-option *ngFor="let salesManager of filteredOptions | async" [value]="salesManager">
+                              {{ salesManager.name }}
+                            </mat-option>
+                          </mat-autocomplete>
+                    </mat-form-field>
+              </div>
+
+            <form>
+
+                    <div class="input-field-2">
+                      
+                        
+                        <mat-form-field class="input-field">
+                            <input type="text" placeholder="Sales Manager Name" aria-label="Sales Manager Name" matInput [formControl]="nameControl" [(ngModel)]="model.name">
+                        </mat-form-field>
+
+                        <mat-form-field class="input-field">
+                        <mat-select [(value)]="designation" placeholder="Designation" [formControl]="designationControl" [(ngModel)]="model.designation">
+                            
+                            <mat-option value="Regional Sales Manager">Regional Sales Manager</mat-option>
+                            <mat-option value="Branch Sales Manager">Branch Sales Manager</mat-option>
+                            <mat-option value="Area Sales Manager">Area Sales Manager</mat-option>
+                            <mat-option value="Zonal Sales Manager">Zonal Sales Manager</mat-option>
+                            <mat-option value="National Sales Manager">National Sales Manager</mat-option>
+                            
+                        </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field class="input-field">
+                            <input type="text" placeholder="Employee Code" aria-label="Employee Code" matInput [formControl]="employeeCodeControl" [(ngModel)]="model.employeeCode">
+                        </mat-form-field>
+
+
+
+                
+                    </div>
+                    <div class="input-button">
+                            <button mat-button mat-raised-button color="primary" (click)="salesManagerMasterDetails()">Save</button>
+                    </div>
+                
+            </form>
+        </div>

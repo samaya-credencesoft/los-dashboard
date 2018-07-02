@@ -1,0 +1,77 @@
+<app-base></app-base>
+
+        <div class="dashboard-content">
+
+            
+
+            <div class="input-heading"><h1>Product Master Details</h1></div>
+            <div>
+                    <mat-form-field class="search-box">
+                            <mat-icon matPrefix>search</mat-icon>
+                          <input type="text" placeholder="Search Product By Product Name" aria-label="Product Name" 
+                                
+                               matInput [formControl]="searchByProductNameControl" [matAutocomplete]="auto"
+                                     
+                               [(ngModel)]="product" (ngModelChange)="productByProductName(product)">
+          
+                          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                            <mat-option *ngFor="let product of filteredOptions | async" [value]="product">
+                              {{ product.productName }}
+                            </mat-option>
+                          </mat-autocomplete>
+                    </mat-form-field>
+              </div>
+
+            <form>
+
+                    <div class="input-field-2">
+                      
+                        <mat-form-field class="input-field">
+                          <input type="text" placeholder="Product Name" aria-label="Product Name" matInput [formControl]="productNameControl" [(ngModel)]="model.productName">
+                        </mat-form-field>
+
+                        <mat-form-field class="input-field">
+                          <input type="text" placeholder="Product Code" aria-label="Product Code" matInput [formControl]="productCodeControl" [(ngModel)]="model.productCode">
+                        </mat-form-field>
+
+                        <mat-form-field class="input-field">
+                          <mat-select [(value)]="revolve" placeholder="Revolving" [formControl]="revolvingControl" [(ngModel)]="model.revolving">
+                            
+                            <mat-option value="Yes">Yes</mat-option>
+                            <mat-option value="No">No</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field class="input-field">
+                          <mat-select [(value)]="interestperyear" placeholder="Interest Per Year" [formControl]="interestPerYearControl" [(ngModel)]="model.interestPerYear">
+                            
+                            <mat-option value="360">360</mat-option>
+                            <mat-option value="365">365</mat-option>
+                            <mat-option value="Actual">Actual</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field class="input-field">
+                          <mat-select [(value)]="interestpermonth" placeholder="Interest Per Month" [formControl]="interestPerMonthControl" [(ngModel)]="model.interestPerMonth">
+                            
+                            <mat-option value="360">360</mat-option>
+                            <mat-option value="365">365</mat-option>
+                            <mat-option value="Actual">Actual</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field class="input-field">
+                          <mat-select [(value)]="active" placeholder="Active" [formControl]="activeControl" [(ngModel)]="model.active">
+                            
+                            <mat-option value="Yes">Yes</mat-option>
+                            <mat-option value="No">No</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                
+                    </div>
+                    <div class="input-button">
+                            <button mat-button mat-raised-button color="primary" (click)="productMasterDetails()">Save</button>
+                    </div>
+                
+            </form>
+        </div>

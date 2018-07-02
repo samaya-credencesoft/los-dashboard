@@ -1,0 +1,66 @@
+<app-base></app-base>
+
+        <div class="dashboard-content">
+
+            
+
+            <div class="input-heading"><h1>Supplier Master Details</h1></div>
+            <div>
+                    <mat-form-field class="search-box">
+                            <mat-icon matPrefix>search</mat-icon>
+                          <input type="text" placeholder="Search Supplier By Supplier Name" aria-label="Supplier Name" 
+                                
+                               matInput [formControl]="searchBySupplierNameControl" [matAutocomplete]="auto"
+                                     
+                               [(ngModel)]="supplier" (ngModelChange)="supplierBySupplierName(supplier)">
+          
+                          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                            <mat-option *ngFor="let supplier of filteredOptions | async" [value]="supplier">
+                              {{ supplier.supplierName }}
+                            </mat-option>
+                          </mat-autocomplete>
+                    </mat-form-field>
+              </div>
+
+            <form>
+
+                    <div class="input-field-2">
+  
+                            <mat-form-field class="input-field">
+                                <input type="text" placeholder="Supplier Name" aria-label="Supplier Name" matInput [formControl]="supplierNameControl" [(ngModel)]="model.supplierName">
+                            </mat-form-field>
+                
+                            <mat-form-field class="input-field">
+                                <input type="text" placeholder="Manufacturer Name" aria-label="Manufacturer Name" matInput [formControl]="manufacturerNameControl" [(ngModel)]="model.manufacturerName">
+                            </mat-form-field>
+                
+                            <mat-form-field class="input-field">
+                                <input type="text" placeholder="Location" aria-label="Location" matInput [formControl]="locationControl" [(ngModel)]="model.location">
+                            </mat-form-field>
+                
+                
+                            <mat-form-field class="input-field">
+                              <input type="text" placeholder="GST Number" aria-label="GST Number" matInput [formControl]="gstNumberControl" [(ngModel)]="model.gstNumber"/>
+                            </mat-form-field>
+                
+                
+                            <mat-form-field class="input-field">
+                              <input type="text" placeholder="PAN Number" aria-label="PAN Number" matInput [formControl]="panNumberControl" [(ngModel)]="model.panNumber"/>
+                            </mat-form-field>
+                
+                
+                            <!-- <mat-form-field class="input-field">
+                              <input type="text" placeholder="Loan Type" aria-label="Loan Type" matInput [formControl]="loanTypeControl" [(ngModel)]="model.loanType"/>
+                            </mat-form-field> -->
+
+                            <mat-form-field class="input-field">
+                              <input type="text" placeholder="Address" aria-label="Address" matInput [formControl]="addressControl" [(ngModel)]="model.address"/>
+                            </mat-form-field>
+                
+                    </div>
+                    <div class="input-button">
+                            <button mat-button mat-raised-button color="primary" (click)="supplierMasterDetails()">Save</button>
+                    </div>
+                
+            </form>
+        </div>

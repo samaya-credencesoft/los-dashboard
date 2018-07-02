@@ -1,4 +1,0 @@
-class Guarantor extends Applicant
-{
-    
-}

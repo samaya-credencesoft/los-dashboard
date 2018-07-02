@@ -1,0 +1,106 @@
+<app-base></app-base>
+
+        <div class="dashboard-content">
+
+            
+
+            <div class="input-heading"><h1>Scheme Master Details</h1></div>
+            <div>
+                    <mat-form-field class="search-box">
+                            <mat-icon matPrefix>search</mat-icon>
+                          <input type="text" placeholder="Search Scheme By Scheme Name" aria-label="Scheme Name" 
+                                
+                               matInput [formControl]="searchBySchemeNameControl" [matAutocomplete]="auto"
+                                     
+                               [(ngModel)]="scheme" (ngModelChange)="schemeBySchemeName(scheme)">
+          
+                          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                            <mat-option *ngFor="let scheme of filteredOptions | async" [value]="scheme">
+                              {{ scheme.schemeName }}
+                            </mat-option>
+                          </mat-autocomplete>
+                    </mat-form-field>
+              </div>
+
+            <form>
+
+                    <div class="input-field-2">
+                      
+                        <mat-form-field class="input-field">
+                            <input type="text" placeholder="Scheme Name" aria-label="Scheme Name" matInput [formControl]="schemeNameControl" [(ngModel)]="model.schemeName">
+                        </mat-form-field>
+
+                        <mat-form-field class="input-field">
+                            <input type="text" placeholder="Scheme Code" aria-label="Scheme Code" matInput [formControl]="schemeCodeControl" [(ngModel)]="model.schemeCode">
+                        </mat-form-field>
+
+                        <mat-form-field class="input-field">
+                            <input type="text" placeholder="Minimum Loan Amount" aria-label="Minimum Loan Amount" matInput [formControl]="minimumLoanAmountControl" [(ngModel)]="model.minimumLoanAmount">
+                        </mat-form-field>
+
+                        <mat-form-field class="input-field">
+                            <input type="text" placeholder="Maximum Loan Amount" aria-label="Maximum Loan Amount" matInput [formControl]="maximumLoanAmountControl" [(ngModel)]="model.maximumLoanAmount">
+                        </mat-form-field>
+
+                        <mat-form-field class="input-field">
+                            <input type="text" placeholder="Minimum Tenure" aria-label="Minimum Tenure" matInput [formControl]="minimumTenureControl" [(ngModel)]="model.minimumTenure">
+                        </mat-form-field>
+
+                        <mat-form-field class="input-field">
+                            <input type="text" placeholder="Maximum Tenure" aria-label="Maximum Tenure" matInput [formControl]="maximumTenureControl" [(ngModel)]="model.maximumTenure">
+                        </mat-form-field>
+
+                        <mat-form-field class="input-field">
+                            <input type="text" placeholder="Minimum Effective Interest Rate" aria-label="Minimum Effective Interest Rate" matInput [formControl]="minimumEffectiveInterestRateControl" [(ngModel)]="model.minimumEffectiveInterestRate">
+                        </mat-form-field>
+
+                        <mat-form-field class="input-field">
+                            <input type="text" placeholder="Maximum Effective Interest Rate" aria-label="Maximum Effective Interest Rate" matInput [formControl]="maximumEffectiveInterestRateControl" [(ngModel)]="model.maximumEffectiveInterestRate">
+                        </mat-form-field>
+
+                        <mat-form-field class="input-field">
+                            <input type="text" placeholder="Minimum Flat Rate" aria-label="Minimum Flat Rate" matInput [formControl]="minimumFlatRateControl" [(ngModel)]="model.minimumFlatRate">
+                        </mat-form-field>
+
+                        <mat-form-field class="input-field">
+                            <input type="text" placeholder="Maximum Flat Rate" aria-label="Maximum Flat Rate" matInput [formControl]="maximumFlatRateControl" [(ngModel)]="model.maximumFlatRate">
+                        </mat-form-field>
+
+                        <mat-form-field class="input-field">
+                            <input type="text" placeholder="Charge Code" aria-label="Charge Code" matInput [formControl]="chargeCodeControl" [(ngModel)]="model.chargeCode">
+                        </mat-form-field>
+
+                        <mat-form-field class="input-field">
+                            <mat-select [(value)]="ratemethod" placeholder="Rate Method" [formControl]="rateMethodControl" [(ngModel)]="model.rateMethod">
+                              
+                              <mat-option value="Floating">Floating</mat-option>
+                              <mat-option value="Fixed">Fixed</mat-option>
+                             
+                            </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field class="input-field">
+                            <mat-select [(value)]="ratetype" placeholder="Rate Type" [formControl]="rateTypeControl" [(ngModel)]="model.rateType">
+                              
+                              <mat-option value="Effective">Effective</mat-option>
+                              <mat-option value="Flat">Flat</mat-option>
+                              
+                            </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field class="input-field">
+                            <mat-select [(value)]="reschedulement" placeholder="Reschedulement" [formControl]="reschedulementControl" [(ngModel)]="model.reschedulement">
+                              
+                              <mat-option value="Yes">Yes</mat-option>
+                              <mat-option value="No">No</mat-option>
+                              
+                            </mat-select>
+                        </mat-form-field>
+                
+                    </div>
+                    <div class="input-button">
+                            <button mat-button mat-raised-button color="primary" (click)="schemeMasterDetails()">Save</button>
+                    </div>
+                
+            </form>
+        </div>

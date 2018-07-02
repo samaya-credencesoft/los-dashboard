@@ -1,4 +1,0 @@
-class CoApplicant extends Applicant
-{
-    
-}

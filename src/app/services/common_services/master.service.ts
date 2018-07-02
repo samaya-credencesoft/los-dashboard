@@ -8,13 +8,13 @@ import {Observable} from 'rxjs/Observable';
 import { Branch } from '../../components/los_masters/branch/Branch';
 // import { DepartmentMaster } from '../../components/los_masters/department/Department';
 // import { ManufactureMaster } from '../../components/los_masters/manufacture/Manufacture';
-// import { SupplierMaster } from '../../components/los_masters/supplier/Supplier';
-// import { SourcingMaster } from '../../components/los_masters/sourcing/Sourcing';
+import { Supplier } from '../../components/los_masters/supplier/Supplier';
+import { Sourcing } from '../../components/los_masters/sourcing/Sourcing';
 // import { ModelMaster } from '../../components/los_masters/model/Model';
-// import { ProductMaster } from '../../components/los_masters/product/Product';
-// import { SalesmanagerMaster } from '../../components/los_masters/salesmanager/Salesmanager';
+import { Product } from '../../components/los_masters/product/Product';
+import { Salesmanager } from '../../components/los_masters/salesmanager/Salesmanager';
 // import { BounceReasonMaster } from '../../components/los_masters/bounce-reason/BounceReason';
-// import { SchemeMaster } from '../../components/los_masters/scheme/Scheme';
+import { Scheme } from '../../components/los_masters/scheme/Scheme';
 
 import {API_URL} from '../../app.component';
 
@@ -35,7 +35,7 @@ export class MasterService {
         return this.http.post(API_URL + '/createOrUpdateBranch', branc)
         .map(response => response.json() as Branch)
         .map(branc => !Branch.isNull(branc))
-        .catch(MasterService.handleError);
+        .catch(MasterService.handleBranchError);
     }
 
 
@@ -43,7 +43,86 @@ export class MasterService {
         return this.http.get(API_URL + '/allBranches');
     }
 
-    private static handleError(error: any) {
+    private static handleBranchError(error: any) {
+        const errorMessage = (error.message) ? error.message :
+            error.status ? `${error.status} - ${error.statusText}` : `Server error`;
+        console.log(errorMessage);
+        return Observable.throw(errorMessage);
+    }
+
+
+    createOrUpdateSupplier(supplier:Supplier){
+        console.log("error");
+        return this.http.post(API_URL + '/createOrUpdateSupplier', supplier)
+        .map(response => response.json() as Supplier)
+        .map(supplier => !Supplier.isNull(supplier))
+        .catch(MasterService.handleSupplierError);
+    }
+
+
+    getAllSuppliers(){
+        return this.http.get(API_URL + '/allSuppliers');
+    }
+
+
+
+    createOrUpdateProduct(product:Product){
+        console.log("error");
+        return this.http.post(API_URL + '/createOrUpdateProduct', product)
+        .map(response => response.json() as Product)
+        .map(product => !Product.isNull(product))
+        .catch(MasterService.handleSupplierError);
+    }
+
+
+    getAllProducts(){
+        return this.http.get(API_URL + '/allProducts');
+    }
+
+
+    createOrUpdateSalesManagerDetails(salesManager:Salesmanager){
+        console.log("error");
+        return this.http.post(API_URL + '/createOrUpdateSalesManagerDetails', salesManager)
+        .map(response => response.json() as Salesmanager)
+        .map(salesManager => !Salesmanager.isNull(salesManager))
+        .catch(MasterService.handleSupplierError);
+    }
+
+
+    getAllSalesManagerDetails(){
+        return this.http.get(API_URL + '/allSalesManagerDetails');
+    }
+
+    createOrUpdateSource(source:Sourcing){
+        console.log("error");
+        return this.http.post(API_URL + '/createOrUpdateSource', source)
+        .map(response => response.json() as Sourcing)
+        .map(source => !Sourcing.isNull(source))
+        .catch(MasterService.handleSupplierError);
+    }
+
+
+    getAllSources(){
+        return this.http.get(API_URL + '/allSources');
+    }
+
+    createOrUpdateScheme(scheme:Scheme){
+        console.log("error");
+        return this.http.post(API_URL + '/createOrUpdateScheme', scheme)
+        .map(response => response.json() as Scheme)
+        .map(scheme => !Scheme.isNull(scheme))
+        .catch(MasterService.handleSupplierError);
+    }
+
+
+    getAllSchemes(){
+        return this.http.get(API_URL + '/allSchemes');
+    }
+
+
+
+
+    private static handleSupplierError(error: any) {
         const errorMessage = (error.message) ? error.message :
             error.status ? `${error.status} - ${error.statusText}` : `Server error`;
         console.log(errorMessage);
@@ -70,13 +149,6 @@ export class MasterService {
     //     .catch(MasterService.handleError);
     // }
 
-    // supplier(supplier:SupplierMaster){
-
-    //     return this.http.post(API_URL + '/supplier', supplier)
-    //     .map(response => response.json() as SupplierMaster)
-    //     .map(supplier => !SupplierMaster.isNull(supplier))
-    //     .catch(MasterService.handleError);
-    // }
 
     // sourcing(sourcing:SourcingMaster){
 

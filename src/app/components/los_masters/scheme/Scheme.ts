@@ -17,6 +17,12 @@ export class Scheme {
     rateType: string;
     chargeCode: string;
     reschedulement: string;
+    bankName: string;
+    branch: string;
+    bankAddress: string;
+    accountNumber: string;
+    accountType: string;
+    ifscCode: string;
 
    
     
@@ -39,7 +45,14 @@ export class Scheme {
         scheme.rateMethod === null &&
         scheme.rateType === null &&
         scheme.chargeCode === null &&
-        scheme.reschedulement === null
+        scheme.reschedulement === null &&
+        scheme.bankName === null &&
+        scheme.branch === null &&
+        scheme.bankAddress === null &&
+        scheme.accountNumber === null &&
+        scheme.accountType === null &&
+        scheme.ifscCode === null 
+
 
     
         

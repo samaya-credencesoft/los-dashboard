@@ -17,6 +17,7 @@ import { Salesmanager } from '../../components/los_masters/salesmanager/Salesman
 import { Scheme } from '../../components/los_masters/scheme/Scheme';
 
 import {API_URL} from '../../app.component';
+import { Chargecode } from '../../components/los_masters/chargecode/Chargecode';
 
 
 @Injectable()
@@ -91,6 +92,19 @@ export class MasterService {
 
     getAllSalesManagerDetails(){
         return this.http.get(API_URL + '/allSalesManagerDetails');
+    }
+
+    createOrUpdateChargeCodeDetails(chargeCode:Chargecode){
+        console.log("error");
+        return this.http.post(API_URL + '/createOrUpdateChargeCodeDetails', chargeCode)
+        .map(response => response.json() as Chargecode)
+        .map(chargeCode => !Chargecode.isNull(chargeCode))
+        .catch(MasterService.handleSupplierError);
+    }
+
+
+    getAllChargeCodeDetails(){
+        return this.http.get(API_URL + '/allChargeCodeDetails');
     }
 
     createOrUpdateSource(source:Sourcing){

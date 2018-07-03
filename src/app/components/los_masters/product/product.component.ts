@@ -28,6 +28,12 @@ export class ProductComponent implements OnInit {
   interestPerYearControl: FormControl = new FormControl();
   interestPerMonthControl: FormControl = new FormControl();
   activeControl: FormControl = new FormControl();
+  bankNameControl: FormControl = new FormControl();
+  branchControl: FormControl = new FormControl();
+  bankAddressControl: FormControl = new FormControl();
+  accountNumberControl: FormControl = new FormControl();
+  accountTypeControl: FormControl = new FormControl();
+  ifscCodeControl: FormControl = new FormControl();
  // myControl5: FormControl = new FormControl();
 
   model= new Product();
@@ -43,6 +49,12 @@ export class ProductComponent implements OnInit {
   interestPerYear;
   interestPerMonth;
   active;
+  bankName;
+  branch;
+  bankAddress;
+  accountNumber;
+  accountType;
+  ifscCode;
 
   
 
@@ -97,10 +109,16 @@ export class ProductComponent implements OnInit {
 
     this.model.productName=product.productName;
     this.model.productCode= product.productCode;
-     this.model.revolving=product.revolving;
-     this.model.interestPerYear=product.interestPerYear;
-     this.model.interestPerMonth=product.interestPerMonth;
-     this.model.active=product.active;
+    this.model.revolving=product.revolving;
+    this.model.interestPerYear=product.interestPerYear;
+    this.model.interestPerMonth=product.interestPerMonth;
+    this.model.active=product.active;
+    this.model.bankName=product.bankName;
+    this.model.branch=product.branch;
+    this.model.bankAddress=product.bankAddress;
+    this.model.accountNumber=product.accountNumber;
+    this.model.accountType=product.accountType;
+    this.model.ifscCode=product.ifscCode;
   }
  
  

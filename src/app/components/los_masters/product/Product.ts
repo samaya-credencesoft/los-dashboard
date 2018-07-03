@@ -9,6 +9,12 @@ export class Product {
     interestPerYear: string;
     interestPerMonth: string;
     active: string;
+    bankName: string;
+    branch: string;
+    bankAddress: string;
+    accountNumber: string;
+    accountType: string;
+    ifscCode: string;
    
    
     
@@ -23,7 +29,13 @@ export class Product {
         product.revolving === null &&
         product.interestPerYear === null &&
         product.interestPerMonth === null &&
-        product.active === null
+        product.active === null &&
+        product.bankName === null &&
+        product.branch === null &&
+        product.bankAddress === null &&
+        product.accountNumber === null &&
+        product.accountType === null &&
+        product.ifscCode === null 
         
             
     }

@@ -1,0 +1,85 @@
+<app-base></app-base>
+
+        <div class="dashboard-content">
+
+            
+
+            <div class="input-heading"><h1>Charge Code Master Details</h1></div>
+            <div>
+                    <mat-form-field class="search-box">
+                            <mat-icon matPrefix>search</mat-icon>
+                          <input type="text" placeholder="Search Details By Charge Code Name" aria-label="Charge Code Name" 
+                                
+                               matInput [formControl]="searchByChargeCodeNameControl" [matAutocomplete]="auto"
+                                     
+                               [(ngModel)]="chargeCode" (ngModelChange)="chargeCodeDetailsByChargeCodeName(chargeCode)">
+          
+                          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                            <mat-option *ngFor="let chargeCode of filteredOptions | async" [value]="chargeCode">
+                              {{ chargeCode.name }}
+                            </mat-option>
+                          </mat-autocomplete>
+                    </mat-form-field>
+              </div>
+
+            <form>
+
+                    <div class="input-field-2">
+                      
+                        
+                        <mat-form-field class="input-field">
+                            <input type="text" placeholder="Charge Code Name" aria-label="Charge Code Name" matInput [formControl]="nameControl" [(ngModel)]="model.name">
+                        </mat-form-field>
+
+                        <mat-form-field class="input-field">
+                        <mat-select [(value)]="chargecode" placeholder="Charge Code" [formControl]="chargeCodeControl" [(ngModel)]="model.chargeCode">
+                            
+                            <mat-option value="Receivable">Receivable</mat-option>
+                            <mat-option value="Payable">Payable</mat-option>
+                        </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field class="input-field">
+                        <mat-select [(value)]="duebase" placeholder="Due/Receipts Base" [formControl]="dueBaseControl" [(ngModel)]="model.dueBase">
+                            
+                            <mat-option value="Due">Due</mat-option>
+                            <mat-option value="Receipts">Receipts</mat-option>
+                        </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field class="input-field">
+                        <mat-select [(value)]="taxapplicable" placeholder="Tax Applicable" [formControl]="taxApplicableControl" [(ngModel)]="model.taxApplicable">
+                            
+                            <mat-option value="Yes">Yes</mat-option>
+                            <mat-option value="No">No</mat-option>
+                        </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field class="input-field">
+                        <mat-select [(value)]="manualadvice" placeholder="Manual Advice" [formControl]="manualAdviceControl" [(ngModel)]="model.manualAdvice">
+                            
+                            <mat-option value="Yes">Yes</mat-option>
+                            <mat-option value="No">No</mat-option>
+                        </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field class="input-field">
+                        <mat-select [(value)]="waiveoff" placeholder="Waive Off" [formControl]="waiveOffControl" [(ngModel)]="model.waiveOff">
+                            
+                            <mat-option value="Yes">Yes</mat-option>
+                            <mat-option value="No">No</mat-option>
+                        </mat-select>
+                        </mat-form-field>
+
+                       
+
+
+
+                
+                    </div>
+                    <div class="input-button">
+                            <button mat-button mat-raised-button color="primary" (click)="chargeCodeMasterDetails()">Save</button>
+                    </div>
+                
+            </form>
+        </div>

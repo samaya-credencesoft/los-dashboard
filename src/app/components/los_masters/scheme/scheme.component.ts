@@ -36,6 +36,12 @@ export class SchemeComponent implements OnInit {
   rateTypeControl: FormControl = new FormControl();
   chargeCodeControl: FormControl = new FormControl();
   reschedulementControl: FormControl = new FormControl();
+  bankNameControl: FormControl = new FormControl();
+  branchControl: FormControl = new FormControl();
+  bankAddressControl: FormControl = new FormControl();
+  accountNumberControl: FormControl = new FormControl();
+  accountTypeControl: FormControl = new FormControl();
+  ifscCodeControl: FormControl = new FormControl();
  // myControl5: FormControl = new FormControl();
 
   model= new Scheme();
@@ -59,6 +65,12 @@ export class SchemeComponent implements OnInit {
     rateType;
     chargeCode;
     reschedulement;
+    bankName;
+    branch;
+    bankAddress;
+    accountNumber;
+    accountType;
+    ifscCode;
  
 
   
@@ -114,18 +126,24 @@ export class SchemeComponent implements OnInit {
 
     this.model.schemeName=scheme.schemeName;
     this.model.schemeCode= scheme.schemeCode;
-     this.model.minimumLoanAmount=scheme.minimumLoanAmount;
-     this.model.maximumLoanAmount=scheme.maximumLoanAmount;
-     this.model.minimumTenure=scheme.minimumTenure;
-     this.model.maximumTenure=scheme.maximumTenure;
-     this.model.minimumEffectiveInterestRate=scheme.minimumEffectiveInterestRate;
-     this.model.maximumEffectiveInterestRate= scheme.maximumEffectiveInterestRate;
-      this.model.minimumFlatRate=scheme.minimumFlatRate;
-      this.model.maximumFlatRate=scheme.maximumFlatRate;
-      this.model.rateMethod=scheme.rateMethod;
-      this.model.rateType=scheme.rateType;
-      this.model.chargeCode=scheme.chargeCode;
-      this.model.reschedulement=scheme.reschedulement;
+    this.model.minimumLoanAmount=scheme.minimumLoanAmount;
+    this.model.maximumLoanAmount=scheme.maximumLoanAmount;
+    this.model.minimumTenure=scheme.minimumTenure;
+    this.model.maximumTenure=scheme.maximumTenure;
+    this.model.minimumEffectiveInterestRate=scheme.minimumEffectiveInterestRate;
+    this.model.maximumEffectiveInterestRate= scheme.maximumEffectiveInterestRate;
+    this.model.minimumFlatRate=scheme.minimumFlatRate;
+    this.model.maximumFlatRate=scheme.maximumFlatRate;
+    this.model.rateMethod=scheme.rateMethod;
+    this.model.rateType=scheme.rateType;
+    this.model.chargeCode=scheme.chargeCode;
+    this.model.reschedulement=scheme.reschedulement;
+    this.model.bankName=scheme.bankName;
+    this.model.branch=scheme.branch;
+    this.model.bankAddress=scheme.bankAddress;
+    this.model.accountNumber=scheme.accountNumber;
+    this.model.accountType=scheme.accountType;
+    this.model.ifscCode=scheme.ifscCode;
   }
  
  

@@ -18,6 +18,7 @@ import { BranchComponent } from './components/los_masters/branch/branch.componen
 import { SalesmanagerComponent } from './components/los_masters/salesmanager/salesmanager.component';
 import { SourcingComponent } from './components/los_masters/sourcing/sourcing.component';
 import { SupplierComponent } from './components/los_masters/supplier/supplier.component';
+import { ChargecodeComponent } from './components/los_masters/chargecode/chargecode.component'
 // import { ManufactureMasterComponent } from './components/los_masters/manufacture-master/manufacture-master.component';
 // import { ModelMasterComponent } from './components/los_masters/model-master/model-master.component';
 // import { DepartmentMasterComponent } from './components/los_masters/department-master/department-master.component';
@@ -32,6 +33,7 @@ import { ProductResolver } from './resolver/product-resolver.service'
 import { SalesManagerResolver } from './resolver/salesmanager-resolver.service'
 import { SchemeResolver } from './resolver/scheme-resolver.service'
 import { SourceResolver } from './resolver/source-resolver.service'
+import { ChargeCodeResolver } from './resolver/chargecode-resolver.service'
 
 
 const appRoutes: Routes = [
@@ -90,6 +92,13 @@ const appRoutes: Routes = [
         component: BranchComponent,
         resolve : {
             brares:BranchResolver
+        },
+    },
+    {
+        path: 'chargecodeMaster',
+        component: ChargecodeComponent,
+        resolve : {
+            brares:ChargeCodeResolver
         },
     },
     {
